@@ -4,16 +4,15 @@ import java.util.UUID;
 
 /**
  * @author elDiablo
- * Jan 29, 2015
- * 10:44:24 AM
+ * Feb 1, 2015
+ * 3:48:33 PM
  * 2015
  * @email: sumitsarkarbd@gmail.com
  */
-public class PlayerCards {
+public class RandomEventCards {
 	
 	private UUID identifier;
 	private String name;
-	private String color;
 	private String description;
 	
 	public UUID getIdentifier() {
@@ -27,12 +26,6 @@ public class PlayerCards {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getColor() {
-		return color;
-	}
-	public void setColor(String color) {
-		this.color = color;
 	}
 	public String getDescription() {
 		return description;

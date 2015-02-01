@@ -4,16 +4,18 @@ import java.util.UUID;
 
 /**
  * @author elDiablo
- * Jan 29, 2015
- * 10:44:24 AM
+ * Feb 1, 2015
+ * 3:37:53 PM
  * 2015
  * @email: sumitsarkarbd@gmail.com
  */
-public class PlayerCards {
+
+
+public class CityAreaCard {
 	
 	private UUID identifier;
 	private String name;
-	private String color;
+	private double cost;
 	private String description;
 	
 	public UUID getIdentifier() {
@@ -28,11 +30,11 @@ public class PlayerCards {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getColor() {
-		return color;
+	public double getCost() {
+		return cost;
 	}
-	public void setColor(String color) {
-		this.color = color;
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 	public String getDescription() {
 		return description;
