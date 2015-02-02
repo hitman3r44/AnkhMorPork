@@ -1,59 +1,63 @@
 package com.concordia.ankhMorPork.manager;
 
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * @author elDiablo
- * Jan 29, 2015
- * 10:41:55 AM
- * 2015
- * @email: sumitsarkarbd@gmail.com
- */
 public class Area {
 	
-	private UUID identifier;
-	private int numberOfMinios;
-	private int numberOfDemons;
-	private int numberOfTrolls;
-	private boolean troubleMaker;
-	private boolean building;
+	Integer identifier;
+	List<String> colorOfMinion;
+	Boolean troubleMaker;
+	Boolean building;
+	Integer noOfDemon;
+	Integer noOfTroll;
 	
-	public UUID getIdentifier() {
+	public Area(Boolean troubleMaker, Boolean building, Integer noOfDemon, Integer noOfTroll)
+	{
+		this.troubleMaker=troubleMaker;
+		this.building=building;
+		this.noOfDemon=noOfDemon;
+		this.noOfTroll=noOfTroll;
+		this.colorOfMinion=new ArrayList<String>();
+	}
+	
+	public Integer getIdentifier() {
 		return identifier;
 	}
-	public void setIdentifier(UUID identifier) {
+	public void setIdentifier(Integer identifier) {
 		this.identifier = identifier;
 	}
-	public int getNumberOfMinios() {
-		return numberOfMinios;
+	public List<String> getColorOfMinion() {
+		return colorOfMinion;
 	}
-	public void setNumberOfMinios(int numberOfMinios) {
-		this.numberOfMinios = numberOfMinios;
+	public void setColorOfMinion(List<String> colorOfMinion) {
+		this.colorOfMinion = colorOfMinion;
 	}
-	public int getNumberOfDemons() {
-		return numberOfDemons;
-	}
-	public void setNumberOfDemons(int numberOfDemons) {
-		this.numberOfDemons = numberOfDemons;
-	}
-	public int getNumberOfTrolls() {
-		return numberOfTrolls;
-	}
-	public void setNumberOfTrolls(int numberOfTrolls) {
-		this.numberOfTrolls = numberOfTrolls;
-	}
-	public boolean isTroubleMaker() {
+	public Boolean getTroubleMaker() {
 		return troubleMaker;
 	}
-	public void setTroubleMaker(boolean troubleMaker) {
+	public void setTroubleMaker(Boolean troubleMaker) {
 		this.troubleMaker = troubleMaker;
 	}
-	public boolean isBuilding() {
+	public Boolean getBuilding() {
 		return building;
 	}
-	public void setBuilding(boolean building) {
+	public void setBuilding(Boolean building) {
 		this.building = building;
 	}
+	public Integer getNoOfDemon() {
+		return noOfDemon;
+	}
+	public void setNoOfDemon(Integer noOfDemon) {
+		this.noOfDemon = noOfDemon;
+	}
+	public Integer getNoOfTroll() {
+		return noOfTroll;
+	}
+	public void setNoOfTroll(Integer noOfTroll) {
+		this.noOfTroll = noOfTroll;
+	}
+	
 	
 
 }
