@@ -44,6 +44,8 @@ public class AnkhMorPorkLauncher {
 				colorList.add(colorOfPlayer);
 			}
 			
+			//This is a comment
+			
 			board=boardManager.initializeBoardforNewPlayer(playerCount, playerName, colorList);
 			boardManager.setBoard(board);
 			boardManager.displayCurrentStatus(board);
