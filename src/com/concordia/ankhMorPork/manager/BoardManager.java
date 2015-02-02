@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.concordia.ankhMorPork.common.Global;
+
 public class BoardManager {
 
 	private Board board;
@@ -129,7 +131,7 @@ public class BoardManager {
 	public Board initializeBoardforNewPlayer(Integer noOfPlayer,
 			List<String> playerList, List<String> colorList) {
 		board = new Board();
-		board.setBankMoney(150);
+		board.setBankMoney(Global.BANK_MONEY);
 		board.setNoOfPlayer(noOfPlayer);
 		board.setRandomEventCard(randomEventCards);
 		board = initializeCityAreaCard(board);

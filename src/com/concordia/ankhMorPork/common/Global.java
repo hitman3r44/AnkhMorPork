@@ -13,10 +13,11 @@ import java.util.ArrayList;
  * */
 public class Global {
 	
-	final public static int BUILDINGS = 6;
-	final public static int MINIONS = 12;
+	final public static Integer BUILDINGS = 6;
+	final public static Integer MINIONS = 12;
 	final public static double INITIAL_MONEY = 10.00;
 	final public static ArrayList<String> LIST_OF_SAVED_FILES = new ArrayList<String>();
 	final public static String SAVED_FILE_DIRECTORY_PATH = "resources/savedGame";
+	final public static Integer BANK_MONEY = 150;
 
 }
