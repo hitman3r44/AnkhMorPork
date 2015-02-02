@@ -27,7 +27,8 @@ public class Common {
 			for (int i = 0; i < listOfFiles.length; i++) {
 				//For files
 		      if (listOfFiles[i].isFile()) {
-		    	Global.LIST_OF_SAVED_FILES.add(i, listOfFiles[i].getName().trim());
+		    	Global.LIST_OF_SAVED_FILES.add(i, listOfFiles[i].getName()
+		    			.substring(0, listOfFiles[i].getName().lastIndexOf('.')));
 		        System.out.println("File " + listOfFiles[i].getName());
 		      }
 		      //For directory
