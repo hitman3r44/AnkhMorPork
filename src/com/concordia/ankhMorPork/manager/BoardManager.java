@@ -197,7 +197,7 @@ public class BoardManager {
 		for (int i = 0; i < 12; i++) {
 			Area area = new Area(false,false,0,0);
 			area.setIdentifier(i + 1);
-			if (i == 0) {
+			if (i == 0||i == 4||i == 6) {
 				//System.out.println("colorList -- " + colorList);
 				//System.out.println(area.getNoOfDemon());
 				area.setColorOfMinion(colorList);
