@@ -10,5 +10,6 @@ package com.concordia.ankhMorPork.common;
  * what will need all over the project 
  * */
 public class Global {
+	
 
 }
