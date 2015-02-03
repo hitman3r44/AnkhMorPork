@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Area {
 	
-	private Integer identifier;
-	private List<String> colorOfMinion;
-	private Boolean troubleMaker;
-	private Boolean building;
-	private Integer noOfDemon;
-	private Integer noOfTroll;
+	Integer identifier;
+	List<String> colorOfMinion;
+	Boolean troubleMaker;
+	Boolean building;
+	Integer noOfDemon;
+	Integer noOfTroll;
 	
 	public Area(Boolean troubleMaker, Boolean building, Integer noOfDemon, Integer noOfTroll)
 	{

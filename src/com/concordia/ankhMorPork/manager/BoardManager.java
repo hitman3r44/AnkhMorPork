@@ -10,13 +10,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import com.concordia.ankhMorPork.common.Global;
-/**
- * @author Varun
- * Jan 29, 2015
- * 10:44:24 AM
- * 2015
- * @email: varunpattiah@gmail.com
- */
+
 public class BoardManager {
 
 	private Board board;
@@ -36,46 +30,57 @@ public class BoardManager {
 	@SuppressWarnings("serial")
 	public static final HashMap<Integer, String> personalityCard = new HashMap<Integer, String>() {
 		{
-			Scanner inFile1;
-			try {
-				inFile1 = new Scanner(new File("./resources/PersonalityCard.txt"));
-				int i=1;
-				while (inFile1.hasNext()) {
-					put(i++,inFile1.nextLine());
-				}
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}		
+			put(1, "Lord Vetinari");
+			put(2, "Lord Selachii");
+			put(3, "Lord Rust");
+			put(4, "Lord de Worde");
+			put(5, "Dragon King of Arms");
+			put(6, "Chrysoprase");
+			put(7, "Commander Vimes");
 		}
 	};
 	public static HashMap<String, String> randomCardsDescription;
 	public static HashMap<Integer, HashMap<String, String>> randomEventCards;
-	public static String[] array= null;;
+
 	static {
-		
-		Scanner inFile1;
-		try {
-			inFile1 = new Scanner(new File("./resources/RandomEventCard.txt"));
-			int i=1;
-		
-			randomEventCards = new HashMap<Integer, HashMap<String, String>>();
-			
-			while (inFile1.hasNext()) {
-				StringBuilder sb = new StringBuilder();
-				randomCardsDescription = new HashMap<String, String>();
-				sb.append(inFile1.nextLine());
-				array = sb.toString().split("|");
-				if(array.length==2)
-				{
-				randomCardsDescription.put(array[0], array[1]);
-				randomEventCards.put(i++, randomCardsDescription);
-				}
-			}
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}		
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card1", "Desc1");
+		randomEventCards = new HashMap<Integer, HashMap<String, String>>();
+		randomEventCards.put(1, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card2", "Desc2");
+		randomEventCards.put(2, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card3", "Desc2");
+		randomEventCards.put(3, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card4", "Desc2");
+		randomEventCards.put(4, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card5", "Desc2");
+		randomEventCards.put(5, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card6", "Desc2");
+		randomEventCards.put(6, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card7", "Desc2");
+		randomEventCards.put(7, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card8", "Desc2");
+		randomEventCards.put(8, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card9", "Desc2");
+		randomEventCards.put(9, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card10	", "Desc2");
+		randomEventCards.put(10, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card11", "Desc2");
+		randomEventCards.put(11, randomCardsDescription);
+		randomCardsDescription = new HashMap<String, String>();
+		randomCardsDescription.put("card12", "Desc2");
+		randomEventCards.put(12, randomCardsDescription);
+
 	}
 
 	public void displayCurrentStatus(Board board)

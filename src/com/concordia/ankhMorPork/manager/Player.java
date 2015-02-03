@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Player {
 
-	private Integer playerId;
-	private String name;
-	private String color;
-	private	List<Integer> minionsOnBoard;
-	private	List<Integer> buildingOnBoard;
-	private	Integer playerMoney;
-	private	Integer personalityCard;
-	private	List<Integer> greenPlayerCards;
-	private	List<Integer> brownPlayerCards;
-	private	List<Integer> cityAreaCard;
+		Integer playerId;
+		String name;
+		String color;
+		List<Integer> minionsOnBoard;
+		List<Integer> buildingOnBoard;
+		Integer playerMoney;
+		Integer personalityCard;
+		List<Integer> greenPlayerCards;
+		List<Integer> brownPlayerCards;
+		List<Integer> cityAreaCard;
 		
 		public Player(int i, String playerName, String color) {
 			this.playerId=i;

@@ -6,8 +6,9 @@ import java.util.UUID;
 /**
  * @author elDiablo
  * Feb 1, 2015
+ * 3:50:19 PM
  * 2015
- * @email: varun@gmail.com
+ * @email: sumitsarkarbd@gmail.com
  */
 public class BoardDetails {
 	
