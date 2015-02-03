@@ -48,6 +48,11 @@ public class AnkhMorPorkLauncher {
 					System.out.println("Please type the color you would prefer to play !! "
 							+ "(Red OR Green OR Blue OR Yellow)");
 					colorOfPlayer = userInputScanner.nextLine();
+					if(ankhMorPorkLauncher.colorList.size()!=0 && ankhMorPorkLauncher.colorList.contains(colorOfPlayer)  )
+					{
+						System.out.println("This color is already taken by other player. Please choose color other than this "+ankhMorPorkLauncher.colorList);
+						colorOfPlayer = userInputScanner.nextLine();
+					}
 					ankhMorPorkLauncher.colorList.add(colorOfPlayer);
 				}
 
@@ -57,7 +62,7 @@ public class AnkhMorPorkLauncher {
 								ankhMorPorkLauncher.colorList);
 				
 				ankhMorPorkLauncher.boardManager.setBoard(ankhMorPorkLauncher.board);
-				ankhMorPorkLauncher.boardManager.displayCurrentStatus(ankhMorPorkLauncher.board);
+				
 				
 				System.out.println("\n\n\nPress 'S' to save the game");
 				String userInputForSavingTheGame = userInputScanner.nextLine();
@@ -67,7 +72,7 @@ public class AnkhMorPorkLauncher {
 					System.out.println("Please entre the save file name:");
 					Global.saveFileName = userInputScanner.nextLine();
 					
-					//Generate the JSON formate file as a save file
+					//Generate the JSON format file as a save file
 					GameStateJsonGenerator gameStateJsonGenerator = new GameStateJsonGenerator();
 					gameStateJsonGenerator.saveGameCurrentStateToJsonFormate(ankhMorPorkLauncher.board);
 					
@@ -83,6 +88,11 @@ public class AnkhMorPorkLauncher {
 
 		} else {
 			System.out.println("Invalid Input");
+		}
+		System.out.println("\nWould you Like to see the Game Status??\t\tYes\tNo");
+		if("Yes".equalsIgnoreCase(userInputForLoadOrNewGameScanner.nextLine()))
+		{
+			ankhMorPorkLauncher.boardManager.displayCurrentStatus(ankhMorPorkLauncher.boardManager.getBoard());
 		}
 	}
 }

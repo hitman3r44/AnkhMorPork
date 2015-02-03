@@ -1,5 +1,11 @@
 package com.concordia.ankhMorPork.manager;
-
+/**
+ * @author varun
+ * Feb 1, 2015
+ * 5:00:23 AM
+ * 2015
+ * @email: varunpattiah@gmail.com
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -11,78 +17,67 @@ import java.util.Scanner;
 
 import com.concordia.ankhMorPork.common.Global;
 
+/**
+ *This class Manages the Board Information and manage the game as goes on.
+ */
 public class BoardManager {
 
-	private Board board;
-
-	public Board getBoard() {
-		return board;
-	}
-
-	public void setBoard(Board board) {
-		this.board = board;
-	}
-
+	private Board board;	
 	public static List<Integer> existingCards = new ArrayList<Integer>();
 	public static List<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
 	public static List<Area> areaList = new ArrayList<Area>();
 	public List<Player> playerList = new ArrayList<Player>();
+	public static String[] yourArray = null;
+	//Map is created to load PersonalityCards Information from the text file
 	@SuppressWarnings("serial")
 	public static final HashMap<Integer, String> personalityCard = new HashMap<Integer, String>() {
 		{
-			put(1, "Lord Vetinari");
-			put(2, "Lord Selachii");
-			put(3, "Lord Rust");
-			put(4, "Lord de Worde");
-			put(5, "Dragon King of Arms");
-			put(6, "Chrysoprase");
-			put(7, "Commander Vimes");
+			Scanner inFile1;
+			Integer i=1;
+			try {
+				inFile1 = new Scanner(new File("./resources/PersonalityCard.txt"));
+
+				while (inFile1.hasNext()) {
+					put(i++,inFile1.nextLine());
+				}
+		}catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		}
 	};
 	public static HashMap<String, String> randomCardsDescription;
 	public static HashMap<Integer, HashMap<String, String>> randomEventCards;
-
+	//Static block to load Random EventCards
 	static {
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card1", "Desc1");
-		randomEventCards = new HashMap<Integer, HashMap<String, String>>();
-		randomEventCards.put(1, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card2", "Desc2");
-		randomEventCards.put(2, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card3", "Desc2");
-		randomEventCards.put(3, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card4", "Desc2");
-		randomEventCards.put(4, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card5", "Desc2");
-		randomEventCards.put(5, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card6", "Desc2");
-		randomEventCards.put(6, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card7", "Desc2");
-		randomEventCards.put(7, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card8", "Desc2");
-		randomEventCards.put(8, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card9", "Desc2");
-		randomEventCards.put(9, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card10	", "Desc2");
-		randomEventCards.put(10, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card11", "Desc2");
-		randomEventCards.put(11, randomCardsDescription);
-		randomCardsDescription = new HashMap<String, String>();
-		randomCardsDescription.put("card12", "Desc2");
-		randomEventCards.put(12, randomCardsDescription);
+		
+		Scanner inFile1;
+		Integer i=1;
+		try {
+			inFile1 = new Scanner(new File("./resources/RandomEventCard.txt"));
+
+			while (inFile1.hasNext()) {
+				StringBuilder sb = new StringBuilder();
+				randomCardsDescription = new HashMap<String, String>();
+				randomEventCards = new HashMap<Integer, HashMap<String, String>>();
+				sb.append(inFile1.nextLine());
+				yourArray = sb.toString().split("|");
+				if (yourArray.length == 2) {
+					randomCardsDescription.put(yourArray[0],yourArray[1]);	
+					randomEventCards.put(i++,randomCardsDescription);
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
-
+/**
+ * This method displays the current Status of the Game.
+ * @param board
+ */
 	public void displayCurrentStatus(Board board) {
 		System.out
 				.println("==============================================================");
@@ -168,7 +163,13 @@ public class BoardManager {
 		System.out.println("\nThe Bank has " + board.getBankMoney()
 				+ " Ankh-Morpork dollars");
 	}
-
+/**
+ * This method initialize the Board for new player
+ * @param noOfPlayer : number of player playing
+ * @param playerList : name of the players
+ * @param colorList  : color of the player
+ * @return the initialized board object
+ */
 	public Board initializeBoardforNewPlayer(Integer noOfPlayer,
 			List<String> playerList, List<String> colorList) {
 		board = new Board();
@@ -180,7 +181,14 @@ public class BoardManager {
 		board = initializeNewPlayer(board, noOfPlayer, playerList, colorList);
 		return board;
 	}
-
+/**
+ * This method create Object for new player with initial values
+ * @param board2        : board object which wil contain player object as its member
+ * @param noOfPlayer    :Number Of Player
+ * @param playerNameList:Name of the players
+ * @param colorList     :Color of the player
+ * @return the initialized board with new players
+ */
 	private Board initializeNewPlayer(Board board2, Integer noOfPlayer,
 			List<String> playerNameList, List<String> colorList) {
 		Integer randomCardNo;
@@ -208,7 +216,11 @@ public class BoardManager {
 		board2.setPlayerList(playerList);
 		return board2;
 	}
-
+/**
+ * THis method distribute the playerCards randomly among the player
+ * @param player : player object to which cards has to be assigned randomly
+ * @return the player object with assigned random playerCards
+ */
 	private Player distributePlayerCardRandomly(Player player) {
 		List<Integer> greenPlayerCard = player.getGreenPlayerCards();
 		List<Integer> brownPlayerCard = player.getBrownPlayerCards();
@@ -230,7 +242,12 @@ public class BoardManager {
 		player.setBrownPlayerCards(brownPlayerCard);
 		return player;
 	}
-
+/**
+ * THis Method initializes the Area's on the board
+ * @param board2   : board object
+ * @param colorList:color of the players
+ * @return
+ */
 	private Board initializeAreaDetails(Board board2, List<String> colorList) {
 		for (int i = 0; i < 12; i++) {
 			Area area = new Area(false, false, 0, 0);
@@ -246,6 +263,11 @@ public class BoardManager {
 		return board2;
 	}
 
+	/**
+	 * This method initializes the cityAreaCards of the board from a text file.
+	 * @param board2 : board object
+	 * @return
+	 */
 	@SuppressWarnings("resource")
 	private Board initializeCityAreaCard(Board board2) {
 
@@ -279,7 +301,13 @@ public class BoardManager {
 
 		return board2;
 	}
-
+/**
+ * 
+ * @param start		   : random value lower bound
+ * @param end          : random value upper bound
+ * @param existingCard : contains the random values already taken before 
+ * @return the random value not taken before
+ */
 	public int generateRandom(int start, int end, List<Integer> existingCard) {
 		Random rand = new Random();
 		int range = end - start + 1;
@@ -290,6 +318,14 @@ public class BoardManager {
 		}
 
 		return random;
+	}
+	//setters and getters method
+	public Board getBoard() {
+		return board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
 	}
 
 }
