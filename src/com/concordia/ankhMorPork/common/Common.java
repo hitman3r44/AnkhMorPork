@@ -40,7 +40,7 @@ public class Common {
 		
 	}// End of listOfTheFiles
 	
-	public void userInputValidationCheck(){
+	public int userInputValidationCheck(){
 		Scanner scanner = new Scanner(System.in);
 	    int userInput;
 	    
@@ -54,8 +54,14 @@ public class Common {
 	        	        
 	    } while ((userInput <= 0) || (userInput > Global.LIST_OF_SAVED_FILES.size()));
 	    System.out.println("Thank you! Got " + userInput);
+	    return userInput;
 	    
 	} // End of userInputValidationCheck
+	
+	public void userChoice(Integer arrayListPosition){
+		Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1);
+		System.out.println(Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1));
+	}
 	
 	
 	
@@ -74,7 +80,10 @@ public class Common {
 		System.out.println("Array Size: "+Global.LIST_OF_SAVED_FILES.size());
 		
 		// User Input thing...
-		common.userInputValidationCheck();
+		int userInput = common.userInputValidationCheck();
+		System.out.println("Print from this function common.userChoice(userInput)");
+		common.userChoice(userInput);
+		
 	}
 
 }

@@ -49,7 +49,7 @@ public class AnkhMorPorkLauncher {
 			boardManager.displayCurrentStatus(board);
 			}catch(NumberFormatException e)
 			{
-				System.out.println("Invalid Input : Number of player must be integer");
+				System.out.println("Invalid Input : Number of player must be integer between 2 and 4");
 			}
 		}
 		else if("R".equalsIgnoreCase(input))
