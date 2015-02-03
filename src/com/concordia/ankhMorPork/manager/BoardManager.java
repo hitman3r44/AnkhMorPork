@@ -324,4 +324,46 @@ public class BoardManager {
 		this.board = board;
 	}
 
+	public void saveGameStatus(String fileName,Board board) {
+		// TODO Auto-generated method stub
+		PrintWriter writer;
+		List<String> listOfCityAreaCard=new ArrayList<String>();
+		try {
+			System.out.println(fileName);
+			writer = new PrintWriter(fileName, "UTF-8");
+			writer.println("noOfPlayers ="+Global.numberOfPlayers);
+			for (int i = 0; i < board.getNoOfPlayer(); i++) {
+				writer.println("Player"+ (i + 1)+" ="+board.getPlayerList().get(i).getName());
+				writer.println("Color ="+board.getPlayerList().get(i).getColor());
+				writer.println("PersonalityCard ="+personalityCard.get(board.getPlayerList().get(i).getPersonalityCard()));
+				writer.println("No Of Minions ="
+						+ (Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard().size()));
+				writer.println("No Of Building ="
+						+ (Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()
+								.size()));
+				writer.println("Ankh-Morpork Dollars ="
+						+ board.getPlayerList().get(i).getPlayerMoney());
+				if (board.getPlayerList().get(i).getCityAreaCard().size()==0) {
+					writer.println("CityAreaCard =NIL");
+				} else {
+					for (int j = 0; i < board.getPlayerList().get(i)
+							.getCityAreaCard().size(); j++) {
+						
+						listOfCityAreaCard.add(cityAreaCardList.get(board.getPlayerList().get(i).getCityAreaCard().get(j)).getName()); 
+					}
+					
+					writer.println(("CityAreaCard ="+listOfCityAreaCard));
+				}
+				writer.println("Green Cards ="+board.getPlayerList().get(i).getGreenPlayerCards());
+				writer.println("Brown Cards ="+board.getPlayerList().get(i).getBrownPlayerCards());
+			}
+			writer.println("The second line");
+			writer.close();	
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 }

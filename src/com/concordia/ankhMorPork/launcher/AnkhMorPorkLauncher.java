@@ -30,6 +30,7 @@ public class AnkhMorPorkLauncher {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
+		String fileName = null;
 		AnkhMorPorkLauncher ankhMorPorkLauncher = new AnkhMorPorkLauncher();
 		Common.display();
 		System.out.println("Press 'R' to Resume the game or Press 'N' to Start a new game\n\n\n");
@@ -79,7 +80,7 @@ public class AnkhMorPorkLauncher {
 					//Take save file name from the user
 					System.out.println("Please entre the save file name:");
 					Global.saveFileName = userInputScanner.nextLine();
-					
+					ankhMorPorkLauncher.boardManager.saveGameStatus(Global.SAVED_FILE_DIRECTORY_PATH+Global.saveFileName,ankhMorPorkLauncher.boardManager.getBoard());
 					//Generate the JSON format file as a save file
 					GameStateJsonGenerator gameStateJsonGenerator = new GameStateJsonGenerator();
 					gameStateJsonGenerator.saveGameCurrentStateToJsonFormate(ankhMorPorkLauncher.board);
@@ -93,7 +94,18 @@ public class AnkhMorPorkLauncher {
 			}
 		} else if ("R".equalsIgnoreCase(ankhMorPorkLauncher.input)) {
 			System.out.println("Enter the Filename to load the game");
+			fileName=userInputForLoadOrNewGameScanner.nextLine();
+			try {
+				userInputForLoadOrNewGameScanner = new Scanner(new File(
+						"./resources/"+fileName));
 
+				while (userInputForLoadOrNewGameScanner.hasNext()) {
+					System.out.println(userInputForLoadOrNewGameScanner.nextLine());
+				}
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			System.out.println("Invalid Input");
 		}

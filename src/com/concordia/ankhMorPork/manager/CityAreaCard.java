@@ -1,12 +1,24 @@
 package com.concordia.ankhMorPork.manager;
+/**
+ * 
+ * @author VarunPattiah
+ * Feb 3, 2015
+ * 10:51:16 AM
+ * 2015
+ * @email: varunpattiah@gmail.com
+ */
+
+/**
+ *This class contains detailed information about CityAreaCard
+ */
 
 public class CityAreaCard {
 
-	Integer identifier;
-	String name;
-	String description;
-	Integer cost;
-	
+	private Integer identifier;
+	private String name;
+	private String description;
+	private Integer cost;
+	//Setters and getters method
 	public Integer getIdentifier() {
 		return identifier;
 	}
