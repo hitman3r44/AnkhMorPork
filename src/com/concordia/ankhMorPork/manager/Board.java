@@ -1,11 +1,23 @@
 package com.concordia.ankhMorPork.manager;
-
+/**
+ * 
+ * @author VarunPattiah
+ * Feb 3, 2015
+ * 10:38:54 AM
+ * 2015
+ * @email: varunpattiah@gmail.com
+ */
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 
+ * Class contains the information about the game including details of each player
+ * Complete Information about area,personalityCardDetails,cityAreaCard,randomEventCard,playerCard
+ */
 public class Board {
-	
+	//instance variable
 	private List<Area> area;
 	private Integer bankMoney;
 	private Map<String,String> personalityCardDetails;
@@ -16,6 +28,7 @@ public class Board {
 	private List<Player> playerList;
 	private List<Integer> existingPlayercards;
 	
+	//setters and getters
 	public List<Area> getArea() {
 		return area;
 	}

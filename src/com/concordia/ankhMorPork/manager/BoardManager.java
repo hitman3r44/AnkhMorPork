@@ -15,10 +15,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.concordia.ankhMorPork.common.Common;
 import com.concordia.ankhMorPork.common.Global;
 
 /**
  *This class Manages the Board Information and manage the game as goes on.
+ *All initialization like areaList,personalityCard,cityAreaCardList,randomEventCards and Playercards are done here.
  */
 public class BoardManager {
 
@@ -79,15 +81,9 @@ public class BoardManager {
  * @param board
  */
 	public void displayCurrentStatus(Board board) {
-		System.out
-				.println("==============================================================");
-		System.out
-				.println("        Welcome to DisckWorld : AnkhMorpork                   ");
-		System.out
-				.println("=============================================================="
-						+ "\n" + "\n");
+		Common.display();
 		System.out.println("                   Game Status");
-		System.out.println("                   ***********\n\n");
+		System.out.println("                   ************\n\n");
 		System.out.println("Number Of Players : " + board.getNoOfPlayer());
 		
 		Global.gameStatistic.setNumberOfPlayers(board.getNoOfPlayer());

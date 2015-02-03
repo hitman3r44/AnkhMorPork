@@ -2,7 +2,20 @@ package com.concordia.ankhMorPork.manager;
 
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * 
+ * @author VarunPattiah
+ * Feb 3, 2015
+ * 10:36:16 AM
+ * 2015
+ * @email: varunpattiah@gmail.com
+ */
 
+
+/**
+ * Class contains the information about an Area on the board.
+ * colorOfMinion,troubleMaker,building,noOfDemon and noOfTroll
+ */
 public class Area {
 	
 	Integer identifier;
@@ -11,7 +24,13 @@ public class Area {
 	Boolean building;
 	Integer noOfDemon;
 	Integer noOfTroll;
-	
+	/**
+	 * Parameterized constructor to initialize area details on instantiation
+	 * @param troubleMaker
+	 * @param building
+	 * @param noOfDemon
+	 * @param noOfTroll
+	 */
 	public Area(Boolean troubleMaker, Boolean building, Integer noOfDemon, Integer noOfTroll)
 	{
 		this.troubleMaker=troubleMaker;
@@ -20,7 +39,7 @@ public class Area {
 		this.noOfTroll=noOfTroll;
 		this.colorOfMinion=new ArrayList<String>();
 	}
-	
+	//setters and getters
 	public Integer getIdentifier() {
 		return identifier;
 	}

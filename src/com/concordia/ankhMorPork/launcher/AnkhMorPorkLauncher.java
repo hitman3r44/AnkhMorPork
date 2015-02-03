@@ -1,13 +1,24 @@
 package com.concordia.ankhMorPork.launcher;
-
+/**
+ * 
+ * @author VarunPattiah
+ * Feb 3, 2015
+ * 9:56:03 AM
+ * 2015
+ * @email: varunpattiah@gmail.com
+ */
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.concordia.ankhMorPork.common.Common;
 import com.concordia.ankhMorPork.common.Global;
 import com.concordia.ankhMorPork.data.GameStateJsonGenerator;
 import com.concordia.ankhMorPork.manager.Board;
 import com.concordia.ankhMorPork.manager.BoardManager;
+/**
+ * This Class Launch the game and used as a input interface between user and the game.
+ */
 
 public class AnkhMorPorkLauncher {
 
@@ -20,10 +31,7 @@ public class AnkhMorPorkLauncher {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		AnkhMorPorkLauncher ankhMorPorkLauncher = new AnkhMorPorkLauncher();
-
-		System.out.println("==============================================================");
-		System.out.println("        Welcome to DisckWorld : AnkhMorpork                   ");
-		System.out.println("==============================================================\n\n\n");
+		Common.display();
 		System.out.println("Press 'R' to Resume the game or Press 'N' to Start a new game\n\n\n");
 
 		Scanner userInputForLoadOrNewGameScanner = new Scanner(System.in);

@@ -63,6 +63,16 @@ public class Common {
 		System.out.println(Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1));
 	}
 	
+	public static void display()
+	{
+		System.out
+				.println("==============================================================");
+		System.out
+				.println("        Welcome to DisckWorld : AnkhMorpork                   ");
+		System.out
+				.println("=============================================================="
+						+ "\n" + "\n");
+	}
 	
 	
 	//For testing this class
