@@ -1,5 +1,8 @@
 package com.concordia.ankhMorPork.data;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,16 +22,8 @@ public class JsonParser {
         //checks where the path is going ?????????????????????
 
         System.out.println(System.getProperty("user.dir"));
-
-         
-
-        //
-
+        
         FileInputStream fstream = new FileInputStream(System.getProperty("user.dir") + "\\resources\\savedGame\\"+file_name);
-
-         
-
-         
 
         // Get the object of DataInputStream
 
@@ -89,7 +84,19 @@ public class JsonParser {
 	               String tmp_player_color = player.getString("color");
 	               int tmp_player_money = player.getInt("player_money");
 	               int tmp_player_personality_card = player.getInt("personality_card");
-               
+	               
+	               final JSONArray green_cards = responseData.getJSONArray("green_cards");	               
+	               List<Integer> green_card_list = get_integer_list(green_cards);
+	               
+	               final JSONArray brown_cards = responseData.getJSONArray("brown_cards");	               
+	               List<Integer> brown_card_list = get_integer_list(green_cards);
+	               
+	               final JSONArray city_area_cards = responseData.getJSONArray("city_area_cards");	               
+	               List<Integer> city_ara_card_list = get_integer_list(city_area_cards);
+	               
+	               final JSONArray random_even_cards = responseData.getJSONArray("random_even_cards");	               
+	               List<Integer> random_even_cards_list = get_integer_list(random_even_cards);
+	               
               }
         
 	  } catch (Exception e){//Catch exception if any
@@ -99,8 +106,28 @@ public class JsonParser {
       }
         
 
+	        
+	}
+	
+	
+	public List<Integer> get_integer_list(JSONArray temp_array){
+	
+		  int n = temp_array.length();
+		 
+		  List<Integer> temp_int_list = new ArrayList<Integer>();
+		  try{
+	          for (int i = 0; i < n; ++i) {
+	        	  temp_int_list.add(temp_array.getInt(i));
+	          }
+		  }catch (Exception e){//Catch exception if any
 
-      
+	          System.err.println("Error: " + e.getMessage());
+
+	      }
+		  
+          
+          return temp_int_list;
+	
 	}
 
 }
