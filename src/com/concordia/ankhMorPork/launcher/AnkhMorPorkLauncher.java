@@ -46,7 +46,6 @@ public class AnkhMorPorkLauncher {
 			
 			board=boardManager.initializeBoardforNewPlayer(playerCount, playerName, colorList);
 			boardManager.setBoard(board);
-			boardManager.displayCurrentStatus(board);
 			}catch(NumberFormatException e)
 			{
 				System.out.println("Invalid Input : Number of player must be integer");
@@ -60,6 +59,11 @@ public class AnkhMorPorkLauncher {
 		else
 		{
 			System.out.println("Invalid Input");
+		}
+		System.out.println("Do You Like to See the gameStatus??\t\tYes\t\tNo");
+		if("Yes".equalsIgnoreCase(sc.nextLine()))
+		{
+		boardManager.displayCurrentStatus(boardManager.getBoard());
 		}
 	}
 }
