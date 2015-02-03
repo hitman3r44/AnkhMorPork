@@ -2,6 +2,8 @@ package com.concordia.ankhMorPork.common;
 
 import java.util.ArrayList;
 
+import com.concordia.ankhMorPork.manager.GameStatistic;
+
 /**
  * @author elDiablo
  *
@@ -22,5 +24,6 @@ public class Global {
 	
 	public static String saveFileName;
 	public static Integer numberOfPlayers;
+	public static GameStatistic gameStatistic;
 
 }
