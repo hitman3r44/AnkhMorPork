@@ -2,10 +2,10 @@ package com.concordia.ankhMorPork.manager;
 
 public class CityAreaCard {
 
-	Integer identifier;
-	String name;
-	String description;
-	Integer cost;
+	private Integer identifier;
+	private String name;
+	private String description;
+	private Integer cost;
 	
 	public Integer getIdentifier() {
 		return identifier;
