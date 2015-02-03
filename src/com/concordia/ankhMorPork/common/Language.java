@@ -12,5 +12,6 @@ package com.concordia.ankhMorPork.common;
  *  This class contains all the languages and pre-define string related variables 
  * */
 public class Language {
+	
 
 }

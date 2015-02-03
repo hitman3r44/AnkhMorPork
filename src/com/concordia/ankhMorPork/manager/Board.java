@@ -6,15 +6,15 @@ import java.util.Map;
 
 public class Board {
 	
-	List<Area> area;
-	Integer bankMoney;
-	Map<String,String> personalityCardDetails;
-	List<CityAreaCard> cityAreaCard;
-	HashMap<Integer, HashMap<String, String>> randomEventCard;
-	List<PlayerCards> playerCard;
-	Integer noOfPlayer;
-	List<Player> playerList;
-	List<Integer> existingPlayercards;
+	private List<Area> area;
+	private Integer bankMoney;
+	private Map<String,String> personalityCardDetails;
+	private List<CityAreaCard> cityAreaCard;
+	private HashMap<Integer, HashMap<String, String>> randomEventCard;
+	private List<PlayerCards> playerCard;
+	private Integer noOfPlayer;
+	private List<Player> playerList;
+	private List<Integer> existingPlayercards;
 	
 	public List<Area> getArea() {
 		return area;

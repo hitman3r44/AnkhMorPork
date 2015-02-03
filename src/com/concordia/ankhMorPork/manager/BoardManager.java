@@ -146,6 +146,7 @@ public class BoardManager {
 		List<Integer> existingPersonalityCard = new ArrayList<Integer>();
 		List<Integer> minionsOnBoard = new ArrayList<Integer>();
 		Collections.addAll(minionsOnBoard, 1, 5, 7);
+		
 		for (int i = 0; i < noOfPlayer; i++) {
 			Player player = new Player(i + 1, playerNameList.get(i),
 					colorList.get(i));
