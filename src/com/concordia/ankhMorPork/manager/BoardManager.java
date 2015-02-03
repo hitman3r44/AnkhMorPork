@@ -8,6 +8,8 @@ package com.concordia.ankhMorPork.manager;
  */
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -30,6 +32,15 @@ public class BoardManager {
 	public static List<Area> areaList = new ArrayList<Area>();
 	public List<Player> playerList = new ArrayList<Player>();
 	public static String[] yourArray = null;
+	private Integer moneyDistributedCount=0;
+	//setter and getters
+	public Integer getMoneyDistributedCount() {
+		return moneyDistributedCount;
+	}
+	public void setMoneyDistributedCount(Integer moneyDistributedCount) {
+		this.moneyDistributedCount = moneyDistributedCount;
+	}
+
 	//Map is created to load PersonalityCards Information from the text file
 	@SuppressWarnings("serial")
 	public static final HashMap<Integer, String> personalityCard = new HashMap<Integer, String>() {
@@ -81,6 +92,7 @@ public class BoardManager {
  * @param board
  */
 	public void displayCurrentStatus(Board board) {
+		
 		Common.display();
 		System.out.println("                   Game Status");
 		System.out.println("                   ************\n\n");
@@ -133,7 +145,7 @@ public class BoardManager {
 			System.out.println("Ankh-Morpork Dollars :"
 					+ board.getPlayerList().get(i).getPlayerMoney() + "\n\n\n");
 			System.out.println("City Area cards: ");
-			
+			this.setMoneyDistributedCount((this.getMoneyDistributedCount()+board.getPlayerList().get(i).getPlayerMoney()));
 			//City area cards list
 			if (board.getPlayerList().get(i).getCityAreaCard().size() == 0) {
 				System.out.println("No City Area cards attained yet");
@@ -156,7 +168,7 @@ public class BoardManager {
 					+ board.getPlayerList().get(i).getBrownPlayerCards());
 		}
 		
-		System.out.println("\nThe Bank has " + board.getBankMoney()
+		System.out.println("\nThe Bank has " + (board.getBankMoney()-this.getMoneyDistributedCount())
 				+ " Ankh-Morpork dollars");
 	}
 /**
@@ -323,7 +335,11 @@ public class BoardManager {
 	public void setBoard(Board board) {
 		this.board = board;
 	}
-
+/**
+ * This function store the status of the game in a text file
+ * @param fileName : Name of the file to which game status to be saved
+ * @param board
+ */
 	public void saveGameStatus(String fileName,Board board) {
 		// TODO Auto-generated method stub
 		PrintWriter writer;
@@ -357,7 +373,18 @@ public class BoardManager {
 				writer.println("Green Cards ="+board.getPlayerList().get(i).getGreenPlayerCards());
 				writer.println("Brown Cards ="+board.getPlayerList().get(i).getBrownPlayerCards());
 			}
-			writer.println("The second line");
+			writer.println("BankMoney ="+(board.getBankMoney()-this.getMoneyDistributedCount()));
+			
+			for (int i = 0; i < 12; i++) {
+				writer.println("Area No. ="+(i+1));
+				writer.println("Area ="+cityAreaCardList.get(i).getName());
+				writer.println("Minions ="+areaList.get(i).getColorOfMinion());
+				writer.println("IsTroubleMakerAvailable ="+areaList.get(i).getTroubleMaker());
+				writer.println("IsbuildingAvailable ="+areaList.get(i).getBuilding());
+				writer.println("NoOfDemons ="+areaList.get(i).getNoOfDemon());
+				writer.println("NoOfTrolls ="+areaList.get(i).getNoOfTroll());
+			}
+			writer.println("PlayerCards played ="+existingCards);
 			writer.close();	
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block

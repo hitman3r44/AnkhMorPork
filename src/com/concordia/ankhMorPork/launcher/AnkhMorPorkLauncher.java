@@ -7,6 +7,8 @@ package com.concordia.ankhMorPork.launcher;
  * 2015
  * @email: varunpattiah@gmail.com
  */
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -80,8 +82,8 @@ public class AnkhMorPorkLauncher {
 					//Take save file name from the user
 					System.out.println("Please entre the save file name:");
 					Global.saveFileName = userInputScanner.nextLine();
-					ankhMorPorkLauncher.boardManager.saveGameStatus(Global.SAVED_FILE_DIRECTORY_PATH+Global.saveFileName,ankhMorPorkLauncher.boardManager.getBoard());
-					//Generate the JSON format file as a save file
+					ankhMorPorkLauncher.boardManager.saveGameStatus(Global.SAVED_FILE_DIRECTORY_PATH+"/"+Global.saveFileName,ankhMorPorkLauncher.boardManager.getBoard());
+					//Generate the JSON format file as a save file-- Commented by varun Temporarily
 					GameStateJsonGenerator gameStateJsonGenerator = new GameStateJsonGenerator();
 					gameStateJsonGenerator.saveGameCurrentStateToJsonFormate(ankhMorPorkLauncher.board);
 					
@@ -96,8 +98,7 @@ public class AnkhMorPorkLauncher {
 			System.out.println("Enter the Filename to load the game");
 			fileName=userInputForLoadOrNewGameScanner.nextLine();
 			try {
-				userInputForLoadOrNewGameScanner = new Scanner(new File(
-						"./resources/"+fileName));
+				userInputForLoadOrNewGameScanner = new Scanner(new File("./resources/"+fileName));
 
 				while (userInputForLoadOrNewGameScanner.hasNext()) {
 					System.out.println(userInputForLoadOrNewGameScanner.nextLine());
