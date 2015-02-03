@@ -43,3 +43,7 @@ Temporary Items
 .apdisk
 *.class
 *.class
+bin/com/concordia/ankhMorPork/common/Global.class
+bin/com/concordia/ankhMorPork/common/Global.class
+*.class
+bin/com/concordia/ankhMorPork/common/Global.class
