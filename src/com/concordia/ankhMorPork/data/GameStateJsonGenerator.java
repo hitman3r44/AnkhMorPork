@@ -40,7 +40,7 @@ public class GameStateJsonGenerator {
 							JsonEncoding.UTF8);
 
 			jGenerator.writeStartObject(); // {
-
+		
 			// Number of player
 			jGenerator.writeStringField("numberOfPlayers",
 					Global.numberOfPlayers.toString());
@@ -55,7 +55,7 @@ public class GameStateJsonGenerator {
 			jGenerator.writeString("msg 2"); // "msg 2"
 			jGenerator.writeString("msg 3"); // "msg 3"
 
-			jGenerator.writeEndArray(); // ]
+			jGenerator.writeEndArray(); // ]	
 
 			jGenerator.writeEndObject(); // }
 
@@ -97,12 +97,11 @@ public class GameStateJsonGenerator {
 			jGenerator.writeStringField("numberOfPlayers",board.getNoOfPlayer().toString());
 			
 			for (int i = 0; i < board.getNoOfPlayer(); i++) {
-				
+				 
 				jGenerator.writeFieldName("player "+ i+1);
-				
 				//Array of player information
-				jGenerator.writeStartArray();
-				
+				jGenerator.writeStartObject(); 
+				System.out.println(board.getPlayerList().get(i).getName());
 				jGenerator.writeStringField("playerName", board.getPlayerList().get(i).getName());
 				jGenerator.writeStringField("playerColor", board.getPlayerList().get(i).getColor());
 				jGenerator.writeNumberField("playerPersonalityCard", board.getPlayerList().get(i).getPersonalityCard());
@@ -136,7 +135,7 @@ public class GameStateJsonGenerator {
 				
 				
 				
-				jGenerator.writeEndArray();
+				jGenerator.writeEndObject();
 			}
 			
 			jGenerator.writeNumberField("bankMoney", board.getBankMoney());
