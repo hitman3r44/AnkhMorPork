@@ -136,19 +136,44 @@ public class BoardManager {
 				"Minions", "IsTroubleMakerAvailable", "IsbuildingAvailable",
 				"NoOfDemons", "NoOfTrolls");
 		
+		ArrayList<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
+		ArrayList<Area> areaArrayList = new ArrayList<Area>();
+		ArrayList<String> colorsofMinions = new ArrayList<String>();
+		
 		for (int i = 0; i < 12; i++) {
+			//make objects of some of the list			
+			CityAreaCard cityAreaCard = new CityAreaCard();
+			Area area = new Area(areaList.get(i).getTroubleMaker(), areaList.get(i).getBuilding(), areaList.get(i).getNoOfDemon(), areaList.get(i)
+							.getNoOfTroll());
+			
+			
 			System.out.printf("%-30s%-15s%-25s%-25s%-15s%-15s\n",
 					cityAreaCardList.get(i).getName(), areaList.get(i)
 							.getColorOfMinion(), areaList.get(i)
 							.getTroubleMaker(), areaList.get(i).getBuilding(),
 					areaList.get(i).getNoOfDemon(), areaList.get(i)
 							.getNoOfTroll());
-		}
+			
+			//Fill the object
+			cityAreaCard.setName(cityAreaCardList.get(i).getName());
+			cityAreaCardList.add(i, cityAreaCard);
 
-		System.out.println("\n\nPlayer Details :: \n\n");
+			colorsofMinions.add(areaList.get(i).getColorOfMinion().toString());
+			areaArrayList.add(i, area);
+			
+			
+		}
+		//Board Details
 		
-		ArrayList<PlayerInventory> playerInventoriesList = new ArrayList<PlayerInventory>();
+		//Add to the global variable
+		Global.gameStatistic.setCityAreaCardList(cityAreaCardList);
+		Global.gameStatistic.setAreaArrayList(areaArrayList);
+
+		
+		
+		System.out.println("\n\nPlayer Details :: \n\n");
 		// Player Statistic
+		ArrayList<PlayerInventory> playerInventoriesList = new ArrayList<PlayerInventory>();
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
 			//Fill the PlayerInventory object 
 			PlayerInventory playerInventory = new PlayerInventory();
@@ -211,10 +236,26 @@ public class BoardManager {
 					+ board.getPlayerList().get(i).getGreenPlayerCards());
 			System.out.println(" \tBrown Cards : "
 					+ board.getPlayerList().get(i).getBrownPlayerCards());
-		}
+			
+			//Add players card in the inventory list
+			playerInventory.setGreenPlayerCards(board.getPlayerList().get(i).getGreenPlayerCards());
+			playerInventory.setBrownPlayerCards(board.getPlayerList().get(i).getBrownPlayerCards());
+			
+			//Set to the playerinventorylist variable
+			playerInventoriesList.add(i, playerInventory);
+			
+			
+		}// End of loop
+		// Player Statistic
+		
+		//Set globally the player inventory
+		Global.gameStatistic.setPlayerInventoryList(playerInventoriesList);
 		
 		System.out.println("\nThe Bank has " + (board.getBankMoney()-this.getMoneyDistributedCount())
 				+ " Ankh-Morpork dollars");
+		
+		//Set Bank Money
+		Global.gameStatistic.setBankMoney(board.getBankMoney()-this.getMoneyDistributedCount());
 	}
 /**
  * This method initialize the Board for new player

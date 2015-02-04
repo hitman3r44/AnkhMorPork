@@ -1,6 +1,7 @@
 package com.concordia.ankhMorPork.manager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author elDiablo
@@ -18,6 +19,22 @@ public class PlayerInventory {
 	private String playerChoosableColor;
 	private String playerPersonalityCard;
 	private ArrayList<String> cityAreaList;
+	private List<Integer> greenPlayerCards;
+	private List<Integer> brownPlayerCards;
+	
+	public List<Integer> getGreenPlayerCards() {
+		return greenPlayerCards;
+	}
+	public void setGreenPlayerCards(List<Integer> greenPlayerCards) {
+		this.greenPlayerCards = greenPlayerCards;
+	}
+	public List<Integer> getBrownPlayerCards() {
+		return brownPlayerCards;
+	}
+	public void setBrownPlayerCards(List<Integer> brownPlayerCards) {
+		this.brownPlayerCards = brownPlayerCards;
+	}
+	
 	
 	
 	public ArrayList<String> getCityAreaList() {
