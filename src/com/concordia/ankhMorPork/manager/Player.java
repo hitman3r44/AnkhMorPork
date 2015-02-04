@@ -12,6 +12,16 @@ public class Player {
 	private List<Integer> buildingOnBoard;
 	private Integer playerMoney;
 	private Integer personalityCard;
+	private String personalityCardString;
+	
+	public String getPersonalityCardString() {
+		return personalityCardString;
+	}
+
+	public void setPersonalityCardString(String personalityCardString) {
+		this.personalityCardString = personalityCardString;
+	}
+
 	private List<Integer> greenPlayerCards;
 	private List<Integer> brownPlayerCards;
 	private List<Integer> cityAreaCard;

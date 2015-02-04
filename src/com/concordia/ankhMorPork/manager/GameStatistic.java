@@ -12,6 +12,15 @@ import java.util.List;
 public class GameStatistic {
 	private Integer numberOfPlayers;
 	private List<PlayerInventory> playerInventoryList;
+	private List<Player> playersList;
+
+	public List<Player> getPlayersList() {
+		return playersList;
+	}
+
+	public void setPlayersList(List<Player> playersList) {
+		this.playersList = playersList;
+	}
 
 	public List<PlayerInventory> getPlayerInventoryList() {
 		return playerInventoryList;

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -117,20 +116,18 @@ public class BoardManager {
 					+ personalityCard.get(board.getPlayerList().get(i)
 							.getPersonalityCard()));
 			
-			//Added to the playerInventory object
-			playerInventory.setPlayerName(board.getPlayerList().get(i).getName());
-			playerInventory.setPlayerChoosableColor(board.getPlayerList().get(i).getColor());
-			player.setPlayerPersonalityCard(
+			//Added to the player object
+			player.setPersonalityCardString(
 					personalityCard.get(board.getPlayerList().get(i)
 							.getPersonalityCard()));
 			
 			//Added to the playerInventories ArrayList 
-			playerInventoriesList.add(i, playerInventory);
+			playersList.add(i, player);
 			
 		}//End of For loop
 		
 		//Set to the global variable
-		Global.gameStatistic.setPlayerInventoryList(playerInventoriesList);
+		Global.gameStatistic.setPlayersList(playerList);
 		
 		//Board Details
 		System.out.println("\nArea Details : \n\n");
