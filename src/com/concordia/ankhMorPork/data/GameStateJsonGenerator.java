@@ -27,56 +27,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class GameStateJsonGenerator {
 	public static List<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
 
-	/*public static void main(String[] args) {
-
-		try {
-
-			JsonFactory jfactory = new JsonFactory();
-
-			JsonGenerator jGenerator = jfactory
-					.createJsonGenerator(new File(
-							Global.SAVED_FILE_DIRECTORY_PATH + "/"
-									+ Global.saveFileName + ".json"),
-							JsonEncoding.UTF8);
-
-			.writeStartObject(); // {
-		
-			// Number of player
-			jGenerator.writeStringField("numberOfPlayers",
-					Global.numberOfPlayers.toString());
-
-			jGenerator.writeStringField("name", "mkyong"); // "name" : "mkyong"
-			jGenerator.writeNumberField("age", 29); // "age" : 29
-
-			jGenerator.writeFieldName("messages"); // "messages" :
-			jGenerator.writeStartArray(); // [
-
-			jGenerator.writeString("msg 1"); // "msg 1"
-			jGenerator.writeString("msg 2"); // "msg 2"
-			jGenerator.writeString("msg 3"); // "msg 3"
-
-			jGenerator.writeEndArray(); // ]	
-
-			jGenerator.writeEndObject(); // }
-
-			jGenerator.close();
-
-		} catch (JsonGenerationException e) {
-
-			e.printStackTrace();
-
-		} catch (JsonProcessingException e) {
-
-			e.printStackTrace();
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
-		}
-
-	}*/
-
+	
 	public boolean saveGameCurrentStateToJsonFormate(Board board) {
 		boolean isSaved = false;
 		
