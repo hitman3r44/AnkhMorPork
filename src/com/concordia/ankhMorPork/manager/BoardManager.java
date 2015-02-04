@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -296,7 +297,7 @@ public class BoardManager {
 	@SuppressWarnings("resource")
 	private Board initializeCityAreaCard(Board board2) {
 
-		String[] yourArray = null;
+		String[] dataArray = null;
 		Scanner inFile1;
 		// System.out.println(new File(".").getAbsolutePath());
 		try {
@@ -305,15 +306,15 @@ public class BoardManager {
 			while (inFile1.hasNext()) {
 				StringBuilder sb = new StringBuilder();
 				sb.append(inFile1.nextLine());
-				yourArray = sb.toString().split(",");
-				// System.out.println(yourArray.length);
-				if (yourArray.length == 3) {
-					// System.out.println(yourArray[0] + "--" + yourArray[1]
-					// + "--" + yourArray[2]);
+				dataArray = sb.toString().split(",");
+				// System.out.println(dataArray.length);
+				if (dataArray.length == 3) {
+					// System.out.println(dataArray[0] + "--" + dataArray[1]
+					// + "--" + dataArray[2]);
 					CityAreaCard cityAreaCard = new CityAreaCard();
-					cityAreaCard.setIdentifier(Integer.parseInt(yourArray[0]));
-					cityAreaCard.setName(yourArray[1]);
-					cityAreaCard.setCost(Integer.parseInt(yourArray[2]));
+					cityAreaCard.setIdentifier(Integer.parseInt(dataArray[0]));
+					cityAreaCard.setName(dataArray[1]);
+					cityAreaCard.setCost(Integer.parseInt(dataArray[2]));
 					cityAreaCardList.add(cityAreaCard);
 				}
 			}
@@ -408,6 +409,28 @@ public class BoardManager {
 			e.printStackTrace();
 		}
 		
+	}
+	/**
+	 * This function load the game and update the dataStructure containing PlayerInfo
+	 * @param inputMap: contains the Status of the game in Map
+	 * @return
+	 */
+	public Board updatePlayerInfo(List<String> inputList) {
+		System.out.println(inputList);
+		try
+		{
+			Integer noOfPlayer=Integer.parseInt(inputList.get(0));
+			for(int i =0;i<noOfPlayer;i++)
+			{
+				
+			}
+		}catch(NumberFormatException e)
+		 {
+			 System.out.println("Input File Validation Error : NoOfPlayer not a valid value.");
+		 }
+		 
+
+		return board;
 	}
 
 }
