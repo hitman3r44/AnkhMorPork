@@ -53,10 +53,16 @@ public class AnkhMorPorkLauncher {
 		if ("N".equalsIgnoreCase(ankhMorPorkLauncher.input)) {
 			System.out.println("Best of Luck with your New game\n\n");
 			System.out.println("Enter the number of player would like to Play ");
-			
 			Scanner userInputScanner = new Scanner(System.in);
 			try {
 				Global.numberOfPlayers = Integer.parseInt(userInputScanner.nextLine());
+				
+				if(Global.numberOfPlayers <2 || Global.numberOfPlayers>4)
+				 {
+			
+					System.out.println("PLease enter a number between 2 and 4");
+		
+				 }
 				
 				for (int i = 0; i < Global.numberOfPlayers; i++) {
 					System.out.println("Enter the name of Player" + (i + 1));
@@ -73,7 +79,6 @@ public class AnkhMorPorkLauncher {
 					}
 					ankhMorPorkLauncher.colorList.add(colorOfPlayer);
 				}
-
 				ankhMorPorkLauncher.board = ankhMorPorkLauncher.boardManager
 						.initializeBoardforNewPlayer(Global.numberOfPlayers,
 								ankhMorPorkLauncher.playerName,
@@ -87,7 +92,7 @@ public class AnkhMorPorkLauncher {
 				
 				if ("S".equalsIgnoreCase(userInputForSavingTheGame)) {
 					//Take save file name from the user
-					System.out.println("Please entre the save file name:");
+					System.out.println("Please enter the name of file to save:");
 					Global.saveFileName = userInputScanner.nextLine();
 					//ankhMorPorkLauncher.boardManager.saveGameStatus(Global.SAVED_FILE_DIRECTORY_PATH+"/"+Global.saveFileName,ankhMorPorkLauncher.boardManager.getBoard());
 					//Generate the JSON format file as a save file
