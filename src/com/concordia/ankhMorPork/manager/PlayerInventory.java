@@ -1,5 +1,7 @@
 package com.concordia.ankhMorPork.manager;
 
+import java.util.ArrayList;
+
 /**
  * @author elDiablo
  * Feb 3, 2015
@@ -15,8 +17,15 @@ public class PlayerInventory {
 	private String playerName;
 	private String playerChoosableColor;
 	private String playerPersonalityCard;
+	private ArrayList<String> cityAreaList;
 	
 	
+	public ArrayList<String> getCityAreaList() {
+		return cityAreaList;
+	}
+	public void setCityAreaList(ArrayList<String> cityAreaList) {
+		this.cityAreaList = cityAreaList;
+	}
 	public String getPlayerName() {
 		return playerName;
 	}

@@ -101,7 +101,7 @@ public class BoardManager {
 		Global.gameStatistic.setNumberOfPlayers(board.getNoOfPlayer());
 		
 		//First portion of Player Statistics 
-		ArrayList<PlayerInventory> playerInventoriesList = new ArrayList<PlayerInventory>(); 
+		 
 		ArrayList<Player> playersList = new ArrayList<Player>();
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
 			Player player = new Player((i + 1), board.getPlayerList().get(i).getName(), board.getPlayerList().get(i).getColor());
@@ -147,8 +147,20 @@ public class BoardManager {
 
 		System.out.println("\n\nPlayer Details :: \n\n");
 		
+		ArrayList<PlayerInventory> playerInventoriesList = new ArrayList<PlayerInventory>();
 		// Player Statistic
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
+			//Fill the PlayerInventory object 
+			PlayerInventory playerInventory = new PlayerInventory();
+			
+			playerInventory.setMinions(Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard()
+							.size());
+			playerInventory.setBuildings(Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()
+					.size());
+			playerInventory.setMoney(board.getPlayerList().get(i).getPlayerMoney());
+			//Fill the PlayerInventory object
+			
+			//Print on the screen
 			System.out.println(board.getPlayerList().get(i).getName()
 					+ "'s Current Holdings : ");
 			System.out.println("No Of Minions        :"
@@ -161,9 +173,19 @@ public class BoardManager {
 					+ board.getPlayerList().get(i).getPlayerMoney() + "\n\n\n");
 			System.out.println("City Area cards: ");
 			this.setMoneyDistributedCount((this.getMoneyDistributedCount()+board.getPlayerList().get(i).getPlayerMoney()));
+			//Print on the screen
+			
 			//City area cards list
+
+			//Initial a arraylist of city area
+			ArrayList<String> cityAreaList = new ArrayList<String>();
+			
 			if (board.getPlayerList().get(i).getCityAreaCard().size() == 0) {
 				System.out.println("No City Area cards attained yet");
+
+				//Add to the playerInventory object
+				cityAreaList.add("No City Area cards attained yet");
+				playerInventory.setCityAreaList(cityAreaList);
 			} else {
 				for (int j = 0; i < board.getPlayerList().get(i)
 						.getCityAreaCard().size(); j++) {
@@ -173,6 +195,14 @@ public class BoardManager {
 									board.getPlayerList().get(i)
 											.getCityAreaCard().get(j))
 									.getName());
+					
+					//Add to the playerInventory object
+					cityAreaList.add(j, cityAreaCardList.get(
+									board.getPlayerList().get(i)
+											.getCityAreaCard().get(j))
+									.getName());
+					
+					playerInventory.setCityAreaList(cityAreaList);
 				}
 			}
 			
