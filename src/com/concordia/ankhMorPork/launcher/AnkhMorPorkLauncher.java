@@ -19,6 +19,7 @@ import java.util.Scanner;
 import com.concordia.ankhMorPork.common.Common;
 import com.concordia.ankhMorPork.common.Global;
 import com.concordia.ankhMorPork.data.GameStateJsonGenerator;
+import com.concordia.ankhMorPork.data.GameStateJsonParser;
 import com.concordia.ankhMorPork.manager.Board;
 import com.concordia.ankhMorPork.manager.BoardManager;
 /**
@@ -103,7 +104,9 @@ public class AnkhMorPorkLauncher {
 		} else if ("R".equalsIgnoreCase(ankhMorPorkLauncher.input)) {
 			System.out.println("Enter the Filename to load the game");
 			fileName=userInputForLoadOrNewGameScanner.nextLine();
-			try {
+			ankhMorPorkLauncher.board=GameStateJsonParser.parseJson(fileName, ankhMorPorkLauncher.board);
+			///commented the below code to load from text file, since working on json
+			/*try {
 				
 				userInputForLoadOrNewGameScanner = new Scanner(new File("./resources/savedGame/"+fileName));
 
@@ -124,7 +127,7 @@ public class AnkhMorPorkLauncher {
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		} else {
 			System.out.println("Invalid Input");
 		}

@@ -13,18 +13,22 @@ package com.concordia.ankhMorPork.common;
  * */
 public class Language {
 	
+	final public static String DISCWORLD="discWorld";
+	final public static String PLAYERS="players";
 	final public static String NO_OF_PLAYERS="noOfPlayers";
-	final public static String PLAYER_NAME="Player";
-	final public static String 	COLOR="Color";
-	final public static String PERSONALITY_CARD="Personality Card";
+	final public static String PLAYER_NAME="player_name";
+	final public static String PLAYER_ID="player_id";
+	final public static String 	COLOR="color";
+	final public static String PLAYER_MONEY="player_money";
+	final public static String PERSONALITY_CARD="personality_card";
 	final public static String NO_OF_MINIONS="No Of Minions";
 	final public static String NO_OF_BUILDING="No Of Building";
 	final public static String ANKH_MORPORK_DOLLARS="ANkh-Morporkh Dollars";
-	final public static String CITY_AREA_CARD="CityAreaCards";
-	final public static String GREEN_CARDS="Green Cards";
-	final public static String BROWN_CARDS="Brown Cards";
-	final public static String RANDOM_CARDS="Random Event Cards";
-	final public static String BANK_MONEY="Bank Money";
+	final public static String CITY_AREA_CARD="city_area_cards";
+	final public static String GREEN_CARDS="green_cards";
+	final public static String BROWN_CARDS="brown_cards";
+	final public static String RANDOM_CARDS="random_even_cards";
+	final public static String BANK_MONEY="bank_amount";
 	
 	
 }

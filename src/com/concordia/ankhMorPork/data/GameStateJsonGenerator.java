@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.concordia.ankhMorPork.common.Global;
+import com.concordia.ankhMorPork.common.Language;
 import com.concordia.ankhMorPork.manager.Board;
 import com.concordia.ankhMorPork.manager.CityAreaCard;
 import com.fasterxml.jackson.core.JsonEncoding;
@@ -26,20 +27,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class GameStateJsonGenerator {
 	public static List<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 
 		try {
 
 			JsonFactory jfactory = new JsonFactory();
 
-			/*** write to file ***/
 			JsonGenerator jGenerator = jfactory
 					.createJsonGenerator(new File(
 							Global.SAVED_FILE_DIRECTORY_PATH + "/"
 									+ Global.saveFileName + ".json"),
 							JsonEncoding.UTF8);
 
-			jGenerator.writeStartObject(); // {
+			.writeStartObject(); // {
 		
 			// Number of player
 			jGenerator.writeStringField("numberOfPlayers",
@@ -75,7 +75,7 @@ public class GameStateJsonGenerator {
 
 		}
 
-	}
+	}*/
 
 	public boolean saveGameCurrentStateToJsonFormate(Board board) {
 		boolean isSaved = false;
@@ -92,27 +92,28 @@ public class GameStateJsonGenerator {
 							JsonEncoding.UTF8);
 
 			jGenerator.writeStartObject(); // {
-
+			jGenerator.writeFieldName(Language.DISCWORLD);
+			jGenerator.writeStartObject();
+			jGenerator.writeNumberField(Language.BANK_MONEY, board.getBankMoney());
 			// Number of player
-			jGenerator.writeStringField("numberOfPlayers",board.getNoOfPlayer().toString());
-			
+			jGenerator.writeStringField(Language.NO_OF_PLAYERS,board.getNoOfPlayer().toString());
+			jGenerator.writeArrayFieldStart(Language.PLAYERS);
 			for (int i = 0; i < board.getNoOfPlayer(); i++) {
 				 
-				jGenerator.writeFieldName("player "+ i+1);
 				//Array of player information
 				jGenerator.writeStartObject(); 
-				System.out.println(board.getPlayerList().get(i).getName());
-				jGenerator.writeStringField("playerName", board.getPlayerList().get(i).getName());
-				jGenerator.writeStringField("playerColor", board.getPlayerList().get(i).getColor());
-				jGenerator.writeNumberField("playerPersonalityCard", board.getPlayerList().get(i).getPersonalityCard());
-				jGenerator.writeNumberField("minions", Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard()
+				jGenerator.writeStringField(Language.PLAYER_ID,String.valueOf(i+1));
+				jGenerator.writeStringField(Language.PLAYER_NAME, board.getPlayerList().get(i).getName());
+				jGenerator.writeStringField(Language.COLOR, board.getPlayerList().get(i).getColor());
+				jGenerator.writeNumberField(Language.PERSONALITY_CARD, board.getPlayerList().get(i).getPersonalityCard());
+				jGenerator.writeNumberField(Language.NO_OF_MINIONS, Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard()
 						.size());
-				jGenerator.writeNumberField("buildings", Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()
+				jGenerator.writeNumberField(Language.NO_OF_BUILDING, Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()
 						.size());
-				jGenerator.writeNumberField("money", board.getPlayerList().get(i).getPlayerMoney());
+				jGenerator.writeNumberField(Language.PLAYER_MONEY, board.getPlayerList().get(i).getPlayerMoney());
 				
 				//Write array for city area cards
-				jGenerator.writeFieldName("cityAreaCards");
+				jGenerator.writeFieldName(Language.CITY_AREA_CARD);
 				jGenerator.writeStartArray();
 				
 				if (board.getPlayerList().get(i).getCityAreaCard().size() == 0) {
@@ -130,15 +131,15 @@ public class GameStateJsonGenerator {
 				jGenerator.writeEndArray();
 				//Write array for city area cards
 				
-				jGenerator.writeStringField("greenCards", board.getPlayerList().get(i).getGreenPlayerCards().toString());
-				jGenerator.writeStringField("brownCards", board.getPlayerList().get(i).getBrownPlayerCards().toString());
+				jGenerator.writeStringField(Language.GREEN_CARDS, board.getPlayerList().get(i).getGreenPlayerCards().toString());
+				jGenerator.writeStringField(Language.BROWN_CARDS, board.getPlayerList().get(i).getBrownPlayerCards().toString());
 				
 				
 				
 				jGenerator.writeEndObject();
 			}
 			
-			jGenerator.writeNumberField("bankMoney", board.getBankMoney());
+			jGenerator.writeEndArray();
 
 			jGenerator.writeEndObject(); // }
 

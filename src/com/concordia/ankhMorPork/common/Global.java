@@ -24,6 +24,6 @@ public class Global {
 	
 	public static String saveFileName;
 	public static Integer numberOfPlayers;
-	public static GameStatistic gameStatistic;
+	public static GameStatistic gameStatistic=new GameStatistic();
 
 }
