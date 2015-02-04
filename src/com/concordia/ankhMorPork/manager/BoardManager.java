@@ -98,7 +98,7 @@ public class BoardManager {
 		System.out.println("                   ************\n\n");
 		System.out.println("Number Of Players : " + board.getNoOfPlayer());
 		
-		Global.gameStatistic.setNumberOfPlayers(board.getNoOfPlayer());
+//		Global.gameStatistic.setNumberOfPlayers(board.getNoOfPlayer());
 		
 		//First portion of Player Statistics 
 		 
@@ -127,7 +127,7 @@ public class BoardManager {
 		}//End of For loop
 		
 		//Set to the global variable
-		Global.gameStatistic.setPlayersList(playerList);
+//		Global.gameStatistic.setPlayersList(playerList);
 		
 		//Board Details
 		System.out.println("\nArea Details : \n\n");
@@ -136,7 +136,7 @@ public class BoardManager {
 				"Minions", "IsTroubleMakerAvailable", "IsbuildingAvailable",
 				"NoOfDemons", "NoOfTrolls");
 		
-		ArrayList<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
+//		ArrayList<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
 		ArrayList<Area> areaArrayList = new ArrayList<Area>();
 		ArrayList<String> colorsofMinions = new ArrayList<String>();
 		
@@ -166,8 +166,8 @@ public class BoardManager {
 		//Board Details
 		
 		//Add to the global variable
-		Global.gameStatistic.setCityAreaCardList(cityAreaCardList);
-		Global.gameStatistic.setAreaArrayList(areaArrayList);
+//		Global.gameStatistic.setCityAreaCardList(cityAreaCardList);
+//		Global.gameStatistic.setAreaArrayList(areaArrayList);
 
 		
 		
@@ -249,13 +249,13 @@ public class BoardManager {
 		// Player Statistic
 		
 		//Set globally the player inventory
-		Global.gameStatistic.setPlayerInventoryList(playerInventoriesList);
+//		Global.gameStatistic.setPlayerInventoryList(playerInventoriesList);
 		
 		System.out.println("\nThe Bank has " + (board.getBankMoney()-this.getMoneyDistributedCount())
 				+ " Ankh-Morpork dollars");
 		
 		//Set Bank Money
-		Global.gameStatistic.setBankMoney(board.getBankMoney()-this.getMoneyDistributedCount());
+//		Global.gameStatistic.setBankMoney(board.getBankMoney()-this.getMoneyDistributedCount());
 	}
 /**
  * This method initialize the Board for new player

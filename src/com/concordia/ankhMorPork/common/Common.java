@@ -63,15 +63,9 @@ public class Common {
 		System.out.println(Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1));
 	}
 	
-	public static void display()
+	public static void display1()
 	{
-		System.out
-				.println("==============================================================");
-		System.out
-				.println("        Welcome to DisckWorld : AnkhMorpork                   ");
-		System.out
-				.println("=============================================================="
-						+ "\n" + "\n");
+		
 	}
 	
 	
@@ -93,6 +87,17 @@ public class Common {
 		int userInput = common.userInputValidationCheck();
 		System.out.println("Print from this function common.userChoice(userInput)");
 		common.userChoice(userInput);
+		
+	}
+
+	public static void display() {
+		System.out
+				.println("==============================================================");
+		System.out
+				.println("        Welcome to DisckWorld : AnkhMorpork                   ");
+		System.out
+				.println("=============================================================="
+						+ "\n" + "\n");
 		
 	}
 
