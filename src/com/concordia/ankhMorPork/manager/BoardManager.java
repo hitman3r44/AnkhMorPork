@@ -101,7 +101,11 @@ public class BoardManager {
 		Global.gameStatistic.setNumberOfPlayers(board.getNoOfPlayer());
 		
 		//First portion of Player Statistics 
+		ArrayList<PlayerInventory> playerInventoriesList = new ArrayList<PlayerInventory>(); 
+		ArrayList<Player> playersList = new ArrayList<Player>();
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
+			Player player = new Player((i + 1), board.getPlayerList().get(i).getName(), board.getPlayerList().get(i).getColor());
+			
 			System.out.println("Player"
 					+ (i + 1)
 					+ " : "
@@ -112,7 +116,20 @@ public class BoardManager {
 					+ personalityCard.get(board.getPlayerList().get(i)
 							.getPersonalityCard()));
 			
-		}
+			//Added to the playerInventory object
+			playerInventory.setPlayerName(board.getPlayerList().get(i).getName());
+			playerInventory.setPlayerChoosableColor(board.getPlayerList().get(i).getColor());
+			player.setPlayerPersonalityCard(
+					personalityCard.get(board.getPlayerList().get(i)
+							.getPersonalityCard()));
+			
+			//Added to the playerInventories ArrayList 
+			playerInventoriesList.add(i, playerInventory);
+			
+		}//End of For loop
+		
+		//Set to the global variable
+		Global.gameStatistic.setPlayerInventoryList(playerInventoriesList);
 		
 		//Board Details
 		System.out.println("\nArea Details : \n\n");

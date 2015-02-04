@@ -12,7 +12,29 @@ public class PlayerInventory {
 	private Integer minions;
 	private Integer buildings;
 	private double money;
+	private String playerName;
+	private String playerChoosableColor;
+	private String playerPersonalityCard;
 	
+	
+	public String getPlayerName() {
+		return playerName;
+	}
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+	public String getPlayerChoosableColor() {
+		return playerChoosableColor;
+	}
+	public void setPlayerChoosableColor(String playerChoosableColor) {
+		this.playerChoosableColor = playerChoosableColor;
+	}
+	public String getPlayerPersonalityCard() {
+		return playerPersonalityCard;
+	}
+	public void setPlayerPersonalityCard(String playerPersonalityCard) {
+		this.playerPersonalityCard = playerPersonalityCard;
+	}
 	public Integer getPlayerNumber() {
 		return playerNumber;
 	}
