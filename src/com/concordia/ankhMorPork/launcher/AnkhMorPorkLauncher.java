@@ -7,10 +7,7 @@ package com.concordia.ankhMorPork.launcher;
  * 2015
  * @email: varunpattiah@gmail.com
  */
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,7 +49,7 @@ public class AnkhMorPorkLauncher {
 		
 		if ("N".equalsIgnoreCase(ankhMorPorkLauncher.input)) {
 			System.out.println("Best of Luck with your New game\n\n");
-			System.out.println("Enter the number of player would like to Play ");
+			System.out.println("How many players you want to play: ");
 			Scanner userInputScanner = new Scanner(System.in);
 			try {
 				Global.numberOfPlayers = Integer.parseInt(userInputScanner.nextLine());
@@ -63,7 +60,7 @@ public class AnkhMorPorkLauncher {
 					System.out.println("PLease enter a number between 2 and 4");
 		
 				 }
-				
+								
 				for (int i = 0; i < Global.numberOfPlayers; i++) {
 					System.out.println("Enter the name of Player" + (i + 1));
 					nameOfPlayer = userInputScanner.nextLine();
@@ -71,6 +68,10 @@ public class AnkhMorPorkLauncher {
 					System.out.println("Hi " + nameOfPlayer + "! \n");
 					System.out.println("Please type the color you would prefer to play !! "
 							+ "(Red OR Green OR Blue OR Yellow)");
+//					for (int j = 0; j < Global.colorList.size(); j++) {
+//						System.out.println(j+1+". "+Global.colorList.get(j));
+//					}
+					
 					colorOfPlayer = userInputScanner.nextLine();
 					if(ankhMorPorkLauncher.colorList.size()!=0 && ankhMorPorkLauncher.colorList.contains(colorOfPlayer)  )
 					{
@@ -86,7 +87,14 @@ public class AnkhMorPorkLauncher {
 				
 				ankhMorPorkLauncher.boardManager.setBoard(ankhMorPorkLauncher.board);
 				
+				//See Game Status
+				System.out.println("\nWould you Like to see the Game Status??\t\tYes\tNo");
+				if("Yes".equalsIgnoreCase(userInputForLoadOrNewGameScanner.nextLine()))
+				{
+					ankhMorPorkLauncher.boardManager.displayCurrentStatus(ankhMorPorkLauncher.boardManager.getBoard());
+				}
 				
+				//Save Option
 				System.out.println("\n\n\nPress 'S' to save the game");
 				String userInputForSavingTheGame = userInputScanner.nextLine();
 				
@@ -136,10 +144,6 @@ public class AnkhMorPorkLauncher {
 		} else {
 			System.out.println("Invalid Input");
 		}
-		System.out.println("\nWould you Like to see the Game Status??\t\tYes\tNo");
-		if("Yes".equalsIgnoreCase(userInputForLoadOrNewGameScanner.nextLine()))
-		{
-			ankhMorPorkLauncher.boardManager.displayCurrentStatus(ankhMorPorkLauncher.boardManager.getBoard());
-		}
+		
 	}
 }

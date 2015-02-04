@@ -15,8 +15,31 @@ import com.concordia.ankhMorPork.manager.Player;
 
 public class GameStateJsonParser {
 
-	public static Board parseJson(String fileName, Board board) {
+	public static List<Integer> get_integer_list(String green_cards) {
+		List<Integer> temp_int_list = new ArrayList<Integer>();
+		if (null == green_cards && green_cards.length() == 0) {
+			return temp_int_list;
+		}
+		String removeParenthesis = green_cards.substring(1,
+				(green_cards.length() - 1));
+		String[] cardNumbers = removeParenthesis.split(", ");
 
+		try {
+			for (int i = 0; i < cardNumbers.length; i++) {
+				temp_int_list.add(Integer.parseInt(cardNumbers[i]));
+			}
+
+		} catch (Exception e) {// Catch exception if any
+
+			System.err.println("Error: " + e.getMessage());
+
+		}
+
+		return temp_int_list;
+
+	}
+
+	public static Board parseJson(String fileName, Board board) {
 		List<Player> playerList = new ArrayList<Player>();
 		try {
 			Scanner inFile1;
@@ -37,15 +60,16 @@ public class GameStateJsonParser {
 			final JSONArray geodata = responseData
 					.getJSONArray(Language.PLAYERS);
 			final int n = geodata.length();
-			System.out.println("n value = "+n);
+			System.out.println("n value = " + n);
 			for (int i = 0; i < n; ++i) {
 				final JSONObject player = geodata.getJSONObject(i);
-				
+
 				int tmp_player_id = player.getInt(Language.PLAYER_ID);
-				
+
 				String tmp_player_name = player.getString(Language.PLAYER_NAME);
 				String tmp_player_color = player.getString(Language.COLOR);
-				Player playerObject= new Player(tmp_player_id, tmp_player_name, tmp_player_color);
+				Player playerObject = new Player(tmp_player_id,
+						tmp_player_name, tmp_player_color);
 				int tmp_player_money = player.getInt(Language.PLAYER_MONEY);
 				playerObject.setPlayerMoney(tmp_player_money);
 				int tmp_player_personality_card = player
@@ -76,31 +100,6 @@ public class GameStateJsonParser {
 
 		}
 		return board;
-
-	}
-
-	public static List<Integer> get_integer_list(String green_cards) {
-		List<Integer> temp_int_list = new ArrayList<Integer>();
-		if (null == green_cards && green_cards.length() == 0) {
-			return temp_int_list;
-		}
-		String removeParenthesis = green_cards.substring(1,
-				(green_cards.length() - 1));
-		String[] cardNumbers = removeParenthesis.split(", ");
-
-		try {
-			for (int i = 0; i < cardNumbers.length; i++) {
-				temp_int_list.add(Integer.parseInt(cardNumbers[i]));
-			}
-
-		} catch (Exception e) {// Catch exception if any
-
-			System.err.println("Error: " + e.getMessage());
-
-		}
-
-		return temp_int_list;
-
 	}
 
 }
