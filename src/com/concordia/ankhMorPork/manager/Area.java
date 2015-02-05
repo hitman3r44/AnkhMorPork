@@ -70,7 +70,7 @@ public class Area {
 	
 	/**
 	 * This function is called to check an area if trouble maker exists on a particular area 
-	 * @return Looking if a trouble make exist on an area
+	 * @return Looking if a trouble make exist in an area
 	 */
 	public Boolean getTroubleMaker() {
 		return troubleMaker;
