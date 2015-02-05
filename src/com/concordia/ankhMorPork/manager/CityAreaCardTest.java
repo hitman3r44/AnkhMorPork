@@ -23,11 +23,6 @@ public class CityAreaCardTest {
 		
 	}
 
-	/*@Test
-	public void testSetIdentifier() {
-		fail("Not yet implemented");
-	}
-*/
 	@Test
 	public void testGetName() {
 		String city="Dolly Sisters";
@@ -50,11 +45,7 @@ public class CityAreaCardTest {
 	
 	}
 
-/*	@Test
-	public void testSetDescription() {
-		fail("Not yet implemented");
-	}
-*/
+
 	@Test
 	public void testGetCost() {
     Integer cost= 7;
