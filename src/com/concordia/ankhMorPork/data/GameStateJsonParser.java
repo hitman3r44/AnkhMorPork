@@ -21,6 +21,10 @@ public class GameStateJsonParser {
 		if (null == green_cards && green_cards.length() == 0) {
 			return temp_int_list;
 		}
+		else if("[]".equals(green_cards))
+		{
+			return temp_int_list;
+		}
 		String removeParenthesis = green_cards.substring(1,
 				(green_cards.length() - 1));
 		String[] cardNumbers = removeParenthesis.split(", ");
@@ -109,11 +113,13 @@ public class GameStateJsonParser {
 					.getJSONArray(Language.AREA_DETAILS);
 			final int length = geodata.length();
 			System.out.println("length value = " + length);
+			List<Area> areaList= new ArrayList<Area>();
 			for (int i = 0; i < length; ++i) {
 				final JSONObject area = geodata.getJSONObject(i);
 				int tmp_area_No = area.getInt(Language.AREA_NO);
 				String tmp_Area = area.getString(Language.AREA);
 				String tmp_available_minions = area.getString(Language.MINIONS);
+				List<String> tmp_available_minions_list=get_String_list(tmp_available_minions);
 				Boolean tmp_Is_TroubleMaker_Available = area
 						.getBoolean(Language.IS_TROUBLEMAKER_AVAILABLE);
 				Boolean tmp_Is_building_Available = area
@@ -123,7 +129,11 @@ public class GameStateJsonParser {
 				Area areaObject = new Area(tmp_Is_TroubleMaker_Available,
 						tmp_Is_building_Available, tmp_no_Of_demons,
 						tmpno_of_troll);
+				areaObject.setIdentifier(tmp_area_No);
+				areaObject.setColorOfMinion(tmp_available_minions_list);
+				areaList.add(areaObject);
 			}
+			board.setArea(areaList);
 		} catch (Exception e) {// Catch exception if any
 
 			System.err.println("Error: " + e.getMessage());
@@ -132,4 +142,33 @@ public class GameStateJsonParser {
 		return board;
 
 	}
+	
+	public static List<String> get_String_list(String string) {
+		List<String> temp_string_list = new ArrayList<String>();
+		if (null == string && string.length() == 0) {
+			return temp_string_list;
+		}
+		else if("[]".equals(string))
+		{
+			return temp_string_list;
+		}
+		String removeParenthesis = string.substring(1,
+				(string.length() - 1));
+		String[] stringList = removeParenthesis.split(", ");
+
+		try {
+			for (int i = 0; i < stringList.length; i++) {
+				temp_string_list.add(stringList[i]);
+			}
+
+		} catch (Exception e) {// Catch exception if any
+
+			System.err.println("Error: " + e.getMessage());
+
+		}
+
+		return temp_string_list;
+
+	}
+
 }
