@@ -79,15 +79,22 @@ public class Player {
 		return color;
 	}
 	
-
+	/**
+	 * The functions sets the color of the players 
+	 */
 	public void setColor(String color) {
 		this.color = color;
 	}
-
+	/**
+	 * It pulls the numbers of minions on board belonging to a player
+	 * @return number of minions on board as integer
+	 */
 	public Integer getMinionsOnBoard() {
 		return minionsOnBoard;
 	}
-
+   /**
+    * sets the number of minions of a player on the board
+    */
 	public void setMinionsOnBoard(Integer minionsOnBoard2) {
 		this.minionsOnBoard = minionsOnBoard2;
 	}
