@@ -33,11 +33,6 @@ public class BoardManager {
 	public List<Player> playerList = new ArrayList<Player>();
 	public static String[] yourArray = null;
 	private Integer moneyDistributedCount=0;
-	
-	public BoardManager()
-	{
-		this.board=new Board();
-	}
 	//setter and getters
 	public Integer getMoneyDistributedCount() {
 		return moneyDistributedCount;
@@ -129,13 +124,15 @@ public class BoardManager {
 	
 		
 		for (int i = 0; i < 12; i++) {
+			Area area = new Area(areaList.get(i).getTroubleMaker(), areaList.get(i).getBuilding(), areaList.get(i).getNoOfDemon(), areaList.get(i)
+							.getNoOfTroll());
 			
 			
 			System.out.printf("%-30s%-30s%-25s%-25s%-15s%-15s\n",
-					board.getCityAreaCard().get(i).getName(), board.getArea().get(i)
-							.getColorOfMinion(), board.getArea().get(i)
-							.getTroubleMaker(), board.getArea().get(i).getBuilding(),
-							board.getArea().get(i).getNoOfDemon(), board.getArea().get(i)
+					cityAreaCardList.get(i).getName(), areaList.get(i)
+							.getColorOfMinion(), areaList.get(i)
+							.getTroubleMaker(), areaList.get(i).getBuilding(),
+					areaList.get(i).getNoOfDemon(), areaList.get(i)
 							.getNoOfTroll());		
 		}
 		
@@ -165,7 +162,7 @@ public class BoardManager {
 						.getCityAreaCard().size(); j++) {
 					System.out.println((j + 1)
 							+ ")"
-							+ board.getCityAreaCard().get(
+							+ cityAreaCardList.get(
 									board.getPlayerList().get(i)
 											.getCityAreaCard().get(j))
 									.getName());

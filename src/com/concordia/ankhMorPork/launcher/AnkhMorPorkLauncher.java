@@ -30,7 +30,7 @@ public class AnkhMorPorkLauncher {
 	private List<String> playerName = new ArrayList<String>();
 	private List<String> colorList = new ArrayList<String>();
 	private Board board;
-	private BoardManager boardManager;
+	private BoardManager boardManager = new BoardManager();
 
 	private Scanner userInputForLoadOrNewGameScanner = new Scanner(System.in);
 	private Scanner userNameInput = new Scanner(System.in);
@@ -39,9 +39,9 @@ public class AnkhMorPorkLauncher {
 	private String nameOfPlayer = null, colorOfPlayer = null;
 	AnkhMorPorkLauncher ankhMorPorkLauncher;
 
-	public AnkhMorPorkLauncher()
-	{
-		this.boardManager=new BoardManager();
+	public AnkhMorPorkLauncher() {
+		// ankhMorPorkLauncher = new AnkhMorPorkLauncher();
+//		userInputForLoadOrNewGameScanner = 
 	}
 
 	public void newGame() {
@@ -114,19 +114,16 @@ public class AnkhMorPorkLauncher {
 		}
 	}
 
-	public void loadGame(AnkhMorPorkLauncher ankhMorPorkLauncher2) {
+	public void loadGame() {
 
 		System.out.println("Enter the Filename to load the game");
 		
 		String fileName = userInputForLoadOrNewGameScanner.nextLine();
-		System.out.println(ankhMorPorkLauncher2.boardManager.getBoard());
 		board = GameStateJsonParser.parseJson(fileName,
-				ankhMorPorkLauncher2.boardManager.getBoard());
-		gameStatus();
-		
+				ankhMorPorkLauncher.board);
 	}
 
-	public void chooseGameState(AnkhMorPorkLauncher ankhMorPorkLauncher2) {
+	public void chooseGameState() {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		Common.displayMenu();
@@ -140,10 +137,10 @@ public class AnkhMorPorkLauncher {
 				newGame();
 				break;
 			case "R":
-				loadGame(ankhMorPorkLauncher2);
+				loadGame();
 				break;
 			case "r":
-				loadGame(ankhMorPorkLauncher2);
+				loadGame();
 				break;
 			case "M":
 				Common.displayMenu();
@@ -152,12 +149,12 @@ public class AnkhMorPorkLauncher {
 				break;
 			default:
 				System.out.println("Invalid Input");
-				chooseGameState(ankhMorPorkLauncher2);
+				chooseGameState();
 				break;
 				
 				
 			}
-			chooseGameState(ankhMorPorkLauncher2);
+			chooseGameState();
 		
 
 	}
@@ -166,7 +163,7 @@ public class AnkhMorPorkLauncher {
 		AnkhMorPorkLauncher ankhMorPorkLauncher = new AnkhMorPorkLauncher();
 
 		Common.display();
-		ankhMorPorkLauncher.chooseGameState(ankhMorPorkLauncher);
+		ankhMorPorkLauncher.chooseGameState();
 
 	}
 }
