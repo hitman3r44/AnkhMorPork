@@ -40,14 +40,46 @@ public class BoardManager {
 	}
 	
 	//setter and getters
+	/**
+	 * It's a function which get the board money distributed among the players. 
+	 * It doesn't require any parameter as it's class's getter function. 
+	 * <p>
+	 * It's to get the board money and use to it in some functions. 
+	 *	 
+	 * @return      It return the money value which has been distributed among players.
+	 * 
+	 */
+	
 	public Integer getMoneyDistributedCount() {
 		return moneyDistributedCount;
 	}
+	
+	
+	/**
+	 * It's a function to set board distributed money among players. 
+	 * It doesn't require any parameter as it's class's getter function. 
+	 * <p>
+	 * It's set the board money and use to set it later stages. 
+	 *
+	 * @param  moneyDistributedCount  : Money value is passed to set in member function
+	 * 
+	 */
+	
 	public void setMoneyDistributedCount(Integer moneyDistributedCount) {
 		this.moneyDistributedCount = moneyDistributedCount;
 	}
+	
+	/**
+	 * Map is created to load PersonalityCards Information from the text file. 
+	 * It loading the values from a text file which are predefined then randomize them.
+	 * <p>
+	 * It's initialized the board money and use to set it later stages. 
+	 *
+	 * @return      It's returning a hash table of personality cards
+	 *  
+	 */
 
-	//Map is created to load PersonalityCards Information from the text file
+	
 	@SuppressWarnings("serial")
 	public static final HashMap<Integer, String> personalityCard = new HashMap<Integer, String>() {
 		{
@@ -93,10 +125,15 @@ public class BoardManager {
 		}
 
 	}
-/**
- * This method displays the current Status of the Game.
- * @param board
- */
+	
+	/**
+	 * This method displays the current Status of the Game.
+	 * It receives the board object which have details of the players like number of players
+	 * playing this game, their color, name etc...
+	 * @param board 	:board class object is passed. 
+	 */
+	
+	
 	public void displayCurrentStatus(Board board) {
 		
 		Common.display();
@@ -180,13 +217,18 @@ public class BoardManager {
 		System.out.println("\nThe Bank has " + (board.getBankMoney()-this.getMoneyDistributedCount())
 				+ " Ankh-Morpork dollars");
 	}
-/**
- * This method initialize the Board for new player
- * @param noOfPlayer : number of player playing
- * @param playerList : name of the players
- * @param colorList  : color of the player
- * @return the initialized board object
- */
+	
+	
+	/**
+	 * This method initialize the Board for new player and return the board object with playrs 
+	 * details filled.
+	 * @param noOfPlayer : number of player playing
+	 * @param playerList : name of the players
+	 * @param colorList  : color of the player
+	 * @return the initialized board object
+	 */
+	
+	
 	public Board initializeBoardforNewPlayer(Integer noOfPlayer,
 			List<String> playerList, List<String> colorList) {
 		board = new Board();
@@ -198,14 +240,17 @@ public class BoardManager {
 		board = initializeNewPlayer(board, noOfPlayer, playerList, colorList);
 		return board;
 	}
-/**
- * This method create Object for new player with initial values
- * @param board2        : board object which wil contain player object as its member
- * @param noOfPlayer    :Number Of Player
- * @param playerNameList:Name of the players
- * @param colorList     :Color of the player
- * @return the initialized board with new players
- */
+	
+	
+	/**
+	 * This method create Object for new player with initial values
+	 * @param board2        : board object which wil contain player object as its member
+	 * @param noOfPlayer    :Number Of Player
+	 * @param playerNameList:Name of the players
+	 * @param colorList     :Color of the player
+	 * @return the initialized board with new players
+	 */
+	
 	private Board initializeNewPlayer(Board board2, Integer noOfPlayer,
 			List<String> playerNameList, List<String> colorList) {
 		Integer randomCardNo;
@@ -232,11 +277,13 @@ public class BoardManager {
 		board2.setPlayerList(playerList);
 		return board2;
 	}
-/**
- * THis method distribute the playerCards randomly among the player
- * @param player : player object to which cards has to be assigned randomly
- * @return the player object with assigned random playerCards
- */
+	
+	/**
+	 * THis method distribute the playerCards randomly among the player
+	 * @param player : player object to which cards has to be assigned randomly
+	 * @return the player object with assigned random playerCards
+	 */
+	
 	private Player distributePlayerCardRandomly(Player player) {
 		List<Integer> greenPlayerCard = player.getGreenPlayerCards();
 		List<Integer> brownPlayerCard = player.getBrownPlayerCards();
@@ -258,12 +305,12 @@ public class BoardManager {
 		player.setBrownPlayerCards(brownPlayerCard);
 		return player;
 	}
-/**
- * THis Method initializes the Area's on the board
- * @param board2   : board object
- * @param colorList:color of the players
- * @return
- */
+	/**
+	 * THis Method initializes the Area's on the board
+	 * @param board2   : board object
+	 * @param colorList:color of the players
+	 * @return
+	 */
 	private Board initializeAreaDetails(Board board2, List<String> colorList) {
 		for (int i = 0; i < 12; i++) {
 			Area area = new Area(false, false, 0, 0);
@@ -282,7 +329,7 @@ public class BoardManager {
 	/**
 	 * This method initializes the cityAreaCards of the board from a text file.
 	 * @param board2 : board object
-	 * @return
+	 * @return it returns the Board object with city areas filled with respect to players.
 	 */
 	@SuppressWarnings("resource")
 	private Board initializeCityAreaCard(Board board2) {
@@ -317,13 +364,14 @@ public class BoardManager {
 
 		return board2;
 	}
-/**
- * 
- * @param start		   : random value lower bound
- * @param end          : random value upper bound
- * @param existingCard : contains the random values already taken before 
- * @return the random value not taken before
- */
+	/**
+	 * The function generate random number with given start and end values and randomized the 
+	 * cards.
+	 * @param start		   : random value lower bound
+	 * @param end          : random value upper bound
+	 * @param existingCard : contains the random values already taken before 
+	 * @return the random value not taken before
+	 */
 	public int generateRandom(int start, int end, List<Integer> existingCard) {
 		Random rand = new Random();
 		int range = end - start + 1;
@@ -336,10 +384,26 @@ public class BoardManager {
 		return random;
 	}
 	//setters and getters method
+	
+	/**
+	 * This is setter function to intialized the board 
+	 * cards.
+	 * @return board initialized value
+	 * 
+	 */
+	
 	public Board getBoard() {
 		return board;
 	}
 
+	/**
+	 * This is setter function to intialized the board 
+	 * cards.
+	 * @param board : Gets Board member and initialized it
+	 * 
+	 */
+	
+	
 	public void setBoard(Board board) {
 		this.board = board;
 	}
