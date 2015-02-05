@@ -142,26 +142,47 @@ public class Player {
 	public void setPersonalityCard(Integer personalityCard) {
 		this.personalityCard = personalityCard;
 	}
-/**
- *  this function retrieves the green cards a player holds
- * @return green card returns as integer values
- */
+	
+	
+	/**
+	 *  this function retrieves the green cards a player holds
+	 * @return green card returns as integer values
+	 */
 	public List<Integer> getGreenPlayerCards() {
 		return greenPlayerCards;
 	}
+	
+	
+	/**
+	 * This functions is setting the green card for a player
+	 * @param playerCards : List of the green cards is passed to assigned to a player.
+	 */
 
 	public void setGreenPlayerCards(List<Integer> playerCards) {
 		this.greenPlayerCards = playerCards;
 	}
 
+	/**
+	 * This functions is to get the list of brown cards a player can have.
+	 * @return It's returning list of the brown cards a player have.
+	 */
 	public List<Integer> getBrownPlayerCards() {
 		return brownPlayerCards;
 	}
 
+	/**
+	 * This functions is setting the brown cards for a player
+	 * @param playerCards : List of the brown cards is passed to assigned to a player.
+	 */
+	
 	public void setBrownPlayerCards(List<Integer> playerCards) {
 		this.brownPlayerCards = playerCards;
 	}
 
+	/**
+	 * This functions is to get a city area card with respect to a player.
+	 * @return it's return the List of the city area cards a player have.
+	 */
 	public List<Integer> getCityAreaCard() {
 		return cityAreaCard;
 	}
