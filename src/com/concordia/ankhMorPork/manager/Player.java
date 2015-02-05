@@ -154,7 +154,7 @@ public class Player {
 	
 	
 	/**
-	 * This functions is setting the green card for a player
+	 * This function is setting the green card for a player
 	 * @param playerCards : List of the green cards is passed to assigned to a player.
 	 */
 
@@ -163,7 +163,7 @@ public class Player {
 	}
 
 	/**
-	 * This functions is to get the list of brown cards a player can have.
+	 * This function is to get the list of brown cards a player can have.
 	 * @return It's returning list of the brown cards a player have.
 	 */
 	public List<Integer> getBrownPlayerCards() {
@@ -171,7 +171,7 @@ public class Player {
 	}
 
 	/**
-	 * This functions is setting the brown cards for a player
+	 * This function is setting the brown cards for a player
 	 * @param playerCards : List of the brown cards is passed to assigned to a player.
 	 */
 	
@@ -180,13 +180,17 @@ public class Player {
 	}
 
 	/**
-	 * This functions is to get a city area card with respect to a player.
+	 * This function is to get a city area card with respect to a player.
 	 * @return it's return the List of the city area cards a player have.
 	 */
 	public List<Integer> getCityAreaCard() {
 		return cityAreaCard;
 	}
 
+	/**
+	 * This function is used to set the City area card for a player.
+	 * @param cityAreaCard : city area cards list is sent to set for a player.
+	 */
 	public void setCityAreaCard(List<Integer> cityAreaCard) {
 		this.cityAreaCard = cityAreaCard;
 	}
