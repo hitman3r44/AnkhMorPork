@@ -71,10 +71,14 @@ public class Player {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+    /**
+     * getColor function retrieves the color of the player
+     * @return color is returned as the string value 
+     */
 	public String getColor() {
 		return color;
 	}
+	
 
 	public void setColor(String color) {
 		this.color = color;
