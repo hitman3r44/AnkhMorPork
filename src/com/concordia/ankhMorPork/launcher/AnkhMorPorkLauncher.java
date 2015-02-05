@@ -13,7 +13,8 @@ import com.concordia.ankhMorPork.manager.BoardManager;
 
 /**
  * This Class Launch the game and used as a input interface between user and the
- * game.
+ * game. Most of the class object and variable are defined in class definition 
+ * in order to access them throughout the class.
  */
 
 public class AnkhMorPorkLauncher {
@@ -36,6 +37,20 @@ public class AnkhMorPorkLauncher {
 //		userInputForLoadOrNewGameScanner = 
 	}
 
+	/**
+	 * The newGame method is responsible to start a new game. 
+	 * The method is called when a user choose to start a new game	 
+	 * <p>
+	 * This method always asked to input the number of player playing the new game.
+	 * Then it's asked to enter the players' name and system assigned a color to player
+	 * for his / her minions and other objects, an amount is also assigned to each player
+	 * according to game rules to initialize the game at its start point.
+	 * </p>
+	 * 
+	 * @see         Interactive screen taking users' input
+	 */
+	
+	
 	public void newGame() {
 
 		System.out.println("Best of Luck with your New game\n\n");
@@ -73,23 +88,49 @@ public class AnkhMorPorkLauncher {
 
 	}
 
+	/**
+	 * The gameStatus method shows the current status of the game. 
+	 * The method is called when a user choose to see the game's status.	 
+	 * <p>
+	 * This method asked to input the Y or N if need to see the game status or not.
+	 * On selecting Y it shows the current board status.
+	 * </p>
+	 * 
+	 * @see         You see which areas are occupied with which minions, buildings etc.. 
+	 * @see         How much a player have dollors, which personality card. 
+	 */
+	
 	private void gameStatus() {
 		// See Game Status
 		System.out.println("\nWould you Like to see the Game Status??\t\tYes(Y)\tNo(N)");
 		if ("Y".equalsIgnoreCase(userInputForLoadOrNewGameScanner
 				.nextLine())) {
 			boardManager.displayCurrentStatus(boardManager.getBoard());
-			savegame();
+			saveGame();
 		}
 		else if ("N".equalsIgnoreCase(userInputForLoadOrNewGameScanner
 				.nextLine())) {
-			savegame();
+			saveGame();
 
 		}
 		
 	}
 
-	public void savegame() {
+	/**
+	 * The savegame method saves the games current state. 
+	 * The method is called when a user choose to save the game's status.	 
+	 * <p>
+	 * This method asked to input the file name you want to save the game.
+	 * It save the game status in json format. JSON format was selected due to it's 
+	 * efficiency and compatibility.
+	 * </p>
+	 * 
+	 * @see         On calling this function, you are asked to save file name 
+	 * 
+	 */
+	
+	
+	public void saveGame() {
 
 		System.out.println("\n\n\nPress 'S' to save the game");
 		String userInputForSavingTheGame = userInputScanner.nextLine();
@@ -106,6 +147,17 @@ public class AnkhMorPorkLauncher {
 		}
 	}
 
+	/**
+	 * The loadGame method load the saved game. 
+	 * The method is called when a user choose to load an existing game.	 
+	 * <p>
+	 * This method asked to input the file name you want to load an existing game.
+	 * Json formatted file name is passed to a parseJson function for further operation.
+	 * </p>
+	 * 
+	 * @see         On calling this function, you are asked to type a file name. 
+	 * 
+	 */
 	public void loadGame() {
 
 		System.out.println("Enter the Filename to load the game");
@@ -115,6 +167,20 @@ public class AnkhMorPorkLauncher {
 				ankhMorPorkLauncher.board);
 	}
 
+	
+	/**
+	 * The chooseGameState is function to perform the start function of the game. 
+	 * The method is called by default by the system.	 
+	 * <p>
+	 * This method asked to input N for new game, R to load an existing game and M to show different
+	 * menus option.
+	 * </p>
+	 * 
+	 * @see         On calling this function, you are asked to type a character to perform further. 
+	 * 
+	 */
+	
+	
 	public void chooseGameState() {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
