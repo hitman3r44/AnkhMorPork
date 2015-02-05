@@ -33,9 +33,4 @@ public class PlayerTest {
 		assertEquals(expected, player.getColor());
 	}
 
-/*	@Test
-	public void testSetColor() {
-		fail("Not yet implemented");
-	}
-*/
 }
