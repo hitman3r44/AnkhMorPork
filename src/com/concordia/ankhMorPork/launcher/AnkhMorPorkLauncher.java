@@ -168,10 +168,14 @@ public class AnkhMorPorkLauncher {
 	 * 
 	 */
 	public void loadGame(AnkhMorPorkLauncher ankhMorPorkLauncher2) {
+		Common.listOfTheFiles(Global.SAVED_FILE_DIRECTORY_PATH);
 
-		System.out.println("Enter the Filename to load the game");
+		System.out.println("Enter the a Number to load the game");
 		
-		String fileName = userInputForLoadOrNewGameScanner.nextLine();
+		int userInput = Common.userInputValidationCheck();
+		String fileName = Common.userChoice(userInput);
+		
+//		int fileName = userInputForLoadOrNewGameScanner.nextInt();
 		board = GameStateJsonParser.parseJson(fileName,
 				ankhMorPorkLauncher2.boardManager.getBoard());
 		if(board!=null){

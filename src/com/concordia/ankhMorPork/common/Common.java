@@ -19,7 +19,7 @@ public class Common {
 	 *  
 	 * @param directoryPath : It's a string path of the directory need to read.
 	 */
-	public void listOfTheFiles(String directoryPath){
+	public static void listOfTheFiles(String directoryPath){
 		
 		File folder = new File(directoryPath);
 		File[] listOfFiles = folder.listFiles();
@@ -33,7 +33,7 @@ public class Common {
 		      if (listOfFiles[i].isFile()) {
 		    	Global.LIST_OF_SAVED_FILES.add(i, listOfFiles[i].getName()
 		    			.substring(0, listOfFiles[i].getName().lastIndexOf('.')));
-		        System.out.println("File " + listOfFiles[i].getName());
+		        System.out.println( i+1+". " + listOfFiles[i].getName());
 		      }
 		      //For directory
 		      else if (listOfFiles[i].isDirectory()) {
@@ -48,7 +48,7 @@ public class Common {
 	 * This function is taking user input hat should be an integer. In-case of invalid input it's asking to re-enter.
 	 * @return userInput: It returns the userInput which is an integer. 
 	 */
-	public int userInputValidationCheck(){
+	public static int userInputValidationCheck(){
 		Scanner scanner = new Scanner(System.in);
 	    int userInput;
 	    
@@ -61,7 +61,7 @@ public class Common {
 	        userInput = scanner.nextInt();
 	        	        
 	    } while ((userInput <= 0) || (userInput > Global.LIST_OF_SAVED_FILES.size()));
-	    System.out.println("Thank you! Got " + userInput);
+//	    System.out.println("Thank you! Got " + userInput);
 	    return userInput;
 	    
 	} // End of userInputValidationCheck
@@ -71,9 +71,10 @@ public class Common {
 	 * This function is printing all the saved files. 
 	 * @param arrayListPosition: It's a list of different position of the board 
 	 */
-	public void userChoice(Integer arrayListPosition){
-		Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1);
+	public static String userChoice(Integer arrayListPosition){
+		String saveedFileName = Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1);
 		System.out.println(Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1));
+		return saveedFileName;
 	}
 	
 	
