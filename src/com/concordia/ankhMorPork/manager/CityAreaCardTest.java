@@ -7,48 +7,65 @@ import org.junit.Test;
 
 public class CityAreaCardTest {
 
+
+	CityAreaCard cityareacard= new CityAreaCard();
 	@Before
 	public void setUp() throws Exception {
+		
 	}
 
 	@Test
 	public void testGetIdentifier() {
-		fail("Not yet implemented");
+		Integer Identifier=2;
+		cityareacard.setIdentifier(Identifier);
+		Integer expected=2;
+		assertEquals(expected, cityareacard.getIdentifier());
+		
 	}
 
-	@Test
+	/*@Test
 	public void testSetIdentifier() {
 		fail("Not yet implemented");
 	}
-
+*/
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		String city="Dolly Sisters";
+		cityareacard.setName(city);
+		String expected="Dolly Sisters";
+		assertEquals(expected, cityareacard.getName());
 	}
 
-	@Test
+/*	@Test
 	public void testSetName() {
 		fail("Not yet implemented");
 	}
-
+*/
 	@Test
 	public void testGetDescription() {
-		fail("Not yet implemented");
+	String description="Dolly sister values 12$";
+	cityareacard.setDescription(description);
+	String expected= "Dolly sister values 12$";
+	assertEquals(expected, cityareacard.getDescription());
+	
 	}
 
-	@Test
+/*	@Test
 	public void testSetDescription() {
 		fail("Not yet implemented");
 	}
-
+*/
 	@Test
 	public void testGetCost() {
-		fail("Not yet implemented");
+    Integer cost= 7;
+    cityareacard.setCost(cost);
+    Integer expected= 7;
+    assertEquals(expected, cityareacard.getCost());
 	}
 
-	@Test
+/*	@Test
 	public void testSetCost() {
 		fail("Not yet implemented");
 	}
-
-}
+*/
+	}

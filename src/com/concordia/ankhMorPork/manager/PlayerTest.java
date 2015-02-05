@@ -6,26 +6,34 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class PlayerTest {
-
+	
+	int playerID= 3;
+	String playerName="Obama";
+	String color;
+	Player player= new Player(playerID, playerName, color);
 	@Before
 	public void setUp() throws Exception {
 	}
 
 	@Test
 	public void testGetPlayerId() {
-		fail("Not yet implemented");
+		player.setPlayerId(playerID);
+		int expected=3;
+		assertEquals(expected, player.getPlayerId());
 	}
-
+/*
 	@Test
 	public void testSetPlayerId() {
 		fail("Not yet implemented");
 	}
-
+*/
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+	player.setName(playerName);
+	String expected="Obama";
+	assertEquals(expected, player.getName());
 	}
-
+/*
 	@Test
 	public void testSetName() {
 		fail("Not yet implemented");
@@ -40,5 +48,5 @@ public class PlayerTest {
 	public void testSetColor() {
 		fail("Not yet implemented");
 	}
-
+*/
 }
