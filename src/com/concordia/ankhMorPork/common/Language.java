@@ -13,6 +13,8 @@ package com.concordia.ankhMorPork.common;
  * */
 public class Language {
 	
+	
+	//jSON file name
 	final public static String DISCWORLD="discWorld";
 	final public static String PLAYERS="players";
 	final public static String NO_OF_PLAYERS="noOfPlayers";
@@ -37,6 +39,9 @@ public class Language {
 	final public static  String IS_BUILDING_AVAILABLE = "Is_building_Available";
 	final public static  String NO_OF_TROLL = "no_of_troll";
 	final public static  String NO_OF_DEMONS = "no_Of_demons";
+	
+	//Launcher 
+	
 	
 	
 }
