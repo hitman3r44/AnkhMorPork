@@ -26,8 +26,17 @@ public class Player {
 	private List<Integer> brownPlayerCards;
 	private List<Integer> cityAreaCard;
 
-	public Player(int i, String playerName, String color) {
-		this.playerId = i;
+	/**
+	 * Parameterized constructor to initialize Player details on initialization.
+	 * @param playerID : Assigning player id to class member.
+	 * @param playerName	: Setting up the player name.
+	 * @param color : Giving a color to a player's object.
+	 
+	 */
+	
+	
+	public Player(int playerID, String playerName, String color) {
+		this.playerId = playerID;
 		this.name = playerName;
 		this.color = color;
 		this.greenPlayerCards = new ArrayList<Integer>();
