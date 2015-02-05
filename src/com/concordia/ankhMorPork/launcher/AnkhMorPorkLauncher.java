@@ -32,131 +32,159 @@ public class AnkhMorPorkLauncher {
 	private Board board;
 	private BoardManager boardManager = new BoardManager();
 
-	@SuppressWarnings("resource")
-	public static void main(String[] args) {
-		String fileName = null;
-		AnkhMorPorkLauncher ankhMorPorkLauncher = new AnkhMorPorkLauncher();
-		Common.display();
-		System.out
-				.println("Press 'R' to Resume the game or Press 'N' to Start a new game\n\n\n");
+	private Scanner userInputForLoadOrNewGameScanner = new Scanner(System.in);
+	private Scanner userNameInput = new Scanner(System.in);
+	private Scanner userInputScanner = new Scanner(System.in);
 
-		Scanner userInputForLoadOrNewGameScanner = new Scanner(System.in);
-		Scanner userNameInput = new Scanner(System.in);
-		Scanner colorNameInput = new Scanner(System.in);
-		Scanner userInputScanner = new Scanner(System.in);
+	private String nameOfPlayer = null, colorOfPlayer = null;
+	AnkhMorPorkLauncher ankhMorPorkLauncher;
 
-		String nameOfPlayer = null, colorOfPlayer = null;
+	public AnkhMorPorkLauncher() {
+		// ankhMorPorkLauncher = new AnkhMorPorkLauncher();
+//		userInputForLoadOrNewGameScanner = 
+	}
 
-		ankhMorPorkLauncher.input = userInputForLoadOrNewGameScanner.nextLine();
+	public void newGame() {
 
-		if ("N".equalsIgnoreCase(ankhMorPorkLauncher.input)) {
-			System.out.println("Best of Luck with your New game\n\n");
-			System.out.println("How many players you want to play: ");
+		System.out.println("Best of Luck with your New game\n\n");
+		System.out.println("How many players you want to play: ");
 
-			try {
-				Global.numberOfPlayers = Integer.parseInt(userInputScanner
-						.nextLine());
+		try {
+			Global.numberOfPlayers = Integer.parseInt(userInputScanner
+					.nextLine());
 
-				do {
-					System.out.println("PLease enter a number between 2 and 4!");
-					
-					while (!userInputScanner.hasNextInt()) {
-						userInputScanner.next(); // this is important!
-					}
-					Global.numberOfPlayers = userInputScanner.nextInt();
-				} while (Global.numberOfPlayers <= 0
-						|| Global.numberOfPlayers < 2
-						|| Global.numberOfPlayers > 4);
-				System.out.println("Thank you! Got " + Global.numberOfPlayers);
+			do {
+				System.out.println("PLease enter a number between 2 and 4!");
 
-				for (int i = 0; i < Global.numberOfPlayers; i++) {
-					System.out.println("Enter the name of Player" + (i + 1));
-					nameOfPlayer = userNameInput.nextLine();
-					ankhMorPorkLauncher.playerName.add(nameOfPlayer);
-					System.out.println("Hi " + nameOfPlayer + "! \n");
-
-					colorOfPlayer = Global.colorList.get(i);
-					System.out.println("Your Color is: "+ colorOfPlayer);
-
-					if (ankhMorPorkLauncher.colorList.size() != 0
-							&& ankhMorPorkLauncher.colorList
-									.contains(colorOfPlayer)) {
-						System.out
-								.println("This color is already taken by other player. Please choose color other than this "
-										+ ankhMorPorkLauncher.colorList);
-						colorOfPlayer = userInputScanner.nextLine();
-					}
-					ankhMorPorkLauncher.colorList.add(colorOfPlayer);
+				while (!userInputScanner.hasNextInt()) {
+					userInputScanner.next(); // this is important!
 				}
-				ankhMorPorkLauncher.board = ankhMorPorkLauncher.boardManager
-						.initializeBoardforNewPlayer(Global.numberOfPlayers,
-								ankhMorPorkLauncher.playerName,
-								ankhMorPorkLauncher.colorList);
+				Global.numberOfPlayers = userInputScanner.nextInt();
+			} while (Global.numberOfPlayers <= 0 || Global.numberOfPlayers < 2 || Global.numberOfPlayers > 4);
+			System.out.println("Thank you! Got " + Global.numberOfPlayers);
 
-				ankhMorPorkLauncher.boardManager
-						.setBoard(ankhMorPorkLauncher.board);
+			for (int i = 0; i < Global.numberOfPlayers; i++) {
+				System.out.println("Enter the name of Player" + (i + 1));
+				nameOfPlayer = userNameInput.nextLine();
+				playerName.add(nameOfPlayer);
+				System.out.println("Hi " + nameOfPlayer + "! \n");
 
-				// See Game Status
-				System.out
-						.println("\nWould you Like to see the Game Status??\t\tYes\tNo");
-				if ("Yes".equalsIgnoreCase(userInputForLoadOrNewGameScanner
-						.nextLine())) {
-					ankhMorPorkLauncher.boardManager
-							.displayCurrentStatus(ankhMorPorkLauncher.boardManager
-									.getBoard());
-				}
+				colorOfPlayer = Global.colorList.get(i);
+				System.out.println("Your Color is: " + colorOfPlayer);
 
-				System.out.println("\n\n\nPress 'S' to save the game");
-				String userInputForSavingTheGame = userInputScanner.nextLine();
-
-				if ("S".equalsIgnoreCase(userInputForSavingTheGame)) {
-					// Take save file name from the user
+				if (colorList.size() != 0 && colorList.contains(colorOfPlayer)) {
 					System.out
-							.println("Please enter the name of file to save:");
-					Global.saveFileName = userInputScanner.nextLine();
-					// ankhMorPorkLauncher.boardManager.saveGameStatus(Global.SAVED_FILE_DIRECTORY_PATH+"/"+Global.saveFileName,ankhMorPorkLauncher.boardManager.getBoard());
-					// Generate the JSON format file as a save file
-					GameStateJsonGenerator gameStateJsonGenerator = new GameStateJsonGenerator();
-					gameStateJsonGenerator
-							.saveGameCurrentStateToJsonFormate(ankhMorPorkLauncher.board);
-
-				} else {
-					System.out.println("Sorry you put the wrong input");
+					.println("This color is already taken by other player. Please choose color other than this "
+							+ colorList);
+					colorOfPlayer = userInputScanner.nextLine();
 				}
-
-			} catch (NumberFormatException e) {
-				System.out
-						.println("Invalid Input : Number of player must be integer between 2 and 4");
+				colorList.add(colorOfPlayer);
 			}
-		} else if ("R".equalsIgnoreCase(ankhMorPorkLauncher.input)) {
-			System.out.println("Enter the Filename to load the game");
-			fileName = userInputForLoadOrNewGameScanner.nextLine();
-			ankhMorPorkLauncher.board = GameStateJsonParser.parseJson(fileName,
-					ankhMorPorkLauncher.board);
-			// /commented the below code to load from text file, since working
-			// on json
-			/*
-			 * try {
-			 * 
-			 * userInputForLoadOrNewGameScanner = new Scanner(new
-			 * File("./resources/savedGame/"+fileName));
-			 * 
-			 * while (userInputForLoadOrNewGameScanner.hasNext()) {
-			 * StringBuilder sb = new StringBuilder();
-			 * sb.append(userInputForLoadOrNewGameScanner.nextLine());
-			 * inputArray = sb.toString().split("="); if (inputArray.length ==
-			 * 2) { //InputMap.put(inputArray[0], inputArray[1]);
-			 * inputList.add(sb.toString());
-			 * 
-			 * } else{ System.out.println("input validation fails"); } }
-			 * ankhMorPorkLauncher
-			 * .board=ankhMorPorkLauncher.boardManager.updatePlayerInfo
-			 * (inputList); } catch (FileNotFoundException e) { // TODO
-			 * Auto-generated catch block e.printStackTrace(); }
-			 */
-		} else {
-			System.out.println("Invalid Input");
+			board = boardManager.initializeBoardforNewPlayer(
+					Global.numberOfPlayers, playerName, colorList);
+
+			boardManager.setBoard(board);
+
+			// See Game Status
+			System.out.println("\nWould you Like to see the Game Status??\t\tYes(Y)\tNo(N)");
+			if ("Y".equalsIgnoreCase(userInputForLoadOrNewGameScanner
+					.nextLine())) {
+				boardManager.displayCurrentStatus(boardManager.getBoard());
+				savegame();
+			}
+			else if ("N".equalsIgnoreCase(userInputForLoadOrNewGameScanner
+					.nextLine())) {
+				savegame();
+
+			}			
+
+		} catch (NumberFormatException e) {
+			System.out
+			.println("Invalid Input : Number of player must be integer between 2 and 4");
 		}
+
+	}
+
+	public void savegame() {
+
+		System.out.println("\n\n\nPress 'S' to save the game");
+		String userInputForSavingTheGame = userInputScanner.nextLine();
+
+		if ("S".equalsIgnoreCase(userInputForSavingTheGame)) {
+			// Take save file name from the user
+			System.out.println("Please enter the name of file to save:");
+			Global.saveFileName = userInputScanner.nextLine();
+			// boardManager.saveGameStatus(Global.SAVED_FILE_DIRECTORY_PATH+"/"+Global.saveFileName,ankhMorPorkLauncher.boardManager.getBoard());
+			// Generate the JSON format file as a save file
+			GameStateJsonGenerator gameStateJsonGenerator = new GameStateJsonGenerator();
+			gameStateJsonGenerator.saveGameCurrentStateToJsonFormate(board);
+
+		}
+	}
+
+	public void loadGame() {
+
+		System.out.println("Enter the Filename to load the game");
+		userInputForLoadOrNewGameScanner.nextLine();
+		String fileName = null;
+		board = GameStateJsonParser.parseJson(fileName,
+				ankhMorPorkLauncher.board);
+		// /commented the below code to load from text file, since working
+		// on json
+		/*
+		 * try {
+		 * 
+		 * userInputForLoadOrNewGameScanner = new Scanner(new
+		 * File("./resources/savedGame/"+fileName));
+		 * 
+		 * while (userInputForLoadOrNewGameScanner.hasNext()) { StringBuilder sb
+		 * = new StringBuilder();
+		 * sb.append(userInputForLoadOrNewGameScanner.nextLine()); inputArray =
+		 * sb.toString().split("="); if (inputArray.length == 2) {
+		 * //InputMap.put(inputArray[0], inputArray[1]);
+		 * inputList.add(sb.toString());
+		 * 
+		 * } else{ System.out.println("input validation fails"); } }
+		 * ankhMorPorkLauncher
+		 * .board=ankhMorPorkLauncher.boardManager.updatePlayerInfo (inputList);
+		 * } catch (FileNotFoundException e) { // TODO Auto-generated catch
+		 * block e.printStackTrace(); }
+		 */
+	}
+
+	public void chooseGameState() {
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Press 'R' to Resume the game or Press 'N' to Start a new game\n\n\n");
+
+		input = scanner.nextLine();
+
+		switch (input) {
+		case "N":
+			newGame();
+			break;
+		case "n":
+			newGame();
+			break;
+		case "R":
+			loadGame();
+			break;
+		case "r":
+			loadGame();
+			break;
+		default:
+			System.out.println("Invalid Input");
+			chooseGameState();
+			break;
+		}
+
+	}
+
+	public static void main(String[] args) {
+		AnkhMorPorkLauncher ankhMorPorkLauncher = new AnkhMorPorkLauncher();
+
+		Common.display();
+		ankhMorPorkLauncher.chooseGameState();
 
 	}
 }

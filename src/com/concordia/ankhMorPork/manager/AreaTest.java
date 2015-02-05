@@ -1,16 +1,12 @@
 package com.concordia.ankhMorPork.manager;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 
 public class AreaTest {
 	Boolean troubleMaker=false;
