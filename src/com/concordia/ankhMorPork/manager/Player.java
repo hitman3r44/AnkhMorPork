@@ -42,18 +42,31 @@ public class Player {
 		this.greenPlayerCards = new ArrayList<Integer>();
 
 	}
+	/**
+	 * It retrieves the player identity
+	 * @return returns player identity
+	 */
 
 	public int getPlayerId() {
 		return playerId;
 	}
-
+/**
+ * Sets the player ID 
+ */
 	public void setPlayerId(int playerId) {
 		this.playerId = playerId;
 	}
 
+	/**
+	 * This function retrieve the name of the player
+	 * @return Name of the players is returned as string
+	 */
 	public String getName() {
 		return name;
 	}
+	/**
+	 * It sets the name of the players in form of string
+	 */
 
 	public void setName(String name) {
 		this.name = name;
