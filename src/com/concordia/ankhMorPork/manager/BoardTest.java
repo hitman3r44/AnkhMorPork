@@ -31,14 +31,8 @@ public class BoardTest {
 		
 		assertEquals(expected,result);
 	}
-	*/
-
-	/*	@Test
-	public void testGetPersonalityCardDetails() {
-		fail("Not yet implemented");
-	}
-
-/*	@Test
+	
+	@Test
 	public void testSetPersonalityCardDetails() {
 		fail("Not yet implemented");
 	}

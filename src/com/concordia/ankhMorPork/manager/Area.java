@@ -2,15 +2,6 @@ package com.concordia.ankhMorPork.manager;
 
 import java.util.ArrayList;
 import java.util.List;
-/**
- * 
- * @author VarunPattiah
- * Feb 3, 2015
- * 10:36:16 AM
- * 2015
- * @email: varunpattiah@gmail.com
- */
-
 
 /**
  * Class contains the information about an Area on the board.

@@ -1,14 +1,5 @@
 package com.concordia.ankhMorPork.manager;
 /**
- * 
- * @author VarunPattiah
- * Feb 3, 2015
- * 10:51:16 AM
- * 2015
- * @email: varunpattiah@gmail.com
- */
-
-/**
  *This class contains detailed information about CityAreaCard
  */
 
