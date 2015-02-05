@@ -9,7 +9,7 @@ package com.concordia.ankhMorPork.manager;
  */
 
 /**
- *This class contains detailed information about CityAreaCard
+ *  CityAreaCard class is defining the structure of the cards that a player will acquire.
  */
 
 public class CityAreaCard {

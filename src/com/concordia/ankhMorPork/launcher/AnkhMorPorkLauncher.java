@@ -1,13 +1,5 @@
 package com.concordia.ankhMorPork.launcher;
 
-/**
- * 
- * @author VarunPattiah
- * Feb 3, 2015
- * 9:56:03 AM
- * 2015
- * @email: varunpattiah@gmail.com
- */
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -159,6 +151,15 @@ public class AnkhMorPorkLauncher {
 
 	}
 
+	/**
+	 * The main function of this program is declaring AnkhMorPorkLauncher object. 
+	 * It is displaying common features.
+	 * A method chooseGameStatus of AnkhMorPorkLauncher is called for users input. 
+	 * <p>
+	 * This method is not returning anything but it's the main method of the program from. 
+	 * game will be executed. It will require some necessary input from users on the basis of
+	 * those inputs program will do the necessary actions.  
+	 */
 	public static void main(String[] args) {
 		AnkhMorPorkLauncher ankhMorPorkLauncher = new AnkhMorPorkLauncher();
 
