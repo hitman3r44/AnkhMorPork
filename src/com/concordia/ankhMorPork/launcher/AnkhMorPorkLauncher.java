@@ -203,8 +203,6 @@ public class AnkhMorPorkLauncher {
 			case "r":
 				loadGame(ankhMorPorkLauncher2);
 				break;
-			case "m":	
-				break;
 			case "e":
 				Common.displayThankyouMenu();
 				break;

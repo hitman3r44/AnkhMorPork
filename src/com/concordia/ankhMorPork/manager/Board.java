@@ -26,7 +26,14 @@ public class Board {
 	private Integer noOfPlayer;
 	private List<Player> playerList;
 	private List<Integer> existingPlayercards;
+	private Integer playerTurn;
 	
+	public Integer getPlayerTurn() {
+		return playerTurn;
+	}
+	public void setPlayerTurn(Integer playerTurn) {
+		this.playerTurn = playerTurn;
+	}
 	//setters and getters
 	public List<Area> getArea() {
 		return area;

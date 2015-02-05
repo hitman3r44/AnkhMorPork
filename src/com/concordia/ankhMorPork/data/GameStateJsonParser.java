@@ -72,6 +72,8 @@ public class GameStateJsonParser {
 			board.setBankMoney(bank_amount);
 			int noOfPlayers = responseData.getInt(Language.NO_OF_PLAYERS);
 			board.setNoOfPlayer(noOfPlayers);
+			int playerTurn = responseData.getInt(Language.PLAYER_TURN);
+			board.setPlayerTurn(playerTurn);
 			final JSONArray geodata = responseData
 					.getJSONArray(Language.PLAYERS);
 			final int n = geodata.length();

@@ -37,6 +37,7 @@ public class BoardManager {
 	public BoardManager()
 	{
 		this.board=new Board();
+		this.board=this.initializeCityAreaCard(board);
 	}
 	
 	//setter and getters
@@ -140,7 +141,7 @@ public class BoardManager {
 		System.out.println("                   Game Status");
 		System.out.println("                   ************\n\n");
 		System.out.println("Number Of Players : " + board.getNoOfPlayer());
-		 
+		 System.out.println("\nPlayer Turn   : Player No. "+board.getPlayerTurn());
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
 			Player player = new Player((i + 1), board.getPlayerList().get(i).getName(), board.getPlayerList().get(i).getColor());
 			
@@ -231,6 +232,7 @@ public class BoardManager {
 	
 	public Board initializeBoardforNewPlayer(Integer noOfPlayer,
 			List<String> playerList, List<String> colorList) {
+		Integer playerTurn=0;
 		board = new Board();
 		board.setBankMoney(Global.BANK_MONEY);
 		board.setNoOfPlayer(noOfPlayer);
@@ -238,6 +240,9 @@ public class BoardManager {
 		board = initializeCityAreaCard(board);
 		board = initializeAreaDetails(board, colorList);
 		board = initializeNewPlayer(board, noOfPlayer, playerList, colorList);
+		List<Integer> existingCard=new ArrayList<Integer>();
+		playerTurn=generateRandom(1, noOfPlayer, existingCard);
+		board.setPlayerTurn(playerTurn);
 		return board;
 	}
 	

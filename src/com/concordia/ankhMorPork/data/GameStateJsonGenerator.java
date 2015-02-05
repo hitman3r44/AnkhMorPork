@@ -48,6 +48,7 @@ public class GameStateJsonGenerator {
 			jGenerator.writeNumberField(Language.BANK_MONEY, board.getBankMoney());
 			// Number of player
 			jGenerator.writeStringField(Language.NO_OF_PLAYERS,board.getNoOfPlayer().toString());
+			jGenerator.writeStringField(Language.PLAYER_TURN,board.getPlayerTurn().toString());
 			jGenerator.writeArrayFieldStart(Language.PLAYERS);
 			for (int i = 0; i < board.getNoOfPlayer(); i++) {
 				 
