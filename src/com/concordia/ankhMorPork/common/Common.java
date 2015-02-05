@@ -14,7 +14,11 @@ public class Common {
 	
 	
 
-	// This function list all the files and directory list of the certain path
+	/** 
+	 * This function list all the files and directory list of the certain path. All the files name are saved in a list 
+	 *  
+	 * @param directoryPath : It's a string path of the directory need to read.
+	 */
 	public void listOfTheFiles(String directoryPath){
 		
 		File folder = new File(directoryPath);
@@ -40,6 +44,10 @@ public class Common {
 		
 	}// End of listOfTheFiles
 	
+	/**
+	 * This function is taking user input hat should be an integer. In-case of invalid input it's asking to re-enter.
+	 * @return userInput: It returns the userInput which is an integer. 
+	 */
 	public int userInputValidationCheck(){
 		Scanner scanner = new Scanner(System.in);
 	    int userInput;
@@ -58,6 +66,11 @@ public class Common {
 	    
 	} // End of userInputValidationCheck
 	
+	
+	/**
+	 * This function is printing all the saved files. 
+	 * @param arrayListPosition: It's a list of different position of the board 
+	 */
 	public void userChoice(Integer arrayListPosition){
 		Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1);
 		System.out.println(Global.LIST_OF_SAVED_FILES.get(arrayListPosition-1));
@@ -85,6 +98,11 @@ public class Common {
 		common.userChoice(userInput);
 		
 	}
+	
+	/**
+	 * The  display function is showing the welcome text in the start of the game.
+	 * 
+	 */
 
 	public static void display() {
 		System.out
@@ -96,6 +114,11 @@ public class Common {
 						+ "\n" + "\n");
 		
 	}
+	
+	/**
+	 * The  displayMenu function is showing the menus.
+	 * 
+	 */
 
 	public static void displayMenu() {
 		System.out.println("\n\t\t\t Press 'N' to Play a New Game\n");
@@ -103,6 +126,12 @@ public class Common {
 		System.out.println("\t\t\t Press 'E' to Exit from the game Game");
 	}
 
+	
+	/**
+	 * The  displayThankyouMenu function is showing thankyou message on exiting the game.
+	 * 
+	 */
+	
 	public static void displayThankyouMenu() {
 		System.out.println("\t\t\tThank You !! We are Exiting from the game.");
 		
