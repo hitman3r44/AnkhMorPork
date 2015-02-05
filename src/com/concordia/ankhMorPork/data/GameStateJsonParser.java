@@ -17,9 +17,9 @@ import com.concordia.ankhMorPork.manager.Player;
 public class GameStateJsonParser {
 
 	/**
-	 * This function convert the string into integer list
-	 * @param green_cards : string of integer seperated by delimiter
-	 * @return
+	 * This function convert the string (comma separated integers) into integer list
+	 * @param green_cards : string of integer separated by comma
+	 * @return It's returning the list of integers 
 	 */
 	public static List<Integer> get_integer_list(String green_cards) {
 		List<Integer> temp_int_list = new ArrayList<Integer>();
@@ -48,10 +48,10 @@ public class GameStateJsonParser {
 	}
 
 	/**
-	 * 
-	 * @param fileName : Name of the file to be parsed
-	 * @param board    : Board object which has to be loaded with value from the Json file
-	 * @return
+	 * This function is parsing the json file and adjust the value on the board.
+	 * @param fileName : Name of the file to be parsed.
+	 * @param board    : Board object which has to be loaded with value from the JSON file.
+	 * @return it's returning the Board object loaded with a saved game.
 	 */
 	
 	public static Board parseJson(String fileName, Board board) {
@@ -155,11 +155,11 @@ public class GameStateJsonParser {
 
 	}
 	
-/**
- * This function convert the JSON array into lst of strings
- * @param string : it contains a list seperated by delimiter
- * @return
- */
+	/**
+	 * This function split the string with brackets into list of strings.
+	 * @param string : it contains a list separated by delimiter
+	 * @return It's returning the List of strings 
+	 */
 	public static List<String> get_String_list(String string) {
 		List<String> temp_string_list = new ArrayList<String>();
 		if (null == string && string.length() == 0) {
