@@ -98,14 +98,23 @@ public class Player {
 	public void setMinionsOnBoard(Integer minionsOnBoard2) {
 		this.minionsOnBoard = minionsOnBoard2;
 	}
-
+    /**
+     *  It retrieves the different buildings present on the board for a please
+     * @return number of buildings for a player as an integer number
+     */
 	public Integer getBuildingOnBoard() {
 		return buildingOnBoard;
 	}
-
+	/**
+	 * This function sets the building on an area of a board
+	 */
 	public void setBuildingOnBoard(Integer buildingOnBoard) {
 		this.buildingOnBoard = buildingOnBoard;
 	}
+	/**
+	 * This function simply retrieves the money a player currently holds
+	 * @return player money as an integer value
+	 */
 
 	public Integer getPlayerMoney() {
 		return playerMoney;
