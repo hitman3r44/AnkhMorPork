@@ -37,6 +37,7 @@ public class BoardManager {
 	public BoardManager()
 	{
 		this.board=new Board();
+		this.board=this.initializeCityAreaCard(board);
 	}
 	
 	//setter and getters
