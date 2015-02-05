@@ -31,11 +31,6 @@ public class CityAreaCardTest {
 		assertEquals(expected, cityareacard.getName());
 	}
 
-/*	@Test
-	public void testSetName() {
-		fail("Not yet implemented");
-	}
-*/
 	@Test
 	public void testGetDescription() {
 	String description="Dolly sister values 12$";
@@ -54,9 +49,5 @@ public class CityAreaCardTest {
     assertEquals(expected, cityareacard.getCost());
 	}
 
-/*	@Test
-	public void testSetCost() {
-		fail("Not yet implemented");
-	}
-*/
+
 	}

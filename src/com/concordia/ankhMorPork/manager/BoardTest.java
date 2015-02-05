@@ -23,19 +23,7 @@ public class BoardTest {
 		
 	}
 
-	/*@Test
-	public void testSetBankMoney() {
-		Integer result= board.setBankMoney(bankMoney);
-		
-		assertEquals(expected,result);
-	}
-	
-	@Test
-	public void testSetPersonalityCardDetails() {
-		fail("Not yet implemented");
-	}
 
-*/	
 	@Test
 	public void testGetNoOfPlayer() {
 	Integer noOfPlayers=4;
@@ -45,9 +33,4 @@ public class BoardTest {
 	
 	}
 
-/*	@Test
-	public void testSetNoOfPlayer() {
-		fail("Not yet implemented");
-	}
-*/
 }
