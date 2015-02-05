@@ -170,7 +170,9 @@ public class AnkhMorPorkLauncher {
 		String fileName = userInputForLoadOrNewGameScanner.nextLine();
 		board = GameStateJsonParser.parseJson(fileName,
 				ankhMorPorkLauncher2.boardManager.getBoard());
-		gameStatus(ankhMorPorkLauncher2);
+		if(board!=null){
+			gameStatus(ankhMorPorkLauncher2);
+		}
 	}
 	/**
 	 * The chooseGameState is function to perform the start function of the game. 
