@@ -23,7 +23,6 @@ public class Board {
 	private Map<String,String> personalityCardDetails;
 	private List<CityAreaCard> cityAreaCard;
 	private HashMap<Integer, HashMap<String, String>> randomEventCard;
-	private List<PlayerCards> playerCard;
 	private Integer noOfPlayer;
 	private List<Player> playerList;
 	private List<Integer> existingPlayercards;
@@ -59,12 +58,7 @@ public class Board {
 	public void setRandomEventCard(HashMap<Integer, HashMap<String, String>> randomEventCards) {
 		this.randomEventCard = randomEventCards;
 	}
-	public List<PlayerCards> getPlayerCard() {
-		return playerCard;
-	}
-	public void setPlayerCard(List<PlayerCards> playerCard) {
-		this.playerCard = playerCard;
-	}
+	
 	public Integer getNoOfPlayer() {
 		return noOfPlayer;
 	}

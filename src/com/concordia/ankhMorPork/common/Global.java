@@ -25,8 +25,6 @@ public class Global {
 	final public static Integer NO_OF_AREA=12;
 	public static String saveFileName;
 	public static Integer numberOfPlayers;
-//	public static GameStatistic gameStatistic=new GameStatistic();
-	//public static GameStatistic gameStatistic;
 	public static ArrayList<String> colorList = new ArrayList<String>(Arrays.asList("Red", "Green", "Blue", "Yellow"));
 
 }

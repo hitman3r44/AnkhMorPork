@@ -33,6 +33,12 @@ public class BoardManager {
 	public List<Player> playerList = new ArrayList<Player>();
 	public static String[] yourArray = null;
 	private Integer moneyDistributedCount=0;
+	
+	public BoardManager()
+	{
+		this.board=new Board();
+	}
+	
 	//setter and getters
 	public Integer getMoneyDistributedCount() {
 		return moneyDistributedCount;
@@ -124,29 +130,24 @@ public class BoardManager {
 	
 		
 		for (int i = 0; i < 12; i++) {
-			Area area = new Area(areaList.get(i).getTroubleMaker(), areaList.get(i).getBuilding(), areaList.get(i).getNoOfDemon(), areaList.get(i)
-							.getNoOfTroll());
-			
-			
 			System.out.printf("%-30s%-30s%-25s%-25s%-15s%-15s\n",
-					cityAreaCardList.get(i).getName(), areaList.get(i)
-							.getColorOfMinion(), areaList.get(i)
-							.getTroubleMaker(), areaList.get(i).getBuilding(),
-					areaList.get(i).getNoOfDemon(), areaList.get(i)
+					cityAreaCardList.get(i).getName(), board.getArea().get(i)
+							.getColorOfMinion(), board.getArea().get(i)
+							.getTroubleMaker(), board.getArea().get(i).getBuilding(),
+							board.getArea().get(i).getNoOfDemon(), board.getArea().get(i)
 							.getNoOfTroll());		
 		}
 		
 		System.out.println("\n\nPlayer Details :: \n\n");
+		this.setMoneyDistributedCount(0);
 		// Player Statistic
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
 			System.out.println(board.getPlayerList().get(i).getName()
 					+ "'s Current Holdings : ");
 			System.out.println("No Of Minions        :"
-					+ (Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard()
-							.size()));
+					+ (Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard()));
 			System.out.println("No Of Building       :"
-					+ (Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()
-							.size()));
+					+ (Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()));
 			System.out.println("Ankh-Morpork Dollars :"
 					+ board.getPlayerList().get(i).getPlayerMoney() + "\n\n\n");
 			System.out.println("City Area cards: ");
@@ -162,7 +163,7 @@ public class BoardManager {
 						.getCityAreaCard().size(); j++) {
 					System.out.println((j + 1)
 							+ ")"
-							+ cityAreaCardList.get(
+							+ board.getCityAreaCard().get(
 									board.getPlayerList().get(i)
 											.getCityAreaCard().get(j))
 									.getName());
@@ -209,13 +210,12 @@ public class BoardManager {
 			List<String> playerNameList, List<String> colorList) {
 		Integer randomCardNo;
 		List<Integer> existingPersonalityCard = new ArrayList<Integer>();
-		List<Integer> minionsOnBoard = new ArrayList<Integer>();
-		Collections.addAll(minionsOnBoard, 1, 5, 7);
+		Integer minionsOnBoard = 3;
 
 		for (int i = 0; i < noOfPlayer; i++) {
 			Player player = new Player(i + 1, playerNameList.get(i),
 					colorList.get(i));
-			player.setBuildingOnBoard(new ArrayList<Integer>());
+			player.setBuildingOnBoard(0);
 			player.setPlayerMoney(10);
 			player.setCityAreaCard(new ArrayList<Integer>());
 			player.setMinionsOnBoard(minionsOnBoard);
