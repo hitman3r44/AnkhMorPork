@@ -78,27 +78,6 @@ public class Common {
 	
 	
 	
-	//For testing this class
-	public static void main(String[] args){
-		Common common = new Common();
-		
-		System.out.println("This is printing from the functions");
-		common.listOfTheFiles(Global.SAVED_FILE_DIRECTORY_PATH);
-		
-		System.out.println("This is printing from the common list");
-		for (int i = 0; i < Global.LIST_OF_SAVED_FILES.size(); i++) {
-			System.out.println(Global.LIST_OF_SAVED_FILES.get(i));
-			
-		}
-		System.out.println("Array Size: "+Global.LIST_OF_SAVED_FILES.size());
-		
-		// User Input thing...
-		int userInput = common.userInputValidationCheck();
-		System.out.println("Print from this function common.userChoice(userInput)");
-		common.userChoice(userInput);
-		
-	}
-	
 	/**
 	 * The  display function is showing the welcome text in the start of the game.
 	 * 
