@@ -119,7 +119,7 @@ public class AnkhMorPorkLauncher {
 		
 	}
 	/**
-	 * The savegame method saves the games current state. 
+	 * The saveGame method saves the games current state. 
 	 * The method is called when a user choose to save the game's status.	 
 	 * <p>
 	 * This method asked to input the file name you want to save the game.
