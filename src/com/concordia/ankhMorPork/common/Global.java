@@ -21,7 +21,7 @@ public class Global {
 	final public static ArrayList<String> LIST_OF_SAVED_FILES = new ArrayList<String>();
 	final public static String SAVED_FILE_DIRECTORY_PATH = "resources/savedGame";
 	final public static Integer BANK_MONEY = 150;
-	
+	final public static Integer NO_OF_AREA=12;
 	public static String saveFileName;
 	public static Integer numberOfPlayers;
 	public static GameStatistic gameStatistic=new GameStatistic();

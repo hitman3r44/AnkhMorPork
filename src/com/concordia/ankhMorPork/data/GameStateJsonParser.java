@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import com.concordia.ankhMorPork.common.Global;
 import com.concordia.ankhMorPork.common.Language;
+import com.concordia.ankhMorPork.manager.Area;
 import com.concordia.ankhMorPork.manager.Board;
 import com.concordia.ankhMorPork.manager.Player;
 
@@ -34,6 +35,8 @@ public class GameStateJsonParser {
 			JSONObject responseData = json.getJSONObject(Language.DISCWORLD);
 			int bank_amount = responseData.getInt(Language.BANK_MONEY);
 			board.setBankMoney(bank_amount);
+			int noOfPlayers = responseData.getInt(Language.NO_OF_PLAYERS);
+			board.setNoOfPlayer(noOfPlayers);
 			final JSONArray geodata = responseData
 					.getJSONArray(Language.PLAYERS);
 			final int n = geodata.length();
@@ -60,16 +63,39 @@ public class GameStateJsonParser {
 				List<Integer> brown_card_list = get_integer_list(brown_cards);
 				playerObject.setBrownPlayerCards(brown_card_list);
 				System.out.println(brown_card_list);
-				String city_area_cards = player
-						.getString(Language.CITY_AREA_CARD);
-				List<Integer> city_ara_card_list = get_integer_list(city_area_cards);
-				playerObject.setCityAreaCard(city_ara_card_list);
-				String random_even_cards = player
+				String city_area_cards = player.getString(Language.CITY_AREA_CARD);
+				System.out.println("hereee");
+				if("NIL".equals(city_area_cards))
+				{
+					playerObject.setCityAreaCard(new ArrayList<Integer>());
+				}
+				else
+				{
+					List<Integer> city_ara_card_list = get_integer_list(city_area_cards);
+					playerObject.setCityAreaCard(city_ara_card_list);
+				}
+				/*String random_even_cards = player
 						.getString(Language.RANDOM_CARDS);
-				List<Integer> random_even_cards_list = get_integer_list(random_even_cards);
+				List<Integer> random_even_cards_list = get_integer_list(random_even_cards);*/
 				playerList.add(playerObject);
 			}
+			System.out.println("----------"+playerList);
 			board.setPlayerList(playerList);
+			final JSONArray geodata1 = responseData
+					.getJSONArray(Language.AREA_DETAILS);
+			final int length = geodata.length();
+			System.out.println("length value = "+length);
+			for (int i = 0; i < length; ++i) {
+				final JSONObject area = geodata.getJSONObject(i);
+				int tmp_area_No = area.getInt(Language.AREA_NO);
+				String tmp_Area = area.getString(Language.AREA);
+				String tmp_available_minions = area.getString(Language.MINIONS);
+				Boolean tmp_Is_TroubleMaker_Available = area.getBoolean(Language.IS_TROUBLEMAKER_AVAILABLE);
+				Boolean tmp_Is_building_Available = area.getBoolean(Language.IS_BUILDING_AVAILABLE);
+				int tmp_no_Of_demons = area.getInt(Language.NO_OF_DEMONS);
+				int tmpno_of_troll= area.getInt(Language.NO_OF_TROLL);
+				Area areaObject =new Area(tmp_Is_TroubleMaker_Available, tmp_Is_building_Available, tmp_no_Of_demons, tmpno_of_troll);
+			}
 		} catch (Exception e) {// Catch exception if any
 
 			System.err.println("Error: " + e.getMessage());
@@ -84,6 +110,10 @@ public class GameStateJsonParser {
 		if (null == green_cards && green_cards.length() == 0) {
 			return temp_int_list;
 		}
+		else if(green_cards.equals("[]"))
+		{
+			return temp_int_list;
+		}
 		String removeParenthesis = green_cards.substring(1,
 				(green_cards.length() - 1));
 		String[] cardNumbers = removeParenthesis.split(", ");
@@ -94,8 +124,8 @@ public class GameStateJsonParser {
 			}
 
 		} catch (Exception e) {// Catch exception if any
-
-			System.err.println("Error: " + e.getMessage());
+			System.out.println(green_cards);
+			System.err.println("Error get_integer_list: " + e.getMessage());
 
 		}
 

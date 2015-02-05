@@ -102,9 +102,9 @@ public class BoardManager {
 		
 		//First portion of Player Statistics 
 		 
-		ArrayList<Player> playersList = new ArrayList<Player>();
+		//ArrayList<Player> playersList = new ArrayList<Player>();
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
-			Player player = new Player((i + 1), board.getPlayerList().get(i).getName(), board.getPlayerList().get(i).getColor());
+			//Player player = new Player((i + 1), board.getPlayerList().get(i).getName(), board.getPlayerList().get(i).getColor());
 			
 			System.out.println("Player"
 					+ (i + 1)
@@ -117,12 +117,12 @@ public class BoardManager {
 							.getPersonalityCard()));
 			
 			//Added to the player object
-			player.setPersonalityCardString(
-					personalityCard.get(board.getPlayerList().get(i)
-							.getPersonalityCard()));
+		//	player.setPersonalityCardString(
+				//	personalityCard.get(board.getPlayerList().get(i)
+						//	.getPersonalityCard()));
 			
 			//Added to the playerInventories ArrayList 
-			playersList.add(i, player);
+			//playersList.add(i, player);
 			
 		}//End of For loop
 		
@@ -136,9 +136,9 @@ public class BoardManager {
 				"Minions", "IsTroubleMakerAvailable", "IsbuildingAvailable",
 				"NoOfDemons", "NoOfTrolls");
 		
-		ArrayList<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
-		ArrayList<Area> areaArrayList = new ArrayList<Area>();
-		ArrayList<String> colorsofMinions = new ArrayList<String>();
+		ArrayList<CityAreaCard> cityAreaCardList1 = new ArrayList<CityAreaCard>();
+		ArrayList<Area> areaArrayList1 = new ArrayList<Area>();
+		ArrayList<String> colorsofMinions1 = new ArrayList<String>();
 		
 		for (int i = 0; i < 12; i++) {
 			//make objects of some of the list			
@@ -158,8 +158,8 @@ public class BoardManager {
 			cityAreaCard.setName(cityAreaCardList.get(i).getName());
 			cityAreaCardList.add(i, cityAreaCard);
 
-			colorsofMinions.add(areaList.get(i).getColorOfMinion().toString());
-			areaArrayList.add(i, area);
+			colorsofMinions1.add(areaList.get(i).getColorOfMinion().toString());
+			areaArrayList1.add(i, area);
 			
 			
 		}
@@ -167,7 +167,7 @@ public class BoardManager {
 		
 		//Add to the global variable
 		Global.gameStatistic.setCityAreaCardList(cityAreaCardList);
-		Global.gameStatistic.setAreaArrayList(areaArrayList);
+		Global.gameStatistic.setAreaArrayList(areaArrayList1);
 
 		
 		
@@ -472,7 +472,10 @@ public class BoardManager {
 			}
 			writer.println("PlayerCards played ="+existingCards);
 			writer.close();	
-		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+		}catch(UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		}catch (FileNotFoundException  e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -65,21 +65,19 @@ public class GameStateJsonGenerator {
 				
 				//Write array for city area cards
 				jGenerator.writeFieldName(Language.CITY_AREA_CARD);
-				jGenerator.writeStartArray();
+				
 				
 				if (board.getPlayerList().get(i).getCityAreaCard().size() == 0) {
-					jGenerator.writeString("No City Area cards attained yet");
+					jGenerator.writeString("NIL");
 				} else {
+					jGenerator.writeStartArray();
 					for (int j = 0; i < board.getPlayerList().get(i).getCityAreaCard().size(); j++) {
-						jGenerator.writeNumber(cityAreaCardList.get(
-								board.getPlayerList().get(i)
-								.getCityAreaCard().get(j))
-						.getName());
-								
+						jGenerator.writeNumber(board.getPlayerList().get(i).getCityAreaCard().get(j));
 					}
+					jGenerator.writeEndArray();
 				}
 				
-				jGenerator.writeEndArray();
+				
 				//Write array for city area cards
 				
 				jGenerator.writeStringField(Language.GREEN_CARDS, board.getPlayerList().get(i).getGreenPlayerCards().toString());
@@ -91,7 +89,21 @@ public class GameStateJsonGenerator {
 			}
 			
 			jGenerator.writeEndArray();
-
+			jGenerator.writeArrayFieldStart(Language.AREA_DETAILS);
+			for (int i = 0; i < 12; i++) {
+				 
+				//Array of player information
+				jGenerator.writeStartObject(); 
+				jGenerator.writeStringField(Language.AREA_NO,String.valueOf(i+1));
+				jGenerator.writeStringField(Language.AREA, board.getCityAreaCard().get(i).getName());
+				jGenerator.writeStringField(Language.MINIONS, board.getArea().get(i).getColorOfMinion().toString());
+				jGenerator.writeBooleanField(Language.IS_TROUBLEMAKER_AVAILABLE, board.getArea().get(i).getTroubleMaker());
+				jGenerator.writeBooleanField(Language.IS_BUILDING_AVAILABLE,board.getArea().get(i).getBuilding());
+				jGenerator.writeNumberField(Language.NO_OF_DEMONS,board.getArea().get(i).getNoOfDemon());
+				jGenerator.writeNumberField(Language.NO_OF_TROLL,board.getArea().get(i).getNoOfTroll());
+				jGenerator.writeEndObject();
+			}
+			jGenerator.writeEndArray();
 			jGenerator.writeEndObject(); // }
 
 			jGenerator.close();

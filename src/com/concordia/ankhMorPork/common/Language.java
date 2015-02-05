@@ -29,6 +29,14 @@ public class Language {
 	final public static String BROWN_CARDS="brown_cards";
 	final public static String RANDOM_CARDS="random_even_cards";
 	final public static String BANK_MONEY="bank_amount";
+	final public static  String AREA_DETAILS = "area_details";
+	final public static  String AREA_NO = "area_No.";
+	final public static  String AREA = "Area";
+	final public static  String MINIONS = "available_minions";
+	final public static  String IS_TROUBLEMAKER_AVAILABLE = "Is_TroubleMaker_Available";
+	final public static  String IS_BUILDING_AVAILABLE = "Is_building_Available";
+	final public static  String NO_OF_TROLL = "no_of_troll";
+	final public static  String NO_OF_DEMONS = "no_Of_demons";
 	
 	
 }
