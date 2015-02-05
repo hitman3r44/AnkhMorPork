@@ -145,8 +145,8 @@ public class GameStateJsonParser {
 			
 		}
 		catch (Exception e) {// Catch exception if any
-
-			System.err.println("Error: " + e.getMessage());
+			System.out.println("Given File for Loading is not in correct format");
+			//System.err.println("Error: " + e.getMessage());
 
 		}
 		return board;
