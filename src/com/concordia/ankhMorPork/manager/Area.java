@@ -25,11 +25,11 @@ public class Area {
 	Integer noOfDemon;
 	Integer noOfTroll;
 	/**
-	 * Parameterized constructor to initialize area details on instantiation
-	 * @param troubleMaker
-	 * @param building
-	 * @param noOfDemon
-	 * @param noOfTroll
+	 * Parameterized constructor to initialize area details on instantiation.
+	 * @param troubleMaker : Boolean value if troubleMaker exists on an area.
+	 * @param building	: Boolean value if troubleMaker exists on an area.
+	 * @param noOfDemon : Number of demons found for that area.
+	 * @param noOfTroll : Number of trolls found in that area.
 	 */
 	public Area(Boolean troubleMaker, Boolean building, Integer noOfDemon, Integer noOfTroll)
 	{
