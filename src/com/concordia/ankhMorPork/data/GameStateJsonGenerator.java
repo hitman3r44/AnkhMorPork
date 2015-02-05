@@ -28,7 +28,7 @@ public class GameStateJsonGenerator {
 	public static List<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
 
 /**
- * 	
+ * This function save the current game's status in json format when it's called.
  * @param board: This parameter accesses the information of the board
  * @return:The function return boolean value to check whether the game has been saved
  */
