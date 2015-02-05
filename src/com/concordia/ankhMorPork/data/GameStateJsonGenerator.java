@@ -27,7 +27,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class GameStateJsonGenerator {
 	public static List<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
 
-	
+/**
+ * 	
+ * @param board: This parameter accesses the information of the board
+ * @return:The function return boolean value to check whether the game has been saved
+ */
 	public boolean saveGameCurrentStateToJsonFormate(Board board) {
 		boolean isSaved = false;
 		
