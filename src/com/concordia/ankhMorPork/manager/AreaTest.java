@@ -28,23 +28,12 @@ public class AreaTest {
         
 	}
 
-/*	@Test
-	public void testArea() {
-		fail("Not yet implemented");
-	}
-*/
 	@Test
 	public void testGetIdentifier() {
 		Integer expected=10;
 		assertEquals(expected, area.getIdentifier());
 		
 	}
-
-/*	@Test
-	public void testSetIdentifier() {
-		fail("Not yet implemented");
-	}
-*/
 	@Test
 	public void testGetColorOfMinion() {
 		List<String> expected=new ArrayList<String>();

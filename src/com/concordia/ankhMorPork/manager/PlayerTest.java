@@ -9,7 +9,7 @@ public class PlayerTest {
 	
 	int playerID= 3;
 	String playerName="Obama";
-	String color;
+	String color="red";
 	Player player= new Player(playerID, playerName, color);
 	@Before
 	public void setUp() throws Exception {
@@ -21,30 +21,19 @@ public class PlayerTest {
 		int expected=3;
 		assertEquals(expected, player.getPlayerId());
 	}
-/*
-	@Test
-	public void testSetPlayerId() {
-		fail("Not yet implemented");
-	}
-*/
-	@Test
 	public void testGetName() {
 	player.setName(playerName);
 	String expected="Obama";
 	assertEquals(expected, player.getName());
 	}
-/*
-	@Test
-	public void testSetName() {
-		fail("Not yet implemented");
-	}
-
 	@Test
 	public void testGetColor() {
-		fail("Not yet implemented");
+		player.setColor(color);
+		String expected="red";
+		assertEquals(expected, player.getColor());
 	}
 
-	@Test
+/*	@Test
 	public void testSetColor() {
 		fail("Not yet implemented");
 	}

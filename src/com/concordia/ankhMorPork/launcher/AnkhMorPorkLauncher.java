@@ -35,7 +35,6 @@ public class AnkhMorPorkLauncher {
 	private Scanner userInputForLoadOrNewGameScanner = new Scanner(System.in);
 	private Scanner userNameInput = new Scanner(System.in);
 	private Scanner userInputScanner = new Scanner(System.in);
-
 	private String nameOfPlayer = null, colorOfPlayer = null;
 	AnkhMorPorkLauncher ankhMorPorkLauncher;
 
