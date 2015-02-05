@@ -77,6 +77,10 @@ public class GameStateJsonParser {
 				String tmp_player_color = player.getString(Language.COLOR);
 				Player playerObject = new Player(tmp_player_id,
 						tmp_player_name, tmp_player_color);
+				int tmp_no_of_minion= player.getInt(Language.NO_OF_MINIONS);
+				playerObject.setMinionsOnBoard((12-tmp_no_of_minion));
+				int tmp_no_of_building= player.getInt(Language.NO_OF_BUILDING);
+				playerObject.setBuildingOnBoard(6-tmp_no_of_building);
 				int tmp_player_money = player.getInt(Language.PLAYER_MONEY);
 				playerObject.setPlayerMoney(tmp_player_money);
 				int tmp_player_personality_card = player
@@ -111,12 +115,13 @@ public class GameStateJsonParser {
 			board.setPlayerList(playerList);
 			final JSONArray geodata1 = responseData
 					.getJSONArray(Language.AREA_DETAILS);
-			final int length = geodata.length();
+			final int length = geodata1.length();
 			System.out.println("length value = " + length);
 			List<Area> areaList= new ArrayList<Area>();
 			for (int i = 0; i < length; ++i) {
-				final JSONObject area = geodata.getJSONObject(i);
+				final JSONObject area = geodata1.getJSONObject(i);
 				int tmp_area_No = area.getInt(Language.AREA_NO);
+				System.out.println(tmp_area_No);
 				String tmp_Area = area.getString(Language.AREA);
 				String tmp_available_minions = area.getString(Language.MINIONS);
 				List<String> tmp_available_minions_list=get_String_list(tmp_available_minions);

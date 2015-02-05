@@ -8,8 +8,8 @@ public class Player {
 	private int playerId;
 	private String name;
 	private String color;
-	private List<Integer> minionsOnBoard;
-	private List<Integer> buildingOnBoard;
+	private Integer minionsOnBoard;
+	private Integer buildingOnBoard;
 	private Integer playerMoney;
 	private Integer personalityCard;
 	private String personalityCardString;
@@ -58,19 +58,19 @@ public class Player {
 		this.color = color;
 	}
 
-	public List<Integer> getMinionsOnBoard() {
+	public Integer getMinionsOnBoard() {
 		return minionsOnBoard;
 	}
 
-	public void setMinionsOnBoard(List<Integer> minionsOnBoard) {
-		this.minionsOnBoard = minionsOnBoard;
+	public void setMinionsOnBoard(Integer minionsOnBoard2) {
+		this.minionsOnBoard = minionsOnBoard2;
 	}
 
-	public List<Integer> getBuildingOnBoard() {
+	public Integer getBuildingOnBoard() {
 		return buildingOnBoard;
 	}
 
-	public void setBuildingOnBoard(List<Integer> buildingOnBoard) {
+	public void setBuildingOnBoard(Integer buildingOnBoard) {
 		this.buildingOnBoard = buildingOnBoard;
 	}
 

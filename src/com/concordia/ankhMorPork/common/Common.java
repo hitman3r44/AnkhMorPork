@@ -108,4 +108,9 @@ public class Common {
 		System.out.println("\t\t\t Press 'E' to Exit from the game Game");
 	}
 
+	public static void displayThankyouMenu() {
+		System.out.println("\t\t\tThank You !! We are Exiting from the game.");
+		
+	}
+
 }
