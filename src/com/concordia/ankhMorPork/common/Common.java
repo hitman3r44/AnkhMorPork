@@ -101,4 +101,11 @@ public class Common {
 		
 	}
 
+	public static void displayMenu() {
+		System.out.println("\t\t\t Press 'N' to Play a New Game\n");
+		System.out.println("\t\t\t Press 'R' to Resume existing Game\n");
+		System.out.println("\t\t\t Press 'M' to come back to same menu\n");
+		System.out.println("\t\t\t Press 'E' to Exit from the game Game");
+	}
+
 }

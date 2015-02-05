@@ -97,12 +97,7 @@ public class BoardManager {
 		System.out.println("                   Game Status");
 		System.out.println("                   ************\n\n");
 		System.out.println("Number Of Players : " + board.getNoOfPlayer());
-		
-		Global.gameStatistic.setNumberOfPlayers(board.getNoOfPlayer());
-		
-		//First portion of Player Statistics 
 		 
-		ArrayList<Player> playersList = new ArrayList<Player>();
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
 			Player player = new Player((i + 1), board.getPlayerList().get(i).getName(), board.getPlayerList().get(i).getColor());
 			
@@ -116,76 +111,34 @@ public class BoardManager {
 					+ personalityCard.get(board.getPlayerList().get(i)
 							.getPersonalityCard()));
 			
-			//Added to the player object
-			player.setPersonalityCardString(
-					personalityCard.get(board.getPlayerList().get(i)
-							.getPersonalityCard()));
-			
-			//Added to the playerInventories ArrayList 
-			playersList.add(i, player);
 			
 		}//End of For loop
-		
-		//Set to the global variable
-		Global.gameStatistic.setPlayersList(playerList);
 		
 		//Board Details
 		System.out.println("\nArea Details : \n\n");
 		
-		System.out.printf("%-30s%-15s%-25s%-25s%-15s%-15s\n", "Area",
+		System.out.printf("%-30s%-30s%-25s%-25s%-15s%-15s\n", "Area",
 				"Minions", "IsTroubleMakerAvailable", "IsbuildingAvailable",
 				"NoOfDemons", "NoOfTrolls");
 		
-		ArrayList<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
-		ArrayList<Area> areaArrayList = new ArrayList<Area>();
-		ArrayList<String> colorsofMinions = new ArrayList<String>();
+	
 		
 		for (int i = 0; i < 12; i++) {
-			//make objects of some of the list			
-			CityAreaCard cityAreaCard = new CityAreaCard();
 			Area area = new Area(areaList.get(i).getTroubleMaker(), areaList.get(i).getBuilding(), areaList.get(i).getNoOfDemon(), areaList.get(i)
 							.getNoOfTroll());
 			
 			
-			System.out.printf("%-30s%-15s%-25s%-25s%-15s%-15s\n",
+			System.out.printf("%-30s%-30s%-25s%-25s%-15s%-15s\n",
 					cityAreaCardList.get(i).getName(), areaList.get(i)
 							.getColorOfMinion(), areaList.get(i)
 							.getTroubleMaker(), areaList.get(i).getBuilding(),
 					areaList.get(i).getNoOfDemon(), areaList.get(i)
-							.getNoOfTroll());
-			
-			//Fill the object
-			cityAreaCard.setName(cityAreaCardList.get(i).getName());
-			cityAreaCardList.add(i, cityAreaCard);
-
-			colorsofMinions.add(areaList.get(i).getColorOfMinion().toString());
-			areaArrayList.add(i, area);
-			
-			
+							.getNoOfTroll());		
 		}
-		//Board Details
-		
-		//Add to the global variable
-		Global.gameStatistic.setCityAreaCardList(cityAreaCardList);
-		Global.gameStatistic.setAreaArrayList(areaArrayList);
-
-		
 		
 		System.out.println("\n\nPlayer Details :: \n\n");
 		// Player Statistic
-		ArrayList<PlayerInventory> playerInventoriesList = new ArrayList<PlayerInventory>();
 		for (int i = 0; i < board.getNoOfPlayer(); i++) {
-			//Fill the PlayerInventory object 
-			PlayerInventory playerInventory = new PlayerInventory();
-			
-			playerInventory.setMinions(Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard()
-							.size());
-			playerInventory.setBuildings(Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()
-					.size());
-			playerInventory.setMoney(board.getPlayerList().get(i).getPlayerMoney());
-			//Fill the PlayerInventory object
-			
-			//Print on the screen
 			System.out.println(board.getPlayerList().get(i).getName()
 					+ "'s Current Holdings : ");
 			System.out.println("No Of Minions        :"
@@ -201,16 +154,9 @@ public class BoardManager {
 			//Print on the screen
 			
 			//City area cards list
-
-			//Initial a arraylist of city area
-			ArrayList<String> cityAreaList = new ArrayList<String>();
 			
 			if (board.getPlayerList().get(i).getCityAreaCard().size() == 0) {
 				System.out.println("No City Area cards attained yet");
-
-				//Add to the playerInventory object
-				cityAreaList.add("No City Area cards attained yet");
-				playerInventory.setCityAreaList(cityAreaList);
 			} else {
 				for (int j = 0; i < board.getPlayerList().get(i)
 						.getCityAreaCard().size(); j++) {
@@ -220,14 +166,6 @@ public class BoardManager {
 									board.getPlayerList().get(i)
 											.getCityAreaCard().get(j))
 									.getName());
-					
-					//Add to the playerInventory object
-					cityAreaList.add(j, cityAreaCardList.get(
-									board.getPlayerList().get(i)
-											.getCityAreaCard().get(j))
-									.getName());
-					
-					playerInventory.setCityAreaList(cityAreaList);
 				}
 			}
 			
@@ -236,26 +174,10 @@ public class BoardManager {
 					+ board.getPlayerList().get(i).getGreenPlayerCards());
 			System.out.println(" \tBrown Cards : "
 					+ board.getPlayerList().get(i).getBrownPlayerCards());
-			
-			//Add players card in the inventory list
-			playerInventory.setGreenPlayerCards(board.getPlayerList().get(i).getGreenPlayerCards());
-			playerInventory.setBrownPlayerCards(board.getPlayerList().get(i).getBrownPlayerCards());
-			
-			//Set to the playerinventorylist variable
-			playerInventoriesList.add(i, playerInventory);
-			
-			
-		}// End of loop
-		// Player Statistic
-		
-		//Set globally the player inventory
-		Global.gameStatistic.setPlayerInventoryList(playerInventoriesList);
-		
+				
+		}// End of loop		
 		System.out.println("\nThe Bank has " + (board.getBankMoney()-this.getMoneyDistributedCount())
 				+ " Ankh-Morpork dollars");
-		
-		//Set Bank Money
-		Global.gameStatistic.setBankMoney(board.getBankMoney()-this.getMoneyDistributedCount());
 	}
 /**
  * This method initialize the Board for new player
@@ -420,85 +342,6 @@ public class BoardManager {
 
 	public void setBoard(Board board) {
 		this.board = board;
-	}
-/**
- * This function store the status of the game in a text file
- * @param fileName : Name of the file to which game status to be saved
- * @param board
- */
-	public void saveGameStatus(String fileName,Board board) {
-		// TODO Auto-generated method stub
-		PrintWriter writer;
-		List<String> listOfCityAreaCard=new ArrayList<String>();
-		try {
-			System.out.println(fileName);
-			writer = new PrintWriter(fileName, "UTF-8");
-			writer.println("noOfPlayers ="+Global.numberOfPlayers);
-			for (int i = 0; i < board.getNoOfPlayer(); i++) {
-				writer.println("Player"+ (i + 1)+" ="+board.getPlayerList().get(i).getName());
-				writer.println("Color ="+board.getPlayerList().get(i).getColor());
-				writer.println("PersonalityCard ="+personalityCard.get(board.getPlayerList().get(i).getPersonalityCard()));
-				writer.println("No Of Minions ="
-						+ (Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard().size()));
-				writer.println("No Of Building ="
-						+ (Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()
-								.size()));
-				writer.println("Ankh-Morpork Dollars ="
-						+ board.getPlayerList().get(i).getPlayerMoney());
-				if (board.getPlayerList().get(i).getCityAreaCard().size()==0) {
-					writer.println("CityAreaCard =NIL");
-				} else {
-					for (int j = 0; i < board.getPlayerList().get(i)
-							.getCityAreaCard().size(); j++) {
-						
-						listOfCityAreaCard.add(cityAreaCardList.get(board.getPlayerList().get(i).getCityAreaCard().get(j)).getName()); 
-					}
-					
-					writer.println(("CityAreaCard ="+listOfCityAreaCard));
-				}
-				writer.println("Green Cards ="+board.getPlayerList().get(i).getGreenPlayerCards());
-				writer.println("Brown Cards ="+board.getPlayerList().get(i).getBrownPlayerCards());
-			}
-			writer.println("BankMoney ="+(board.getBankMoney()-this.getMoneyDistributedCount()));
-			
-			for (int i = 0; i < 12; i++) {
-				writer.println("Area No. ="+(i+1));
-				writer.println("Area ="+cityAreaCardList.get(i).getName());
-				writer.println("Minions ="+areaList.get(i).getColorOfMinion());
-				writer.println("IsTroubleMakerAvailable ="+areaList.get(i).getTroubleMaker());
-				writer.println("IsbuildingAvailable ="+areaList.get(i).getBuilding());
-				writer.println("NoOfDemons ="+areaList.get(i).getNoOfDemon());
-				writer.println("NoOfTrolls ="+areaList.get(i).getNoOfTroll());
-			}
-			writer.println("PlayerCards played ="+existingCards);
-			writer.close();	
-		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	/**
-	 * This function load the game and update the dataStructure containing PlayerInfo
-	 * @param inputMap: contains the Status of the game in Map
-	 * @return
-	 */
-	public Board updatePlayerInfo(List<String> inputList) {
-		System.out.println(inputList);
-		try
-		{
-			Integer noOfPlayer=Integer.parseInt(inputList.get(0));
-			for(int i =0;i<noOfPlayer;i++)
-			{
-				
-			}
-		}catch(NumberFormatException e)
-		 {
-			 System.out.println("Input File Validation Error : NoOfPlayer not a valid value.");
-		 }
-		 
-
-		return board;
 	}
 
 }
