@@ -119,19 +119,33 @@ public class Player {
 	public Integer getPlayerMoney() {
 		return playerMoney;
 	}
+	/**
+	 * This function sets the money a player currently holds
+	 */
 
 	public void setPlayerMoney(Integer playerMoney) {
 		this.playerMoney = playerMoney;
 	}
+	/**
+	 * It retrieves the personality card a player holds
+	 * @return returns the personality card of a player 
+	 */
 
 	public Integer getPersonalityCard() {
 		return personalityCard;
 	}
-
+	
+	/**
+	 * 
+	 * sets the personality card  for the player
+	 */
 	public void setPersonalityCard(Integer personalityCard) {
 		this.personalityCard = personalityCard;
 	}
-
+/**
+ *  this function retrieves the green cards a player holds
+ * @return green card returns as integer values
+ */
 	public List<Integer> getGreenPlayerCards() {
 		return greenPlayerCards;
 	}
