@@ -106,14 +106,14 @@ public class AnkhMorPorkLauncher {
 	private void gameStatus(AnkhMorPorkLauncher ankhMorPorkLauncher2) {
 		// See Game Status
 		System.out.println("\nWould you Like to see the Game Status??\t\tYes(Y)\tNo(N)");
-		if ("Y".equalsIgnoreCase(userInputForLoadOrNewGameScanner
-				.nextLine())) {
+		String input=userInputForLoadOrNewGameScanner
+				.nextLine();
+		if ("Y".equalsIgnoreCase(input)) {
 			boardManager.displayCurrentStatus(boardManager.getBoard());
-			saveGame();
+			saveGame(ankhMorPorkLauncher2);
 		}
-		else if ("N".equalsIgnoreCase(userInputForLoadOrNewGameScanner
-				.nextLine())) {
-			saveGame();
+		else if ("N".equalsIgnoreCase(input)) {
+			saveGame(ankhMorPorkLauncher2);
 
 		}
 		else
@@ -131,13 +131,14 @@ public class AnkhMorPorkLauncher {
 	 * It save the game status in json format. JSON format was selected due to it's 
 	 * efficiency and compatibility.
 	 * </p>
+	 * @param ankhMorPorkLauncher2 
 	 * 
 	 * @see         On calling this function, you are asked to save file name 
 	 * 
 	 */
-	public void saveGame() {
+	public void saveGame(AnkhMorPorkLauncher ankhMorPorkLauncher2) {
 
-		System.out.println("\n\n\nPress 'S' to save the game");
+		System.out.println("\n\n\nWould you like to save the game\t\t:\t\t(Press 'S')");
 		String userInputForSavingTheGame = userInputScanner.nextLine();
 
 		if ("S".equalsIgnoreCase(userInputForSavingTheGame)) {
@@ -149,6 +150,10 @@ public class AnkhMorPorkLauncher {
 			GameStateJsonGenerator gameStateJsonGenerator = new GameStateJsonGenerator();
 			gameStateJsonGenerator.saveGameCurrentStateToJsonFormate(board);
 
+		}
+		else{
+			System.out.println("Invalid Input !! lets Get back to Menu");
+			chooseGameState(ankhMorPorkLauncher2);
 		}
 	}
 	/**
@@ -192,27 +197,14 @@ public class AnkhMorPorkLauncher {
 		Common.displayMenu();
 		input = scanner.nextLine(); 	 	 	
 			
-			switch (input) {
-			case "N":
-				newGame();
-				break;
+			switch (input.toLowerCase()) {
 			case "n":
 				newGame();
-				break;
-			case "R":
-				loadGame(ankhMorPorkLauncher2);
 				break;
 			case "r":
 				loadGame(ankhMorPorkLauncher2);
 				break;
-			case "M":
-				Common.displayMenu();
-				break;
-			case "m":
-				Common.displayMenu();
-				break;
-			case "E":
-				Common.displayThankyouMenu();
+			case "m":	
 				break;
 			case "e":
 				Common.displayThankyouMenu();
