@@ -5,17 +5,26 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BoardTest {
+import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 
+public class BoardTest {
+	Integer bankMoney=23;
+	Integer noOfPlayers=4;
+
+	Board board=new Board();
 	@Before
 	public void setUp() throws Exception {
+ 		
 	}
 
 	@Test
 	public void testGetBankMoney() {
-		fail("Not yet implemented");
+		Integer expected=23;
+		board.setBankMoney(bankMoney);
+ 		assertEquals(expected,board.getBankMoney());
+		
 	}
-
+/*
 	@Test
 	public void testSetBankMoney() {
 		fail("Not yet implemented");
@@ -26,19 +35,23 @@ public class BoardTest {
 		fail("Not yet implemented");
 	}
 
-	@Test
+/*	@Test
 	public void testSetPersonalityCardDetails() {
 		fail("Not yet implemented");
 	}
 
+*/	
 	@Test
 	public void testGetNoOfPlayer() {
-		fail("Not yet implemented");
+	Integer expected= 4;
+	board.setNoOfPlayer(noOfPlayers);
+	assertEquals(expected, board.getNoOfPlayer());
+	
 	}
 
-	@Test
+/*	@Test
 	public void testSetNoOfPlayer() {
 		fail("Not yet implemented");
 	}
-
+*/
 }
