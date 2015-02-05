@@ -68,7 +68,7 @@ public class CityAreaCard {
 	}
 	
 	/**
-	 * It's used to set the cost of the card.
+	 * It's used to set the cost of the city area card.
 	 * @param cost : Card's cost is passed to set the cost of the card.
 	 */
 	public void setCost(Integer cost) {
