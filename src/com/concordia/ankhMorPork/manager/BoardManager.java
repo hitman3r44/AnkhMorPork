@@ -324,6 +324,7 @@ public class BoardManager {
 				// System.out.println("colorList -- " + colorList);
 				// System.out.println(area.getNoOfDemon());
 				area.setColorOfMinion(colorList);
+				area.setTroubleMaker(true);
 			}
 			areaList.add(area);
 		}
