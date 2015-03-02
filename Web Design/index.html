@@ -10,7 +10,7 @@
 	<body>
     <div id="board">
         <div id="todo">
-        	<div class="title">Minions</div>
+        	<div class="title">Khurram Objects</div>
             <div id="minion-1" class="minion minion-red" draggable="true"></div>
             <div id="minion-2" class="minion minion-red" draggable="true"></div>
             <div id="minion-3" class="minion minion-red" draggable="true"></div>
@@ -25,9 +25,18 @@
         
         
         <div id="fullboard">        
-                <div id="area_1"></div>			
-                <div id="area_2"></div>        
-                <div id="area_3"></div>              
+                <div id="area_1" class="board_area"></div>			
+                <div id="area_2" class="board_area"></div>        
+                <div id="area_3" class="board_area"></div> 
+                <div id="area_4" class="board_area"></div>			
+                <div id="area_5" class="board_area"></div>        
+                <div id="area_6" class="board_area"></div> 
+                <div id="area_7" class="board_area"></div>			
+                <div id="area_8" class="board_area"></div>        
+                <div id="area_9" class="board_area"></div> 
+                <div id="area_10" class="board_area"></div>			
+                <div id="area_11" class="board_area"></div>        
+                <div id="area_12" class="board_area"></div>              
         </div>
         
 		
@@ -43,16 +52,17 @@
             });
             
   		    // bind the dragover event on the board sections
-            $('#todo, #area_1, #area_2, #area_3').bind('dragover', function(event) {
+            $('#todo, .board_area').bind('dragover', function(event) {
                 event.preventDefault();
             });
 			
 			// bind the drop event on the board sections
-  			$('#todo, #area_1, #area_2, #area_3').bind('drop', function(event) {
+  			$('#todo, .board_area').bind('drop', function(event) {
             var notecard = event.originalEvent.dataTransfer.getData("text/plain");
 			event.target.appendChild(document.getElementById(notecard));
 			//alert(notecard);
             //alert($(this).attr("id"));
+			
 			// Turn off the default behaviour
 			// without this, FF will try and go to a URL with your id's name
             event.preventDefault();

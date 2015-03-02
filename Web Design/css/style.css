@@ -24,69 +24,17 @@ Mar, 2015.
 
 #logo{ width:200px; float:left;}
 #logo img{ height:50px;}
-#menus{width:400px; color:#fff;float:left;}
-
 #support { color:#fff; float:right;  width:150px; margin-top:30px;}
-.aa{color:#090202; margin:0px 0 0 10px;float:left; padding:8px}
-.aa a{ text-decoration:none;}
-.aa:hover{ background:#0B4FAA}
 
-#menus ul {
-  text-align: left;
-  display: inline;
-  margin: 0;
-  padding: 15px 4px 17px 0;
-  list-style: none;
-  
-}
+#menus{width:400px; color:#fff;float:left;}
+#menus ul {text-align: left; display: inline; margin: 0; padding: 15px 4px 17px 0; list-style: none;}
 ul li a{ text-decoration:none; color:#fff;}
-ul li {
-  font: bold 12px/18px sans-serif;
-  display: inline-block;
-  margin-right: -4px;
-  position: relative;
-  padding: 15px 20px;
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  transition: all 0.2s;
-}
-ul li:hover {
-  background: #555;
-  color: #fff;
-}
-ul li ul {
-  padding: 0;
-  position: absolute;
-  top: 48px;
-  left: 0;
-  width: 150px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transiton: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -ms-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  -transition: opacity 0.2s;
-}
-ul li ul li { 
-  background: #555; 
-  display: block; 
-  color: #fff;
-  text-shadow: 0 -1px 0 #000;
-}
+ul li {font: bold 12px/18px sans-serif; display: inline-block; margin-right: -4px;  position: relative;  padding: 15px 20px;  cursor: pointer;  -webkit-transition: all 0.2s;  -moz-transition: all 0.2s;  -ms-transition: all 0.2s;  -o-transition: all 0.2s;  transition: all 0.2s;}
+ul li:hover { background: #555;  color: #fff;}
+ul li ul { padding: 0;  position: absolute;  top: 48px;  left: 0;  width: 150px;  -webkit-box-shadow: none;  -moz-box-shadow: none; box-shadow: none;  display: none;  opacity: 0;  visibility: hidden;  -webkit-transiton: opacity 0.2s;  -moz-transition: opacity 0.2s;  -ms-transition: opacity 0.2s;  -o-transition: opacity 0.2s;  -transition: opacity 0.2s;}
+ul li ul li { background: #555;  display: block;  color: #fff; text-shadow: 0 -1px 0 #000;}
 ul li ul li:hover { background: #666; }
-ul li:hover ul {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
+ul li:hover ul {display: block; opacity: 1; visibility: visible;}
 
 
 
@@ -103,9 +51,19 @@ ul li:hover ul {
 .title{background-color:#52460a;text-align:center;color:white;padding: 2px 0px;}
 
 #todo{width: 300px;min-height:150px;border: 2px solid black;}
-#area_1, #area_2, #area_3{width:200px; position:absolute; border:1px solid #F8F8F8;}
-#area_1{height: 93px;top: 136px;left: 413px;}
-#area_2{height: 91px; top: 253px; left: 362px; width: 150px;}
-#area_3{height: 127px;top: 308px;left: 519px;}		
-*[draggable=true]{float:left;;margin:10px 0px;font-weight:bold;min-height:60px;min-width: 50px;min-height: 50px;}
+.board_area{ position:absolute; border:0px solid #F8F8F8;}
+#area_1{height: 93px; width:200px; top: 110px;left: 390px;}
+#area_2{height: 91px; width: 150px; top: 232px; left: 328px;}
+#area_3{height: 127px; width:180px; top: 271px;left: 509px;}	
+#area_4{height: 127px;width: 150px;top: 409px;left: 536px;}	
+#area_5{height: 99px;width: 150px;top: 507px;left: 384px;}	
+#area_6{height: 194px;width: 100px;top: 572px;left: 542px;}	
+#area_7{height: 221px;width: 100px;top: 607px;left: 365px;}	
+#area_8{height: 221px;width: 150px;top: 590px;left: 165px;}
+#area_9{height: 169px;width: 135px;top: 444px;left: 30px;}	
+#area_10{height: 100px;width: 100px;top: 407px;left: 316px;}	
+#area_11{height: 136px;width: 108px;top: 307px;left: 166px;}	
+#area_12{height: 100px;width: 194px;top: 157px;left: 116px;}	
+
+*[draggable=true]{float:left;;margin:10px 0px;font-weight:bold;width:30px;height:30px;}
 .cardTitle{background-color: rgb(255,255,255);border:2px solid white;}
