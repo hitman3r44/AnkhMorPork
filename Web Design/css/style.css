@@ -1,6 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
 
+
+/*
+
+Khurram Shahzad
+http://www.bizonesolutins.com/
+Mar, 2015.
+
+*/
+
+
+
 .clear{ clear:both}
 #mainbody{ width:100%;}
 #row_1{ height:73px; background:#2B1A1B;}
@@ -78,100 +89,23 @@ ul li:hover ul {
 }
 
 
-/*
 
-Darko Bunic
-http://www.redips.net/
-Jan, 2010.
 
-*/
 
-body{
-	font-family: arial;
-	margin: 0px; /* for IE6 / IE7 */
-}
+#todo .minion{ left:20px; position:fixed;}
+#todo .building{ left:73px; position:fixed;}
+.minion-red{ background:url(../images/minion-red.png)}
+.building-red{ background:url(../images/building-red.png)}
 
-/* drag container*/
-#drag{
-	/* make drag div visible */
-	/* border: 2px solid lime; */
-	
-	/* I had problems with FF3 and this settings for DIV id="drag" */	
-	/*
-	margin: auto;
-  	display: table;
-    table-layout: auto;
-    */
-}
+#board{width: 100%;min-height:100px;position:relative;float:left;}
+#todo{width: 25%;float:left;}
+#fullboard{background:url(../images/bg_game.jpg) no-repeat left top;width:75%; min-height:1045px;position:relative; float:left;}
+.title{background-color:#52460a;text-align:center;color:white;padding: 2px 0px;}
 
-/* drag objects (DIV inside table cells) */
-.drag{
-	cursor: move;
-	margin: auto;
-	z-index: 10;
-	background-color: white;
-	text-align: center;
-	font-size: 10pt; /* needed for cloned object */
-	opacity: 0.7;
-	filter: alpha(opacity=70);
-	/* without width, IE6/7 will not apply filter/opacity to the element ?! */
-	/* IE needs element layout */
-	width: 82px;
-	height: 25px;
-	line-height: 25px;
-	/* round corners */
-	border-radius: 4px; /* Opera, Chrome */
-	-moz-border-radius: 4px; /* FF */
-}
-
-/* tables */
-div#drag table{
-	background-color: #eee;
-	border-collapse: collapse;
-	margin: auto;
-}
-
-/* table cells */
-div#drag td{
-	height: 32px;
-	border: 1px solid white;
-	text-align: center;
-	font-size: 10pt;
-	padding: 2px;
-}
-
-/* green objects */
-.green {
-	border: 2px solid #499B33;
-}
-
-/* orange objects */
-.orange {
-	border: 2px solid #BF6A30;
-}
-
-/* blank cells (to create gap between left column and message row) */
-.blank {
-	background-color: white;
-}
-
-/* green cell */
-.green_cell{
-	background-color: #AFD0A7;
-}
-
-/* orange cell */
-.orange_cell{
-	background-color: #DDC5B5;
-}
-
-/* message line */
-#message{
-	color: white;
-	background-color: #aaa
-}
-
-/* left column and corners in main table */
-.dark{
-	background-color: #e0e0e0;
-}
+#todo{width: 300px;min-height:150px;border: 2px solid black;}
+#area_1, #area_2, #area_3{width:200px; position:absolute; border:1px solid #F8F8F8;}
+#area_1{height: 93px;top: 136px;left: 413px;}
+#area_2{height: 91px; top: 253px; left: 362px; width: 150px;}
+#area_3{height: 127px;top: 308px;left: 519px;}		
+*[draggable=true]{float:left;;margin: 10px;font-weight:bold;min-height:60px;min-width: 50px;min-height: 50px;}
+.cardTitle{background-color: rgb(255,255,255);border:2px solid white;}
