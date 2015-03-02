@@ -107,5 +107,5 @@ ul li:hover ul {
 #area_1{height: 93px;top: 136px;left: 413px;}
 #area_2{height: 91px; top: 253px; left: 362px; width: 150px;}
 #area_3{height: 127px;top: 308px;left: 519px;}		
-*[draggable=true]{float:left;;margin: 10px;font-weight:bold;min-height:60px;min-width: 50px;min-height: 50px;}
+*[draggable=true]{float:left;;margin:10px 0px;font-weight:bold;min-height:60px;min-width: 50px;min-height: 50px;}
 .cardTitle{background-color: rgb(255,255,255);border:2px solid white;}
