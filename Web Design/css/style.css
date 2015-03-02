@@ -1,0 +1,177 @@
+@charset "utf-8";
+/* CSS Document */
+
+.clear{ clear:both}
+#mainbody{ width:100%;}
+#row_1{ height:73px; background:#2B1A1B;}
+#row_2{ height:665px; background:#42D8F7;}
+#row_3{ height:185px; background:#FDFDFD;}
+#row_4{ height:800px; background:#EDEDED;}
+#row_5{ height:666px; background:#F7F7F7;}
+#row_6{ height:2911px; background:#F1F1F1;}
+#row_7{ height:391px; background:#635A5A;}
+
+#logo{ width:200px; float:left;}
+#logo img{ height:50px;}
+#menus{width:400px; color:#fff;float:left;}
+
+#support { color:#fff; float:right;  width:150px; margin-top:30px;}
+.aa{color:#090202; margin:0px 0 0 10px;float:left; padding:8px}
+.aa a{ text-decoration:none;}
+.aa:hover{ background:#0B4FAA}
+
+#menus ul {
+  text-align: left;
+  display: inline;
+  margin: 0;
+  padding: 15px 4px 17px 0;
+  list-style: none;
+  
+}
+ul li a{ text-decoration:none; color:#fff;}
+ul li {
+  font: bold 12px/18px sans-serif;
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  padding: 15px 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+ul li:hover {
+  background: #555;
+  color: #fff;
+}
+ul li ul {
+  padding: 0;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 150px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+ul li ul li { 
+  background: #555; 
+  display: block; 
+  color: #fff;
+  text-shadow: 0 -1px 0 #000;
+}
+ul li ul li:hover { background: #666; }
+ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/*
+
+Darko Bunic
+http://www.redips.net/
+Jan, 2010.
+
+*/
+
+body{
+	font-family: arial;
+	margin: 0px; /* for IE6 / IE7 */
+}
+
+/* drag container*/
+#drag{
+	/* make drag div visible */
+	/* border: 2px solid lime; */
+	
+	/* I had problems with FF3 and this settings for DIV id="drag" */	
+	/*
+	margin: auto;
+  	display: table;
+    table-layout: auto;
+    */
+}
+
+/* drag objects (DIV inside table cells) */
+.drag{
+	cursor: move;
+	margin: auto;
+	z-index: 10;
+	background-color: white;
+	text-align: center;
+	font-size: 10pt; /* needed for cloned object */
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	/* without width, IE6/7 will not apply filter/opacity to the element ?! */
+	/* IE needs element layout */
+	width: 82px;
+	height: 25px;
+	line-height: 25px;
+	/* round corners */
+	border-radius: 4px; /* Opera, Chrome */
+	-moz-border-radius: 4px; /* FF */
+}
+
+/* tables */
+div#drag table{
+	background-color: #eee;
+	border-collapse: collapse;
+	margin: auto;
+}
+
+/* table cells */
+div#drag td{
+	height: 32px;
+	border: 1px solid white;
+	text-align: center;
+	font-size: 10pt;
+	padding: 2px;
+}
+
+/* green objects */
+.green {
+	border: 2px solid #499B33;
+}
+
+/* orange objects */
+.orange {
+	border: 2px solid #BF6A30;
+}
+
+/* blank cells (to create gap between left column and message row) */
+.blank {
+	background-color: white;
+}
+
+/* green cell */
+.green_cell{
+	background-color: #AFD0A7;
+}
+
+/* orange cell */
+.orange_cell{
+	background-color: #DDC5B5;
+}
+
+/* message line */
+#message{
+	color: white;
+	background-color: #aaa
+}
+
+/* left column and corners in main table */
+.dark{
+	background-color: #e0e0e0;
+}

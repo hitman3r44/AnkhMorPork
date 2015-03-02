@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Simple Agile Planning Board</title>
+
+<style>		
+.clear{ clear:both;}
+#todo .item{ left:20px; position:fixed;}
+#board{width: 100%;min-height:100px;position:relative;float:left;}
+#todo{width: 25%;float:left;}
+#fullboard{background:url(images/bg_game.jpg) no-repeat left top;width:75%; min-height:1045px;position:relative; float:left;}
+.title{background-color:#52460a;text-align:center;color:white;padding: 2px 0px;}
+
+#todo{width: 300px;min-height:150px;border: 2px solid black;}
+#area_1, #area_2, #area_3{width:200px; position:absolute; border:1px solid #F8F8F8;}
+#area_1{height: 93px;top: 136px;left: 413px;}
+#area_2{height: 91px; top: 253px; left: 362px; width: 150px;}
+#area_3{height: 127px;top: 308px;left: 519px;}		
+*[draggable=true]{float:left;min-width: 50px;min-height: 50px;border: 2px solid black;margin: 10px;font-weight:bold;min-height:60px;						background-image: -webkit-gradient(linear,left top, left bottom,					color-stop(0.63, white),color-stop(0.92, rgb(5,161,245)));                background-image:-moz-linear-gradient(center top,white 63%,rgb(5,161,245) 92%);-webkit-background-size:1px 8px;-moz-background-size:1px 8px;background-size:1px 8px;background-repeat:repeat;}
+.cardTitle{background-color: rgb(255,255,255);border:2px solid white;}
+</style>
+            
+</head>
+	
+	<body>
+    <div id="board">
+        <div id="todo">
+        	<div class="title">To Do</div>
+            <div id="item1" class="item" draggable="true">
+                <div class="cardTitle">
+                    Learn HTML5
+                </div>
+            </div>
+            <div id="item2" class="item" draggable="true">
+                <div class="cardTitle">
+                    Learn CSS3
+                </div>
+            </div>
+            
+            <div id="item3" class="item" draggable="true">
+                <div class="cardTitle">
+                    Learn JQuery
+                </div>
+            </div>    
+        
+        </div>
+        
+      
+        
+        
+        <div id="fullboard">        
+                <div id="area_1"></div>			
+                <div id="area_2"></div>        
+                <div id="area_3"></div>              
+        </div>
+        
+		
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">
+        </script>
+
+		<script type="text/javascript">
+		$('document').ready(init);
+		
+        function init(){
+            $('.item').bind('dragstart', function(event) {
+                event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+            });
+            
+  		    // bind the dragover event on the board sections
+            $('#todo, #area_1, #area_2, #area_3').bind('dragover', function(event) {
+                event.preventDefault();
+            });
+			
+			// bind the drop event on the board sections
+  			$('#todo, #area_1, #area_2, #area_3').bind('drop', function(event) {
+            var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+			event.target.appendChild(document.getElementById(notecard));
+			//alert(notecard);
+            //alert($(this).attr("id"));
+			// Turn off the default behaviour
+			// without this, FF will try and go to a URL with your id's name
+            event.preventDefault();
+			});
+        }
+		</script>
+	</body>
+</html>
