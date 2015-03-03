@@ -40,7 +40,7 @@ ul li:hover ul {display: block; opacity: 1; visibility: visible;}
 
 
 
-#todo .minion{ left:20px; position:fixed;}
+#todo .minion{ left:20px; position:relative; float:left;}
 #todo .building{ left:73px; position:fixed;}
 .minion-red{ background:url(../images/minion-red.png)}
 .building-red{ background:url(../images/building-red.png)}
