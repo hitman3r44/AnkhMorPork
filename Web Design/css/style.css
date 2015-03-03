@@ -40,10 +40,14 @@ ul li:hover ul {display: block; opacity: 1; visibility: visible;}
 
 
 
-#todo .minion{ left:20px; position:relative; float:left;}
-#todo .building{ left:73px; position:fixed;}
+#todo .minion{ left:20px; position:absolute; float:left;}
+#todo .building{ left:55px; position:absolute;}
+#todo .dollor{ left:90px; position:absolute;}
+#todo .trouble{ left:125px; position:absolute;}
 .minion-red{ background:url(../images/minion-red.png)}
 .building-red{ background:url(../images/building-red.png)}
+.dollor{ background:url(../images/dollor.png)}
+.trouble{ background:url(../images/trouble.png)}
 
 #board{width: 100%;min-height:100px;position:relative;float:left;}
 #todo{width: 25%;float:left;}

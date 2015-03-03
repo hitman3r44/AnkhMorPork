@@ -17,7 +17,10 @@
             
              <div id="building-1" class="building building-red" draggable="true"></div>
             <div id="building-2" class="building building-red" draggable="true"></div>
-            <div id="building-3" class="building building-red" draggable="true"></div>    
+            <div id="building-3" class="building building-red" draggable="true"></div>   
+            
+             <div id="dollor-1" class="dollor" draggable="true"></div> 
+             <div id="trouble-1" class="trouble" draggable="true"></div> 
         
         </div>
         
@@ -47,17 +50,17 @@
 		$('document').ready(init);
 		
         function init(){
-            $('.minion, .building').bind('dragstart', function(event) {
+            $('.minion, .building, .dollor, .trouble').bind('dragstart', function(event) {
                 event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
             });
             
   		    // bind the dragover event on the board sections
-            $('#todo, .board_area').bind('dragover', function(event) {
+            $('#todo, .board_area, .dollor, .trouble').bind('dragover', function(event) {
                 event.preventDefault();
             });
 			
 			// bind the drop event on the board sections
-  			$('#todo, .board_area').bind('drop', function(event) {
+  			$('#todo, .board_area, .dollor, .trouble').bind('drop', function(event) {
             var notecard = event.originalEvent.dataTransfer.getData("text/plain");
 			event.target.appendChild(document.getElementById(notecard));
 			//alert(notecard);
