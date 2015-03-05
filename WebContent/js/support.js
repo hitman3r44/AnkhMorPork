@@ -11,8 +11,13 @@ function validate()
 			  	str +='<div>Enter Name of Player'+i+'</div>';
 		        str += '<input type="text" name="name' + i + '" id="id' + i + '"/>';
 		    }
-		  	str+='<br><br>'+'<img id="buttonId" style="border:0px;" onclick="validate();" src="http://images.webestools.com/buttons.php?frm=1&btn_type=43&txt=PLAY"  alt="PLAY" />';
+		  str+='<br><br>'+'<a href="../index.html"><img id="buttonId" style="border:0px;" onclick="../index.html" src="http://images.webestools.com/buttons.php?frm=1&btn_type=43&txt=PLAY" onmouseover="this.src="http://images.webestools.com/buttons.php?frm=2&btn_type=43&txt=PLAY NOW" onmouseout="this.src="http://images.webestools.com/buttons.php?frm=1&btn_type=43&txt=PLAY";" alt="PLAY" /></a>'
+		  //	str+='<br><br>'+'<img id="buttonId" style="border:0px;" onclick="../index.html" src="http://images.webestools.com/buttons.php?frm=1&btn_type=43&txt=PLAY"  alt="PLAY" />';
 		    $('#container').html(str);
 		  
 		
+	}
+
+function newgame()
+{
 	}
