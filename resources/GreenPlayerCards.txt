@@ -1,0 +1,38 @@
+Mr Boggis|CARD_ACTION_6,CARD_ACTION_1|Take $2 if possible from every other Player.
+Mr Bent|CARD_ACTION_6,CARD_ACTION_8|Place this card infront of you and take a loan of $10 from the bank. At the end of the game you must pay $12 or lose 15 points.
+The Beggar's Guild|CARD_ACTION_6,CARD_ACTION_1|Select One player they must give you two cards of their choice.
+The Bank of Ankh-Morporkh|CARD_ACTION_6,CARD_ACTION_8|Place this card infront of you and take a loan of $10 from the bank. At the end of the game you must pay $12 or lose 15 points.
+The Ankh-Morporkh Sunshine Dragon Sanctuary|CARD_ACTION_6,CARD_ACTION_8|Each Player should give you either $1 or one of their cards.
+Sergeant Angua|CARD_ACTION_7,CARD_ACTION_8|
+The Agony Aunts|CARD_ACTION_3,CARD_ACTION_5,CARD_ACTION_1|
+The Dysk|CARD_ACTION_2,CARD_ACTION_6|Earn $1 for each minion in The Isle Of Gods
+The Duckman|CARD_ACTION_6|Move a minion belonging to another player from one area to an adjacent area.
+Drumknott|CARD_ACTION_6|Play any other two cards from your hands.
+CMOT Dibbler|CARD_ACTION_6,CARD_ACTION_8|Roll the die. On a roll of 7 or more you take $4 from the bank. On a roll of 1 you must pay $2 to the bank or remove one of your minions from the board.All other results have no effect.
+Dr Cruces|CARD_ACTION_3,CARD_ACTION_5|
+Captain Carrot|CARD_ACTION_1,CARD_ACTION_7,CARD_ACTION_5|
+Groat|CARD_ACTION_1|
+Gimlet's Dwarf Delicatessen|CARD_ACTION_5,CARD_ACTION_1|
+Gaspode|CARD_ACTION_9|Stop a player from moving or removing one of your minions.
+Fresh Start Club|CARD_ACTION_9|If you have a minion removed you can place him in a different area.
+Foul Ole Ron|CARD_ACTION_6,CARD_ACTION_8|Move a minion belonging to another player from one area to an adjacent area.
+The Foul's Guild|CARD_ACTION_6,CARD_ACTION_1|Select another player.If they do not give you $5 then place this card infront of them.This card now counts to their hand size of five cards when they come to refil their hand.They cannot get rid of this card.
+The Fire Brigade|CARD_ACTION_6,CARD_ACTION_8|Choose a player. If he does not give you $5 then you can remove one of his buildings from the board.
+Inigo Skimmer|CARD_ACTION_3,CARD_ACTION_5|
+History Monks|CARD_ACTION_6,CARD_ACTION_1|Shuffle discard pile and draw four cards randomly.Place the remaining cards back as the discard pile.
+Hex|CARD_ACTION_6,CARD_ACTION_2|
+Here'n'Now|CARD_ACTION_6,CARD_ACTION_8|Roll the die. On a roll of 7 or more you take $3 from a player of your choice.On a roll of a 1 you must remove one of your minions from the board. All other results have no effect.
+Harry King|CARD_ACTION_1,CARD_ACTION_6|Discard as many card as you wish and take $2 for each one discarded.
+Harga's house of ribs|CARD_ACTION_5,CARD_ACTION_1|
+Mr Gryle|CARD_ACTION_3,CARD_ACTION_5|
+The Peeled Nuts||
+The Opera House|CARD_ACTION_3,CARD_ACTION_6|Earn $1 for each minion in The Isle Of Gods.
+Nobby Nobbs|CARD_ACTION_6,CARD_ACTION_8|Take $3 from the player of your choice.
+Modo|CARD_ACTION_6,CARD_ACTION_1|Discard one card.
+The Menden Drum|CARD_ACTION_2,CARD_ACTION_5|
+Librarian|CARD_ACTION_6|Take four cards from the draw deck.
+Leonard of Quim|CARD_ACTION_6|Take four cards from the draw deck.
+Shonky Shop|CARD_ACTION_6,CARD_ACTION_2|Discard as many as cards you wish and take $1 for each card discarded.
+Sacharissa CripSlock|CARD_ACTION_6,CARD_ACTION_1|Earn $1 for each trouble marker on the board.
+Rosie Palm||Choose one player.Give them one of your cards.They must give you $2 in return.
+Rincewind|
