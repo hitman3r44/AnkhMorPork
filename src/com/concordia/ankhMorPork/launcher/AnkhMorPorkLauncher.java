@@ -108,7 +108,7 @@ public class AnkhMorPorkLauncher {
 		String input=userInputForLoadOrNewGameScanner
 				.nextLine();
 		if ("Y".equalsIgnoreCase(input)) {
-			boardManager.displayCurrentStatus(boardManager.getBoard());
+			boardManager.displayBoardStatus(boardManager.getBoard());
 			saveGame(ankhMorPorkLauncher2);
 		}
 		else if ("N".equalsIgnoreCase(input)) {

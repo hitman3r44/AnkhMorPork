@@ -8,10 +8,7 @@ package com.concordia.ankhMorPork.manager;
  */
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -98,6 +95,30 @@ public class BoardManager {
 		}
 		}
 	};
+	@SuppressWarnings("serial")
+	public static final HashMap<Integer, PlayerCard> playerCardMap = new HashMap<Integer, PlayerCard>() {
+		{
+			Scanner inFile1;
+			try {
+				inFile1 = new Scanner(new File("./resources/GreenPlayerCards.txt"));
+				int index=1;
+				while (inFile1.hasNext()) {
+				PlayerCard playerCard = new PlayerCard();	
+				String data[] =inFile1.nextLine().split("\\|");
+				System.out.println("data[]" + data[1]);
+				playerCard.setIdentifier(index);
+				playerCard.setName(data[0]);
+				playerCard.setActionItem(data[1].split(","));
+				playerCard.setDescription(data[2]);
+				System.out.println("index :"+index);
+					put(index++,playerCard);
+				}
+		}catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+	};
 	public static HashMap<String, String> randomCardsDescription;
 	public static HashMap<Integer, HashMap<String, String>> randomEventCards;
 	//Static block to load Random EventCards
@@ -135,7 +156,7 @@ public class BoardManager {
 	 */
 	
 	
-	public void displayCurrentStatus(Board board) {
+	public void displayBoardStatus(Board board) {
 		
 		Common.display();
 		System.out.println("                   Game Status");
@@ -183,9 +204,9 @@ public class BoardManager {
 			System.out.println(board.getPlayerList().get(i).getName()
 					+ "'s Current Holdings : ");
 			System.out.println("No Of Minions        :"
-					+ (Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard()));
+					+ (board.getPlayerList().get(i).getNoOfMinions()));
 			System.out.println("No Of Building       :"
-					+ (Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard()));
+					+ (board.getPlayerList().get(i).getNoOfBuilding()));
 			System.out.println("Ankh-Morpork Dollars :"
 					+ board.getPlayerList().get(i).getPlayerMoney() + "\n\n\n");
 			System.out.println("City Area cards: ");
@@ -265,10 +286,10 @@ public class BoardManager {
 		for (int i = 0; i < noOfPlayer; i++) {
 			Player player = new Player(i + 1, playerNameList.get(i),
 					colorList.get(i));
-			player.setBuildingOnBoard(0);
+			player.setNoOfBuilding(6);
 			player.setPlayerMoney(10);
 			player.setCityAreaCard(new ArrayList<Integer>());
-			player.setMinionsOnBoard(minionsOnBoard);
+			player.setNoOfMinions(Global.MINIONS - minionsOnBoard);
 			randomCardNo = generateRandom(1, 7, existingPersonalityCard);
 			player.setPersonalityCard(randomCardNo);
 			existingPersonalityCard.add(randomCardNo);

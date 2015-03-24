@@ -87,9 +87,9 @@ public class GameStateJsonParser {
 				Player playerObject = new Player(tmp_player_id,
 						tmp_player_name, tmp_player_color);
 				int tmp_no_of_minion = player.getInt(Language.NO_OF_MINIONS);
-				playerObject.setMinionsOnBoard((12 - tmp_no_of_minion));
+				playerObject.setNoOfMinions((tmp_no_of_minion));
 				int tmp_no_of_building = player.getInt(Language.NO_OF_BUILDING);
-				playerObject.setBuildingOnBoard(6 - tmp_no_of_building);
+				playerObject.setNoOfBuilding(tmp_no_of_building);
 				int tmp_player_money = player.getInt(Language.PLAYER_MONEY);
 				playerObject.setPlayerMoney(tmp_player_money);
 				int tmp_player_personality_card = player

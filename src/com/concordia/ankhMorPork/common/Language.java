@@ -40,6 +40,16 @@ public class Language {
 	final public static  String NO_OF_TROLL = "no_of_troll";
 	final public static  String NO_OF_DEMONS = "no_Of_demons";
 	final public static  String PLAYER_TURN = "player_turn";
+	final public static  String CARD_ACTION_1 = "Place a Minion";
+	final public static  String CARD_ACTION_2 = "Place a building";
+	final public static  String CARD_ACTION_3 = "Asssaination";
+	final public static  String CARD_ACTION_4 = "Remove One troubleMarker";
+	final public static  String CARD_ACTION_5 = "Take Money from bank";
+	final public static  String CARD_ACTION_6 = "Scroll";
+	final public static  String CARD_ACTION_7 = "Play RandomEvent Card";
+	final public static  String CARD_ACTION_8 = "Play another card";
+	final public static  String CARD_ACTION_9 = "Interrupt Card";
+	
 	
 	//Launcher 
 	

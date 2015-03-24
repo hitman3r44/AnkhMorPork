@@ -8,8 +8,8 @@ public class Player {
 	private int playerId;
 	private String name;
 	private String color;
-	private Integer minionsOnBoard;
-	private Integer buildingOnBoard;
+	private Integer noOfMinions;
+	private Integer noOfBuilding;
 	private Integer playerMoney;
 	private Integer personalityCard;
 	private String personalityCardString;
@@ -85,32 +85,7 @@ public class Player {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	/**
-	 * It pulls the numbers of minions on board belonging to a player
-	 * @return number of minions on board as integer
-	 */
-	public Integer getMinionsOnBoard() {
-		return minionsOnBoard;
-	}
-   /**
-    * sets the number of minions of a player on the board
-    */
-	public void setMinionsOnBoard(Integer minionsOnBoard2) {
-		this.minionsOnBoard = minionsOnBoard2;
-	}
-    /**
-     *  It retrieves the different buildings present on the board for a please
-     * @return number of buildings for a player as an integer number
-     */
-	public Integer getBuildingOnBoard() {
-		return buildingOnBoard;
-	}
-	/**
-	 * This function sets the building on an area of a board
-	 */
-	public void setBuildingOnBoard(Integer buildingOnBoard) {
-		this.buildingOnBoard = buildingOnBoard;
-	}
+	
 	/**
 	 * This function simply retrieves the money a player currently holds
 	 * @return player money as an integer value
@@ -193,6 +168,32 @@ public class Player {
 	 */
 	public void setCityAreaCard(List<Integer> cityAreaCard) {
 		this.cityAreaCard = cityAreaCard;
+	}
+	/**
+	 * It pulls the numbers of minions on board belonging to a player
+	 * @return number of minions on board as integer
+	 */
+	public Integer getNoOfMinions() {
+		return noOfMinions;
+	}
+	/**
+	    * sets the number of minions of a player 
+	    */
+	public void setNoOfMinions(Integer noOfMinions) {
+		this.noOfMinions = noOfMinions;
+	}
+	 /**
+     *  It retrieves the different number of building for a player
+     * @return number of buildings for a player as an integer number
+     */
+	public Integer getNoOfBuilding() {
+		return noOfBuilding;
+	}
+	/**
+	 * This function sets the no of building for an player
+	 */
+	public void setNoOfBuilding(Integer noOfBuilding) {
+		this.noOfBuilding = noOfBuilding;
 	}
 
 }

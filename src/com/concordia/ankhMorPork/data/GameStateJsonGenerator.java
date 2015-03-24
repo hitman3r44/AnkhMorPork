@@ -62,8 +62,8 @@ public class GameStateJsonGenerator {
 				jGenerator.writeStringField(Language.PLAYER_NAME, board.getPlayerList().get(i).getName());
 				jGenerator.writeStringField(Language.COLOR, board.getPlayerList().get(i).getColor());
 				jGenerator.writeNumberField(Language.PERSONALITY_CARD, board.getPlayerList().get(i).getPersonalityCard());
-				jGenerator.writeNumberField(Language.NO_OF_MINIONS, Global.MINIONS - board.getPlayerList().get(i).getMinionsOnBoard());
-				jGenerator.writeNumberField(Language.NO_OF_BUILDING, Global.BUILDINGS - board.getPlayerList().get(i).getBuildingOnBoard());
+				jGenerator.writeNumberField(Language.NO_OF_MINIONS, board.getPlayerList().get(i).getNoOfMinions());
+				jGenerator.writeNumberField(Language.NO_OF_BUILDING, board.getPlayerList().get(i).getNoOfBuilding());
 				jGenerator.writeNumberField(Language.PLAYER_MONEY, board.getPlayerList().get(i).getPlayerMoney());
 				
 				//Write array for city area cards
