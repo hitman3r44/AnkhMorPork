@@ -1,38 +1,48 @@
-Mr Boggis|CARD_ACTION_6,CARD_ACTION_1|Take $2 if possible from every other Player.
-Mr Bent|CARD_ACTION_6,CARD_ACTION_8|Place this card infront of you and take a loan of $10 from the bank. At the end of the game you must pay $12 or lose 15 points.
-The Beggar's Guild|CARD_ACTION_6,CARD_ACTION_1|Select One player they must give you two cards of their choice.
-The Bank of Ankh-Morporkh|CARD_ACTION_6,CARD_ACTION_8|Place this card infront of you and take a loan of $10 from the bank. At the end of the game you must pay $12 or lose 15 points.
-The Ankh-Morporkh Sunshine Dragon Sanctuary|CARD_ACTION_6,CARD_ACTION_8|Each Player should give you either $1 or one of their cards.
-Sergeant Angua|CARD_ACTION_7,CARD_ACTION_8|
-The Agony Aunts|CARD_ACTION_3,CARD_ACTION_5,CARD_ACTION_1|
-The Dysk|CARD_ACTION_2,CARD_ACTION_6|Earn $1 for each minion in The Isle Of Gods
-The Duckman|CARD_ACTION_6|Move a minion belonging to another player from one area to an adjacent area.
-Drumknott|CARD_ACTION_6|Play any other two cards from your hands.
-CMOT Dibbler|CARD_ACTION_6,CARD_ACTION_8|Roll the die. On a roll of 7 or more you take $4 from the bank. On a roll of 1 you must pay $2 to the bank or remove one of your minions from the board.All other results have no effect.
-Dr Cruces|CARD_ACTION_3,CARD_ACTION_5|
-Captain Carrot|CARD_ACTION_1,CARD_ACTION_7,CARD_ACTION_5|
-Groat|CARD_ACTION_1|
-Gimlet's Dwarf Delicatessen|CARD_ACTION_5,CARD_ACTION_1|
-Gaspode|CARD_ACTION_9|Stop a player from moving or removing one of your minions.
-Fresh Start Club|CARD_ACTION_9|If you have a minion removed you can place him in a different area.
-Foul Ole Ron|CARD_ACTION_6,CARD_ACTION_8|Move a minion belonging to another player from one area to an adjacent area.
-The Foul's Guild|CARD_ACTION_6,CARD_ACTION_1|Select another player.If they do not give you $5 then place this card infront of them.This card now counts to their hand size of five cards when they come to refil their hand.They cannot get rid of this card.
-The Fire Brigade|CARD_ACTION_6,CARD_ACTION_8|Choose a player. If he does not give you $5 then you can remove one of his buildings from the board.
-Inigo Skimmer|CARD_ACTION_3,CARD_ACTION_5|
-History Monks|CARD_ACTION_6,CARD_ACTION_1|Shuffle discard pile and draw four cards randomly.Place the remaining cards back as the discard pile.
-Hex|CARD_ACTION_6,CARD_ACTION_2|
-Here'n'Now|CARD_ACTION_6,CARD_ACTION_8|Roll the die. On a roll of 7 or more you take $3 from a player of your choice.On a roll of a 1 you must remove one of your minions from the board. All other results have no effect.
-Harry King|CARD_ACTION_1,CARD_ACTION_6|Discard as many card as you wish and take $2 for each one discarded.
-Harga's house of ribs|CARD_ACTION_5,CARD_ACTION_1|
-Mr Gryle|CARD_ACTION_3,CARD_ACTION_5|
+Mr Boggis|Scroll,Place a Minion|Take $2 if possible from every other Player.
+Mr Bent|Scroll,Play another card|Place this card infront of you and take a loan of $10 from the bank. At the end of the game you must pay $12 or lose 15 points.
+The Beggar's Guild|Scroll,Place a Minion|Select One player they must give you two cards of their choice.
+The Bank of Ankh-Morporkh|Scroll,Play another card|Place this card infront of you and take a loan of $10 from the bank. At the end of the game you must pay $12 or lose 15 points.
+The Ankh-Morporkh Sunshine Dragon Sanctuary|Scroll,Play another card|Each Player should give you either $1 or one of their cards.
+Sergeant Angua|Remove One troubleMarker,Play another card|
+The Agony Aunts|Asssaination,Take $2 from bank,Place a Minion|
+The Dysk|Place a building,Scroll|Earn $1 for each minion in The Isle Of Gods
+The Duckman|Scroll|Move a minion belonging to another player from one area to an adjacent area.
+Drumknott|Scroll|Play any other two cards from your hands.
+CMOT Dibbler|Scroll,Play another card|Roll the die. On a roll of 7 or more you take $4 from the bank. On a roll of 1 you must pay $2 to the bank or remove one of your minions from the board.All other results have no effect.
+Dr Cruces|Asssaination,Take $3 from bank|
+Captain Carrot|Place a Minion,Remove One troubleMarker,Take $1 from bank|
+Mrs Cake|Scroll,Take $2 from bank,Place a building|Look at all but one of the unused Personality Cards.
+Groat|Place a Minion|
+Gimlet's Dwarf Delicatessen|Take $3 from bank,Place a Minion|
+Gaspode|Interrupt Card|Stop a player from moving or removing one of your minions.
+Fresh Start Club|Interrupt Card|If you have a minion removed you can place him in a different area.
+Foul Ole Ron|Scroll,Play another card|Move a minion belonging to another player from one area to an adjacent area.
+The Foul's Guild|Scroll,Place a Minion|Select another player.If they do not give you $5 then place this card infront of them.This card now counts to their hand size of five cards when they come to refil their hand.They cannot get rid of this card.
+The Fire Brigade|Scroll,Play another card|Choose a player. If he does not give you $5 then you can remove one of his buildings from the board.
+Inigo Skimmer|Asssaination,Take $2 from bank|
+History Monks|Scroll,Place a Minion|Shuffle discard pile and draw four cards randomly.Place the remaining cards back as the discard pile.
+Hex|Scroll,Place a building|
+Here'n'Now|Scroll,Play another card|Roll the die. On a roll of 7 or more you take $3 from a player of your choice.On a roll of a 1 you must remove one of your minions from the board. All other results have no effect.
+Harry King|Place a Minion,Scroll|Discard as many card as you wish and take $2 for each one discarded.
+Harga's house of ribs|Take $3 from bank,Place a Minion|
+Mr Gryle|Asssaination,Take $1 from bank|
 The Peeled Nuts||
-The Opera House|CARD_ACTION_3,CARD_ACTION_6|Earn $1 for each minion in The Isle Of Gods.
-Nobby Nobbs|CARD_ACTION_6,CARD_ACTION_8|Take $3 from the player of your choice.
-Modo|CARD_ACTION_6,CARD_ACTION_1|Discard one card.
-The Menden Drum|CARD_ACTION_2,CARD_ACTION_5|
-Librarian|CARD_ACTION_6|Take four cards from the draw deck.
-Leonard of Quim|CARD_ACTION_6|Take four cards from the draw deck.
-Shonky Shop|CARD_ACTION_6,CARD_ACTION_2|Discard as many as cards you wish and take $1 for each card discarded.
-Sacharissa CripSlock|CARD_ACTION_6,CARD_ACTION_1|Earn $1 for each trouble marker on the board.
-Rosie Palm||Choose one player.Give them one of your cards.They must give you $2 in return.
-Rincewind|
+The Opera House|Asssaination,Scroll|Earn $1 for each minion in The Isle Of Gods.
+Nobby Nobbs|Scroll,Play another card|Take $3 from the player of your choice.
+Modo|Scroll,Place a Minion|Discard one card.
+The Menden Drum|Place a building,Take $2 from bank|
+Librarian|Scroll|Take four cards from the draw deck.
+Leonard of Quim|Scroll|Take four cards from the draw deck.
+Shonky Shop|Scroll,Place a building|Discard as many as cards you wish and take $1 for each card discarded.
+Sacharissa CripSlock|Scroll,Place a Minion|Earn $1 for each trouble marker on the board.
+Rosie Palm|Place a Minion,Scroll|Choose one player.Give them one of your cards.They must give you $2 in return.
+Rincewind|Play RandomEvent Card,Scroll,Play another card|Move one of your minions from the area containing the trouble marker to an adjacent area.
+The Royal Mint|Place a building,Take $5 from bank|
+Queen Molly|Place a Minion,Scroll|Select one player.They must give you two cards of their choice.
+Pink Pussy Cat Club|Take $3 from bank,Play another card|
+Zorgo the Retro-phrenologist|Scroll,Place a building|You may exchange your Personality card with one drawn randomly from those not in use.
+Dr Whiteface|Scroll,Place a Minion|Select another player.If they do not give you $5 then place this card infront of them.This card now counts toward their handsize of five cards when they come to refill their hand.They cannot get rid of this bank.
+Wallace Sonly|Interrupt Card|You cannot be affected by the text on a card played by another player.
+The Seamstresses' Guild|Scroll,Place a Minion|Choose one player.Give them one of your Cards.They must give you $2 in return.
+Mr Pin & Mr Tulip|Asssaination,Take $1 from bank|The New Firm.
+The Thieve's Guild|Scroll,Place a Minion|Take $2,if possible,from every other player.

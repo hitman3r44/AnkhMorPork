@@ -18,6 +18,7 @@ import com.concordia.ankhMorPork.data.GameStateJsonGenerator;
 import com.concordia.ankhMorPork.data.GameStateJsonParser;
 import com.concordia.ankhMorPork.manager.Board;
 import com.concordia.ankhMorPork.manager.BoardManager;
+import com.concordia.ankhMorPork.manager.Player;
 
 /**
  * This Class Launch the game and used as a input interface between user and the
@@ -112,6 +113,7 @@ public class AnkhMorPorkLauncher {
 			saveGame(ankhMorPorkLauncher2);
 		}
 		else if ("N".equalsIgnoreCase(input)) {
+			playGame(ankhMorPorkLauncher2);
 			saveGame(ankhMorPorkLauncher2);
 
 		}
@@ -121,6 +123,21 @@ public class AnkhMorPorkLauncher {
 			chooseGameState(ankhMorPorkLauncher2);
 		}
 		
+	}
+	private void playGame(AnkhMorPorkLauncher ankhMorPorkLauncher2) {
+		int playerTurn=boardManager.getBoard().getPlayerTurn() - 1;
+		boolean win=validateWinningCondition(ankhMorPorkLauncher2,playerTurn);
+		if(!win){
+		System.out.println("Welcome "+boardManager.getBoard().getPlayerList().get(playerTurn).getName());
+		boardManager.showPlayerDetails(boardManager.getBoard().getPlayerList().get(playerTurn));
+		}
+		
+	}
+
+	private boolean validateWinningCondition(
+			AnkhMorPorkLauncher ankhMorPorkLauncher2, Integer playerTurn) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	/**
 	 * The saveGame method saves the games current state. 
@@ -152,7 +169,8 @@ public class AnkhMorPorkLauncher {
 		}
 		else{
 			System.out.println("Invalid Input !! lets Get back to Menu");
-			chooseGameState(ankhMorPorkLauncher2);
+			playGame(ankhMorPorkLauncher2);
+			//chooseGameState(ankhMorPorkLauncher2);
 		}
 	}
 	/**

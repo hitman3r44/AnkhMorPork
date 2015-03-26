@@ -102,15 +102,24 @@ public class BoardManager {
 			try {
 				inFile1 = new Scanner(new File("./resources/GreenPlayerCards.txt"));
 				int index=1;
+				String[] actionItem=new String[5];
 				while (inFile1.hasNext()) {
 				PlayerCard playerCard = new PlayerCard();	
 				String data[] =inFile1.nextLine().split("\\|");
-				System.out.println("data[]" + data[1]);
+				//System.out.println("data[]" + data[1]);
 				playerCard.setIdentifier(index);
 				playerCard.setName(data[0]);
+				if(data.length==1){
+					playerCard.setActionItem(actionItem);
+				}else{
 				playerCard.setActionItem(data[1].split(","));
+				}
+				if(data.length==3){
 				playerCard.setDescription(data[2]);
-				System.out.println("index :"+index);
+				}else{
+					playerCard.setDescription("");	
+				}
+				//System.out.println("index :"+index);
 					put(index++,playerCard);
 				}
 		}catch (FileNotFoundException e) {
@@ -218,7 +227,7 @@ public class BoardManager {
 			if (board.getPlayerList().get(i).getCityAreaCard().size() == 0) {
 				System.out.println("No City Area cards attained yet");
 			} else {
-				for (int j = 0; i < board.getPlayerList().get(i)
+				for (int j = 0; j < board.getPlayerList().get(i)
 						.getCityAreaCard().size(); j++) {
 					System.out.println((j + 1)
 							+ ")"
@@ -232,6 +241,10 @@ public class BoardManager {
 			System.out.println("\nPlayer Cards : ");
 			System.out.println(" \tGreen Cards : "
 					+ board.getPlayerList().get(i).getGreenPlayerCards());
+			for (int k=0; k<board.getPlayerList().get(i).getGreenPlayerCards().size();k++){
+				
+				System.out.println(playerCardMap.get(board.getPlayerList().get(i).getGreenPlayerCards().get(k)).getName());
+			}
 			System.out.println(" \tBrown Cards : "
 					+ board.getPlayerList().get(i).getBrownPlayerCards());
 				
@@ -433,6 +446,46 @@ public class BoardManager {
 	
 	public void setBoard(Board board) {
 		this.board = board;
+	}
+
+	public void showPlayerDetails(Player player) {
+		System.out.println("No Of Minions        :"
+				+ (player.getNoOfMinions()));
+		System.out.println("No Of Building       :"
+				+ (player.getNoOfBuilding()));
+		System.out.println("Ankh-Morpork Dollars :"
+				+ player.getPlayerMoney() + "\n\n\n");
+		System.out.println("City Area cards: ");
+		if (player.getCityAreaCard().size() == 0) {
+			System.out.println("No City Area cards attained yet");
+		} else {
+			for (int j = 0; j < player.getCityAreaCard().size(); j++) {
+				System.out.println((j + 1)
+						+ ")"
+						+ board.getCityAreaCard().get(
+								player.getCityAreaCard().get(j))
+								.getName());
+			}
+		}
+		
+		System.out.println("\nPlayer Cards : ");
+		System.out.println(" \tGreen Cards : "
+				+ player.getGreenPlayerCards());
+		String events="";
+		PlayerCard playerCard =null;
+		for (int k=0; k<player.getGreenPlayerCards().size();k++){
+			events="";
+			playerCard = playerCardMap.get(player.getGreenPlayerCards().get(k));
+			for (int l=0;l<playerCard.actionItem.length;l++){
+				if(l==playerCard.actionItem.length-1)
+					events+=playerCard.actionItem[l];
+				else
+					events+=playerCard.actionItem[l]+" , ";
+			}
+			System.out.println(playerCard.getName()+" - ("+events+")");
+		}
+		System.out.println(" \tBrown Cards : "
+				+ player.getBrownPlayerCards());
 	}
 
 }
