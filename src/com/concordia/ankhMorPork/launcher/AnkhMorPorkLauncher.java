@@ -119,7 +119,7 @@ public class AnkhMorPorkLauncher {
 		}
 		else
 		{
-			System.out.println("Invalid Input !! lets Get back to Menu");
+			System.out.println("\nInvalid Input !! lets Get back to Menu\n");
 			chooseGameState(ankhMorPorkLauncher2);
 		}
 		
@@ -129,7 +129,8 @@ public class AnkhMorPorkLauncher {
 		boolean win=validateWinningCondition(ankhMorPorkLauncher2,playerTurn);
 		if(!win){
 		System.out.println("Welcome "+boardManager.getBoard().getPlayerList().get(playerTurn).getName());
-		boardManager.showPlayerDetails(boardManager.getBoard().getPlayerList().get(playerTurn));
+		board=boardManager.showPlayerDetails(boardManager.getBoard(),boardManager.getBoard().getPlayerList().get(playerTurn));
+		boardManager.setBoard(board);
 		}
 		
 	}

@@ -9,6 +9,7 @@ package com.concordia.ankhMorPork.manager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -23,7 +24,8 @@ import com.concordia.ankhMorPork.common.Global;
  */
 public class BoardManager {
 
-	private Board board;	
+	private Board board;
+	private ActionItemImpl ActionItemImpl=new ActionItemImpl();
 	public static List<Integer> existingCards = new ArrayList<Integer>();
 	public static List<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
 	public static List<Area> areaList = new ArrayList<Area>();
@@ -95,6 +97,25 @@ public class BoardManager {
 		}
 		}
 	};
+
+	public static final HashMap<Integer, List<String>> AdjacentAreaMap = new HashMap<Integer, List<String>>() {
+		{
+		Scanner inFile1;
+		Integer i=1;
+		try {
+			inFile1 = new Scanner(new File("./resources/AdjacencyAreaList.txt"));
+
+			while (inFile1.hasNext()) {
+				String data[] =inFile1.nextLine().split("--");
+				put(i++,Arrays.asList(data[1].split(",")));
+			}
+	}catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		}
+	};
+	
 	@SuppressWarnings("serial")
 	public static final HashMap<Integer, PlayerCard> playerCardMap = new HashMap<Integer, PlayerCard>() {
 		{
@@ -448,7 +469,7 @@ public class BoardManager {
 		this.board = board;
 	}
 
-	public void showPlayerDetails(Player player) {
+	public Board showPlayerDetails(Board board, Player player) {
 		System.out.println("No Of Minions        :"
 				+ (player.getNoOfMinions()));
 		System.out.println("No Of Building       :"
@@ -482,10 +503,62 @@ public class BoardManager {
 				else
 					events+=playerCard.actionItem[l]+" , ";
 			}
-			System.out.println(playerCard.getName()+" - ("+events+")");
+			System.out.println("\t\t"+playerCard.getName()+" - ("+events+")\n");
 		}
 		System.out.println(" \tBrown Cards : "
 				+ player.getBrownPlayerCards());
+		board=chooseNextAction(board);
+		return board;
+	}
+
+	private Board chooseNextAction(Board board2) {
+		String input=null;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\n\t\t\tAction Menu\n");
+		System.out.println("1.Place a Minion\n2.Place a building\n3.Asssaination\n4.Remove One troubleMarker\n5.Take Money from bank\n6.Scroll\n7.Play RandomEvent Card\n8.Play another card\n9.Interrupt Card\n10.Pass the move to next player\n11.Quit and get Baxk to Main Menu");
+		System.out.println("\nEnter your Choice : \n");
+		input = sc.nextLine();
+		switch (Integer.parseInt(input)) {
+		case 1:
+			board2=this.ActionItemImpl.PlaceTheMinion(board2);
+			break;
+		case 2:
+			board2=this.ActionItemImpl.PlaceTheBuilding(board2);
+			break;
+		case 3:
+			Common.displayThankyouMenu();
+			break;
+		case 4:
+			break;
+		case 5:
+			Common.displayThankyouMenu();
+			break;
+		case 6:
+			Common.displayThankyouMenu();
+			break;
+		case 7:
+			Common.displayThankyouMenu();
+			break;
+		case 8:
+			Common.displayThankyouMenu();
+			break;	
+		case 9:
+			Common.displayThankyouMenu();
+			break;	
+		case 10:
+			Common.displayThankyouMenu();
+			break;	
+		case 11:
+			Common.displayThankyouMenu();
+			break;	
+		default:
+			System.out.println("Invalid Input");
+			//chooseGameState(ankhMorPorkLauncher2);
+			break;
+			
+			
+		}
+		return board2;
 	}
 
 }
