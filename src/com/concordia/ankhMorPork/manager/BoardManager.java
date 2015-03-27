@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.concordia.ankhMorPork.common.Common;
 import com.concordia.ankhMorPork.common.Global;
 
@@ -98,7 +100,7 @@ public class BoardManager {
 		}
 	};
 
-	public static final HashMap<Integer, List<String>> AdjacentAreaMap = new HashMap<Integer, List<String>>() {
+	public static final HashMap<Integer, List<Integer>> AdjacentAreaMap = new HashMap<Integer, List<Integer>>() {
 		{
 		Scanner inFile1;
 		Integer i=1;
@@ -106,8 +108,14 @@ public class BoardManager {
 			inFile1 = new Scanner(new File("./resources/AdjacencyAreaList.txt"));
 
 			while (inFile1.hasNext()) {
-				String data[] =inFile1.nextLine().split("--");
-				put(i++,Arrays.asList(data[1].split(",")));
+				String data[] =inFile1.nextLine().split("--");	
+				String[] numberStrs = data[1].split(",");
+				int[] numbers = new int[numberStrs.length];
+				for(int l = 0;l < numberStrs.length;l++)
+				{
+				   numbers[l] = Integer.parseInt(numberStrs[l]);
+				}
+				put(i++,Arrays.asList(ArrayUtils.toObject(numbers)));
 			}
 	}catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
