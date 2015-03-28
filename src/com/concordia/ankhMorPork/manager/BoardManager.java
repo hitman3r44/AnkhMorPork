@@ -529,6 +529,7 @@ public class BoardManager {
 		switch (Integer.parseInt(input)) {
 		case 1:
 			board2=this.ActionItemImpl.PlaceTheMinion(board2);
+			board2=chooseNextAction(board2);
 			break;
 		case 2:
 			board2=this.ActionItemImpl.PlaceTheBuilding(board2);

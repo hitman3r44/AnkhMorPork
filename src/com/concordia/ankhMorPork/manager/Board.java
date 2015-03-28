@@ -151,6 +151,11 @@ public class Board {
 	public void setExistingPlayercards(List<Integer> existingPlayercards) {
 		this.existingPlayercards = existingPlayercards;
 	}
+	public void UpdateAreaDetails(Area area,String color) {
+		List<String> colorOfMinion=area.getColorOfMinion();
+		colorOfMinion.add(color);
+		area.setColorOfMinion(colorOfMinion);
+	}
 	
 
 	
