@@ -384,9 +384,10 @@ public class BoardManager {
 			Area area = new Area(false, false, 0, 0);
 			area.setIdentifier(i + 1);
 			if (i == 0 || i == 4 || i == 6) {
+				List<String> colors=new ArrayList<String>(colorList);
 				// System.out.println("colorList -- " + colorList);
 				// System.out.println(area.getNoOfDemon());
-				area.setColorOfMinion(colorList);
+				area.setColorOfMinion(colors);
 				area.setTroubleMaker(true);
 			}
 			areaList.add(area);
@@ -523,7 +524,7 @@ public class BoardManager {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n\t\t\tAction Menu\n");
-		System.out.println("1.Place a Minion\n2.Place a building\n3.Asssaination\n4.Remove One troubleMarker\n5.Take Money from bank\n6.Scroll\n7.Play RandomEvent Card\n8.Play another card\n9.Interrupt Card\n10.Pass the move to next player\n11.Quit and get Baxk to Main Menu");
+		System.out.println("1.Place a Minion\n2.Place a building\n3.Asssaination\n4.Remove One troubleMarker\n5.Take Money from bank\n6.Scroll\n7.Play RandomEvent Card\n8.Play another card\n9.Interrupt Card\n10.Pass the move to next player\n11.displayBoardStatus\n12.Quit and get Baxk to Main Menu");
 		System.out.println("\nEnter your Choice : \n");
 		input = sc.nextLine();
 		switch (Integer.parseInt(input)) {
@@ -558,8 +559,11 @@ public class BoardManager {
 			Common.displayThankyouMenu();
 			break;	
 		case 11:
-			Common.displayThankyouMenu();
+			displayBoardStatus(board2);
 			break;	
+		case 12:
+			Common.displayThankyouMenu();
+			break;
 		default:
 			System.out.println("Invalid Input");
 			//chooseGameState(ankhMorPorkLauncher2);

@@ -153,6 +153,9 @@ public class Board {
 	}
 	public void UpdateAreaDetails(Area area,String color) {
 		List<String> colorOfMinion=area.getColorOfMinion();
+		if(colorOfMinion.size()!=0 && (!area.getTroubleMaker())){
+			area.setTroubleMaker(true);
+		}
 		colorOfMinion.add(color);
 		area.setColorOfMinion(colorOfMinion);
 	}
