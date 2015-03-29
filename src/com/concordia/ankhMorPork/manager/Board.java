@@ -159,6 +159,11 @@ public class Board {
 		colorOfMinion.add(color);
 		area.setColorOfMinion(colorOfMinion);
 	}
+	public void UpdateAreaDetailsWithBuilding(String playerName, Area area) {
+		area.setBuilding(true);
+		area.setBuildingHolderName(playerName);
+		
+	}
 	
 
 	

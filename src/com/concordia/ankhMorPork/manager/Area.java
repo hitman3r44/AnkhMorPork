@@ -15,6 +15,7 @@ public class Area {
 	Boolean building;
 	Integer noOfDemon;
 	Integer noOfTroll;
+	String BuildingHolderName;
 	
 	/**
 	 * Parameterized constructor to initialize area details on instantiation.
@@ -134,6 +135,13 @@ public class Area {
 		this.noOfTroll = noOfTroll;
 	}
 	
-	
+	public String getBuildingHolderName() {
+		return BuildingHolderName;
+	}
+
+
+	public void setBuildingHolderName(String buildingHolderName) {
+		BuildingHolderName = buildingHolderName;
+	}
 
 }

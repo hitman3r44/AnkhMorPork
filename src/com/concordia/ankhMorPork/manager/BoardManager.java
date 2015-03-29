@@ -220,17 +220,17 @@ public class BoardManager {
 		//Board Details
 		System.out.println("\nArea Details : \n\n");
 		
-		System.out.printf("%-30s%-30s%-25s%-25s%-15s%-15s\n", "Area",
-				"Minions", "IsTroubleMakerAvailable", "IsbuildingAvailable",
+		System.out.printf("%-30s%-30s%-25s%-25s%-25s%-15s%-15s\n", "Area",
+				"Minions", "IsTroubleMakerAvailable", "IsbuildingAvailable","buildingHolderName",
 				"NoOfDemons", "NoOfTrolls");
 		
 	
 		
 		for (int i = 0; i < 12; i++) {
-			System.out.printf("%-30s%-30s%-25s%-25s%-15s%-15s\n",
+			System.out.printf("%-30s%-30s%-25s%-25s%-25s%-15s%-15s\n",
 					cityAreaCardList.get(i).getName(), board.getArea().get(i)
 							.getColorOfMinion(), board.getArea().get(i)
-							.getTroubleMaker(), board.getArea().get(i).getBuilding(),
+							.getTroubleMaker(), board.getArea().get(i).getBuilding(),board.getArea().get(i).getBuildingHolderName(),
 							board.getArea().get(i).getNoOfDemon(), board.getArea().get(i)
 							.getNoOfTroll());		
 		}
@@ -383,6 +383,7 @@ public class BoardManager {
 		for (int i = 0; i < 12; i++) {
 			Area area = new Area(false, false, 0, 0);
 			area.setIdentifier(i + 1);
+			area.setBuildingHolderName("");
 			if (i == 0 || i == 4 || i == 6) {
 				List<String> colors=new ArrayList<String>(colorList);
 				// System.out.println("colorList -- " + colorList);
@@ -534,6 +535,7 @@ public class BoardManager {
 			break;
 		case 2:
 			board2=this.ActionItemImpl.PlaceTheBuilding(board2);
+			board2=chooseNextAction(board2);
 			break;
 		case 3:
 			Common.displayThankyouMenu();
