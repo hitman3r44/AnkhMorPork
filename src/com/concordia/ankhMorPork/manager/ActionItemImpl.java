@@ -225,4 +225,41 @@ public class ActionItemImpl {
 		return board;
 	}
 
+	public Board takeMoneyFromBank(Board board) {
+		String input=null;
+		boolean found=false;
+		Integer money=0;
+		PlayerCard playerCard=null;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nEnter the Player Card_ID for which money required : \n");
+		try{
+				input=sc.nextLine();
+				if(!(board.getPlayerList().get(board.getPlayerTurn()-1).getGreenPlayerCards().contains(Integer.parseInt(input)))){
+					System.out.println("\n You dont hold the given Player Card. Try Again!");
+				}else{
+				playerCard = BoardManager.playerCardMap.get(Integer.parseInt(input));
+				for (int l=0;l<playerCard.getActionItem().length;l++){
+					if(playerCard.getActionItem()[l].contains("$")){
+						System.out.println("ActionItem : "+playerCard.getActionItem()[l]);
+						money=Integer.parseInt(String.valueOf(playerCard.getActionItem()[l].charAt(playerCard.getActionItem()[l].indexOf('$')+1)));
+						System.out.println("money : "+money);
+						found=true;
+						break;
+					}
+				}
+				if(found){
+					board.takeMoneyFromBank(board,money);
+					System.out.println("\nYour AnkhMorporkh Dollar balance is credited with $"+money);
+					System.out.println("\n\t\t Available Balance : "+board.getPlayerList().get(board.getPlayerTurn()-1).getPlayerMoney());
+				}else{
+					System.out.println("\nFor the given Card there is no such Action item which demands money from the bank. Try Again!\n");
+				}
+				}
+			}catch(NumberFormatException e){
+				 System.out.println("Invalid input ! Give Number as Input !");
+					board=takeMoneyFromBank(board);
+			}
+		return board;
+	}
+
 }

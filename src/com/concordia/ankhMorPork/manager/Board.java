@@ -184,6 +184,14 @@ public class Board {
 		area.setTroubleMaker(false);
 		
 	}
+	public void takeMoneyFromBank(Board board, Integer money) {
+		Integer bankMoney=board.getBankMoney();
+		Integer playerMoney=board.getPlayerList().get(board.getPlayerTurn()-1).getPlayerMoney();
+		bankMoney=bankMoney-money;
+		playerMoney=playerMoney+money;
+		board.setBankMoney(bankMoney);
+		board.getPlayerList().get(board.getPlayerTurn()-1).setPlayerMoney(playerMoney);
+	}
 	
 
 	

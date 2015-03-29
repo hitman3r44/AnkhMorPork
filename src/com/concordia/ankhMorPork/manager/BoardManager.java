@@ -514,7 +514,7 @@ public class BoardManager {
 				else
 					events+=playerCard.actionItem[l]+" , ";
 			}
-			System.out.println("\t\t"+playerCard.getName()+" - ("+events+")\n");
+			System.out.println("\n\t\tCard_ID : "+player.getGreenPlayerCards().get(k)+"\t\t"+playerCard.getName()+" - ("+events+")\n");
 		}
 		System.out.println(" \tBrown Cards : "
 				+ player.getBrownPlayerCards());
@@ -547,7 +547,8 @@ public class BoardManager {
 			board2=chooseNextAction(board2);
 			break;
 		case 5:
-			Common.displayThankyouMenu();
+			board2=this.ActionItemImpl.takeMoneyFromBank(board2);
+			board2=chooseNextAction(board2);
 			break;
 		case 6:
 			Common.displayThankyouMenu();
