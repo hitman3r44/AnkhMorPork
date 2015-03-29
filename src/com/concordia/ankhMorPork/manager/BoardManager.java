@@ -172,7 +172,7 @@ public class BoardManager {
 				StringBuilder sb = new StringBuilder();
 				randomCardsDescription = new HashMap<String, String>();
 				sb.append(inFile1.nextLine());
-				yourArray = sb.toString().split("|");
+				yourArray = sb.toString().split("\\|");
 				if (yourArray.length == 2) {
 					randomCardsDescription.put(yourArray[0],yourArray[1]);	
 					randomEventCards.put(i++,randomCardsDescription);
