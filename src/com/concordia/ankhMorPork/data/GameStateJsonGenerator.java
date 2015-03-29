@@ -102,6 +102,7 @@ public class GameStateJsonGenerator {
 				jGenerator.writeStringField(Language.MINIONS, board.getArea().get(i).getColorOfMinion().toString());
 				jGenerator.writeBooleanField(Language.IS_TROUBLEMAKER_AVAILABLE, board.getArea().get(i).getTroubleMaker());
 				jGenerator.writeBooleanField(Language.IS_BUILDING_AVAILABLE,board.getArea().get(i).getBuilding());
+				jGenerator.writeStringField(Language.BUILDING_HOLDER_NAME, board.getArea().get(i).getBuildingHolderName());
 				jGenerator.writeNumberField(Language.NO_OF_DEMONS,board.getArea().get(i).getNoOfDemon());
 				jGenerator.writeNumberField(Language.NO_OF_TROLL,board.getArea().get(i).getNoOfTroll());
 				jGenerator.writeEndObject();

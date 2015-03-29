@@ -19,6 +19,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import com.concordia.ankhMorPork.common.Common;
 import com.concordia.ankhMorPork.common.Global;
+import com.concordia.ankhMorPork.launcher.AnkhMorPorkLauncher;
 
 /**
  *This class Manages the Board Information and manage the game as goes on.
@@ -525,7 +526,7 @@ public class BoardManager {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n\t\t\tAction Menu\n");
-		System.out.println("1.Place a Minion\n2.Place a building\n3.Asssaination\n4.Remove One troubleMarker\n5.Take Money from bank\n6.Scroll\n7.Play RandomEvent Card\n8.Play another card\n9.Interrupt Card\n10.Pass the move to next player\n11.displayBoardStatus\n12.Quit and get Baxk to Main Menu");
+		System.out.println("1.Place a Minion\n2.Place a building\n3.Asssaination\n4.Remove One troubleMarker\n5.Take Money from bank\n6.Scroll\n7.Play RandomEvent Card\n8.Play another card\n9.Interrupt Card\n10.Pass the move to next player\n11.displayBoardStatus\n12.Save the Game and Exit");
 		System.out.println("\nEnter your Choice : \n");
 		input = sc.nextLine();
 		switch (Integer.parseInt(input)) {
@@ -564,7 +565,9 @@ public class BoardManager {
 			displayBoardStatus(board2);
 			break;	
 		case 12:
-			Common.displayThankyouMenu();
+			AnkhMorPorkLauncher ankhMorPorkLauncher2=AnkhMorPorkLauncher.getInstanceOf();
+			this.setBoard(board2);
+			ankhMorPorkLauncher2.saveGame(ankhMorPorkLauncher2);
 			break;
 		default:
 			System.out.println("Invalid Input");

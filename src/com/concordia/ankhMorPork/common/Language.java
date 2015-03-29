@@ -37,6 +37,7 @@ public class Language {
 	final public static  String MINIONS = "available_minions";
 	final public static  String IS_TROUBLEMAKER_AVAILABLE = "Is_TroubleMaker_Available";
 	final public static  String IS_BUILDING_AVAILABLE = "Is_building_Available";
+	final public static  String BUILDING_HOLDER_NAME = "buildingHolderName";
 	final public static  String NO_OF_TROLL = "no_of_troll";
 	final public static  String NO_OF_DEMONS = "no_Of_demons";
 	final public static  String PLAYER_TURN = "player_turn";

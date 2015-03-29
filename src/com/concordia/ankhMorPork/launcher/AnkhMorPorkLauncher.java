@@ -37,10 +37,17 @@ public class AnkhMorPorkLauncher {
 	private Scanner userNameInput = new Scanner(System.in);
 	private Scanner userInputScanner = new Scanner(System.in);
 	private String nameOfPlayer = null, colorOfPlayer = null;
-	AnkhMorPorkLauncher ankhMorPorkLauncher;
+	public static AnkhMorPorkLauncher ankhMorPorkLauncher=null;
 
 	public AnkhMorPorkLauncher() {
 		this.boardManager = new BoardManager();
+	}
+	public static AnkhMorPorkLauncher getInstanceOf(){
+		if(ankhMorPorkLauncher==null){
+			ankhMorPorkLauncher=new AnkhMorPorkLauncher();
+		}
+		return ankhMorPorkLauncher;
+		
 	}
 	/**
 	 * The newGame method is responsible to start a new game. 
@@ -162,7 +169,6 @@ public class AnkhMorPorkLauncher {
 			// Take save file name from the user
 			System.out.println("Please enter the name of file to save:");
 			Global.saveFileName = userInputScanner.nextLine();
-			// boardManager.saveGameStatus(Global.SAVED_FILE_DIRECTORY_PATH+"/"+Global.saveFileName,ankhMorPorkLauncher.boardManager.getBoard());
 			// Generate the JSON format file as a save file
 			GameStateJsonGenerator gameStateJsonGenerator = new GameStateJsonGenerator();
 			gameStateJsonGenerator.saveGameCurrentStateToJsonFormate(board);
@@ -245,7 +251,7 @@ public class AnkhMorPorkLauncher {
 	}
 
 	public static void main(String[] args) {
-		AnkhMorPorkLauncher ankhMorPorkLauncher = new AnkhMorPorkLauncher();
+		AnkhMorPorkLauncher ankhMorPorkLauncher = getInstanceOf();
 
 		Common.display();
 		ankhMorPorkLauncher.chooseGameState(ankhMorPorkLauncher);

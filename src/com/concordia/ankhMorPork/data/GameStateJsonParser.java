@@ -131,12 +131,14 @@ public class GameStateJsonParser {
 						.getBoolean(Language.IS_TROUBLEMAKER_AVAILABLE);
 				Boolean tmp_Is_building_Available = area
 						.getBoolean(Language.IS_BUILDING_AVAILABLE);
+				String tmp_building_Holder_Name = area.getString(Language.BUILDING_HOLDER_NAME);
 				int tmp_no_Of_demons = area.getInt(Language.NO_OF_DEMONS);
 				int tmpno_of_troll = area.getInt(Language.NO_OF_TROLL);
 				Area areaObject = new Area(tmp_Is_TroubleMaker_Available,
 						tmp_Is_building_Available, tmp_no_Of_demons,
 						tmpno_of_troll);
 				areaObject.setIdentifier(tmp_area_No);
+				areaObject.setBuildingHolderName(tmp_building_Holder_Name);
 				areaObject.setColorOfMinion(tmp_available_minions_list);
 				areaList.add(areaObject);
 			}
