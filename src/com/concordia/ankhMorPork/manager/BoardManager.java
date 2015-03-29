@@ -539,7 +539,8 @@ public class BoardManager {
 			board2=chooseNextAction(board2);
 			break;
 		case 3:
-			Common.displayThankyouMenu();
+			board2=this.ActionItemImpl.Assassination(board2);
+			board2=chooseNextAction(board2);
 			break;
 		case 4:
 			break;

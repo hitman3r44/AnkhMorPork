@@ -164,6 +164,22 @@ public class Board {
 		area.setBuildingHolderName(playerName);
 		
 	}
+	public void RemoveDemon(Area area) {
+		area.setNoOfDemon(area.getNoOfDemon()-1);
+		area.setTroubleMaker(false);
+		
+	}
+	public void RemoveTroll(Area area) {
+		area.setNoOfTroll(area.getNoOfTroll()-1);
+		area.setTroubleMaker(false);
+	}
+	public void RemoveMinion(Area area, String color, Player player) {
+		List<String> colorOfMinion=area.getColorOfMinion();
+		colorOfMinion.remove(color);
+		area.setColorOfMinion(colorOfMinion);
+		area.setTroubleMaker(false);
+		player.setNoOfMinions(player.getNoOfMinions()+1);
+	}
 	
 
 	

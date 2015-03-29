@@ -40,7 +40,7 @@ public class ActionItemImpl {
 			 		 System.out.println("\t\t"+(k+1)+"\t\t\t"+BoardManager.cityAreaCardList.get(k).getName());
 			 	  }
 		 }
-		 System.out.println("\nEnter your Choice : \n");	
+		 System.out.println("\nEnter AreaNo. : \n");	
 		 try{
 		 input = sc.nextLine();
 			if(adjacentAreaSet.contains(Integer.parseInt(input))){
@@ -66,10 +66,11 @@ public class ActionItemImpl {
 	public Board PlaceTheBuilding(Board board) {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
-		String currentPlayerColor=board.getPlayerList().get(board.getPlayerTurn()-1).getColor();
-		Integer noOfBuilding=board.getPlayerList().get(board.getPlayerTurn()-1).getNoOfBuilding();
-		String playerName = board.getPlayerList().get(board.getPlayerTurn()-1).getName();
-		Integer playerMoney=board.getPlayerList().get(board.getPlayerTurn()-1).getPlayerMoney();
+		Player player=board.getPlayerList().get(board.getPlayerTurn()-1);
+		String currentPlayerColor=player.getColor();
+		Integer noOfBuilding=player.getNoOfBuilding();
+		String playerName = player.getName();
+		Integer playerMoney=player.getPlayerMoney();
 		List<Integer> buildingAllowedonBoard=new ArrayList<Integer>();
 		for(int index=0;index<12;index++){
 		if(board.getArea().get(index).colorOfMinion.contains(currentPlayerColor) && (!board.getArea().get(index).getTroubleMaker()) && (!board.getArea().get(index).getBuilding())){
@@ -85,31 +86,109 @@ public class ActionItemImpl {
 				System.out.println("\t\t"+buildingAllowedonBoard.get(i)+"\t\t\t"+BoardManager.cityAreaCardList.get(buildingAllowedonBoard.get(i)-1).getCost()+"\t\t\t"+BoardManager.cityAreaCardList.get(buildingAllowedonBoard.get(i)-1).getName());
 			}
 		}
-		System.out.println("\nEnter your Choice : \n");	
+		System.out.println("\nEnter Area No. : \n");	
 		 try{
 		 input = sc.nextLine();
 		 Integer costOfBuilding=BoardManager.cityAreaCardList.get(Integer.parseInt(input)-1).getCost();
-		 List<Integer> cityAreaCardofPlayer=board.getPlayerList().get(board.getPlayerTurn()-1).getCityAreaCard();
+		 List<Integer> cityAreaCardofPlayer=player.getCityAreaCard();
 			if(playerMoney >= costOfBuilding){
 				System.out.println("Before Updating : "+board.getArea().get(Integer.parseInt(input)-1).getBuilding());
 				board.UpdateAreaDetailsWithBuilding(playerName,board.getArea().get(Integer.parseInt(input)-1));
 				System.out.println("After Updating : "+board.getArea().get(Integer.parseInt(input)-1).getBuilding());
-				board.getPlayerList().get(board.getPlayerTurn()-1).setNoOfBuilding(noOfBuilding - 1);
-				board.getPlayerList().get(board.getPlayerTurn()-1).setPlayerMoney(playerMoney - costOfBuilding);
+				player.setNoOfBuilding(noOfBuilding - 1);
+				player.setPlayerMoney(playerMoney - costOfBuilding);
 				cityAreaCardofPlayer.add(Integer.parseInt(input));
-				board.getPlayerList().get(board.getPlayerTurn()-1).setCityAreaCard(cityAreaCardofPlayer);
+				player.setCityAreaCard(cityAreaCardofPlayer);
 			}
 			else{
 				System.out.println("You dont have enough Money to afford !");
-				//board=PlaceTheBuilding(board);
 			}
 		 }catch(NumberFormatException e){
 			 System.out.println("Invalid input ! Give Number as Input !");
 				board=PlaceTheBuilding(board);
 		 }
 		return board;
-		// TODO Auto-generated method stub
 		
+	}
+
+	public Board Assassination(Board board) {
+		String input=null,color=null;
+		Scanner sc = new Scanner(System.in);
+		Player player =board.getPlayerList().get(board.getPlayerTurn()-1);
+		String colorOfPlayer=board.getPlayerList().get(board.getPlayerTurn()-1).getColor();
+		List<Integer> demononBoard=new ArrayList<Integer>();
+		List<Integer> trollonBoard=new ArrayList<Integer>();
+		List<Integer> miniononBoard=new ArrayList<Integer>();
+		for(int index=0;index<12;index++){
+		if(board.getArea().get(index).getNoOfDemon()!=0 && (board.getArea().get(index).getTroubleMaker())){
+			demononBoard.add(index+1);
+		}
+		if(board.getArea().get(index).getNoOfTroll()!=0 && (board.getArea().get(index).getTroubleMaker())){
+			trollonBoard.add(index+1);
+		}
+		if(board.getArea().get(index).getColorOfMinion().size()!=0 && (board.getArea().get(index).getTroubleMaker())){
+			miniononBoard.add(index+1);
+		}
+		}
+		System.out.println("\nYou can remove the following pieces : \n\n\t\t1.Demon\n\t\t2.Troll\n\t\t3.Minion");
+		System.out.println("\nEnter your Choice : \n");	
+		 try{
+		 input = sc.nextLine();
+		 if(Integer.parseInt(input)==1){
+			 if(demononBoard.size()==0){
+				 System.out.println("No Area Availabe to remove demon !");
+			 }else{
+			 System.out.println("\nYou are allowed to Remove the Demon in the following Area :\n");
+			 System.out.println("\t\tAreaNo.\t\t\tNoOfDemon\t\t\tAreaName");
+				for(int i=0;i<demononBoard.size();i++){
+					System.out.println("\t\t"+demononBoard.get(i)+"\t\t\t"+board.getArea().get(demononBoard.get(i)-1).getNoOfDemon()+"\t\t\t"+BoardManager.cityAreaCardList.get(demononBoard.get(i)-1).getName());
+				}
+				System.out.println("\nEnter AreaNo. : \n");
+				input = sc.nextLine();
+				board.RemoveDemon(board.getArea().get(Integer.parseInt(input)));
+			 }
+		 }
+		 else if(Integer.parseInt(input)==2){
+			 if(trollonBoard.size()==0){
+				 System.out.println("No Area Availabe to remove Troll !");
+			 }else{
+			 System.out.println("\nYou are allowed to Remove the Troll in the following Area :\n");
+			 System.out.println("\t\tAreaNo.\t\t\tNoOfTroll\t\t\tAreaName");
+				for(int i=0;i<trollonBoard.size();i++){
+					System.out.println("\t\t"+trollonBoard.get(i)+"\t\t\t"+board.getArea().get(trollonBoard.get(i)-1).getNoOfTroll()+"\t\t\t"+BoardManager.cityAreaCardList.get(trollonBoard.get(i)-1).getName());
+				}
+				System.out.println("\nEnter AreaNo. : \n");
+				input = sc.nextLine();
+				board.RemoveTroll(board.getArea().get(Integer.parseInt(input)));
+			 }
+		 }
+		 else if(Integer.parseInt(input)==3){
+			 System.out.println("\nYou are allowed to Remove the Minion in the following Area(Don't remove your's) :\n");
+			 System.out.println("\t\tAreaNo.\t\t\tColorOfMinion\t\t\tAreaName");
+				for(int i=0;i<miniononBoard.size();i++){
+					System.out.println("\t\t"+miniononBoard.get(i)+"\t\t\t"+board.getArea().get(miniononBoard.get(i)-1).getColorOfMinion()+"\t\t\t"+BoardManager.cityAreaCardList.get(miniononBoard.get(i)-1).getName());
+				}
+				System.out.println("\nEnter AreaNo. : \n");
+				input = sc.nextLine();
+				System.out.println("\nEnter the Color ID to be removed : \n");
+				List<String> colorList=board.getArea().get(Integer.parseInt(input)-1).getColorOfMinion();
+				int i=0;
+				for (String string : colorList) {
+					i++;
+					if(!(string.equals(colorOfPlayer))){
+					System.out.println("\t\t"+i+"."+string);
+					
+					}
+				}
+				color = sc.nextLine();
+				board.RemoveMinion(board.getArea().get(Integer.parseInt(input)-1),colorList.get(Integer.parseInt(color)-1),player);
+				
+		 }
+		 }catch(NumberFormatException e){
+			 System.out.println("Invalid input ! Give Number as Input !");
+				board=Assassination(board);
+		 }
+		return board;
 	}
 
 }
