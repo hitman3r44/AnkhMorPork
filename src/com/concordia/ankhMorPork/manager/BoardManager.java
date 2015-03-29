@@ -162,16 +162,15 @@ public class BoardManager {
 	public static HashMap<Integer, HashMap<String, String>> randomEventCards;
 	//Static block to load Random EventCards
 	static {
-		
 		Scanner inFile1;
 		Integer i=1;
 		try {
 			inFile1 = new Scanner(new File("./resources/RandomEventCard.txt"));
-
+			randomCardsDescription = new HashMap<String, String>();
+			randomEventCards = new HashMap<Integer, HashMap<String, String>>();
 			while (inFile1.hasNext()) {
 				StringBuilder sb = new StringBuilder();
 				randomCardsDescription = new HashMap<String, String>();
-				randomEventCards = new HashMap<Integer, HashMap<String, String>>();
 				sb.append(inFile1.nextLine());
 				yourArray = sb.toString().split("|");
 				if (yourArray.length == 2) {
@@ -305,7 +304,7 @@ public class BoardManager {
 		board = initializeAreaDetails(board, colorList);
 		board = initializeNewPlayer(board, noOfPlayer, playerList, colorList);
 		List<Integer> existingCard=new ArrayList<Integer>();
-		playerTurn=generateRandom(1, noOfPlayer, existingCard);
+		playerTurn=Common.generateRandom(1, noOfPlayer, existingCard);
 		board.setPlayerTurn(playerTurn);
 		return board;
 	}
@@ -333,7 +332,7 @@ public class BoardManager {
 			player.setPlayerMoney(10);
 			player.setCityAreaCard(new ArrayList<Integer>());
 			player.setNoOfMinions(Global.MINIONS - minionsOnBoard);
-			randomCardNo = generateRandom(1, 7, existingPersonalityCard);
+			randomCardNo = Common.generateRandom(1, 7, existingPersonalityCard);
 			player.setPersonalityCard(randomCardNo);
 			existingPersonalityCard.add(randomCardNo);
 			player.setBrownPlayerCards(new ArrayList<Integer>());
@@ -360,11 +359,11 @@ public class BoardManager {
 
 		for (int i = 0; i < 5; i++) {
 			if (existingCards.size() < 48) {
-				randomNumber = generateRandom(1, 48, existingCards);
+				randomNumber = Common.generateRandom(1, 48, existingCards);
 				greenPlayerCard.add(randomNumber);
 				existingCards.add(randomNumber);
 			} else {
-				randomNumber = generateRandom(1, 101, existingCards);
+				randomNumber = Common.generateRandom(1, 101, existingCards);
 				brownPlayerCard.add(randomNumber - 48);
 				existingCards.add(randomNumber);
 			}
@@ -436,25 +435,7 @@ public class BoardManager {
 
 		return board2;
 	}
-	/**
-	 * The function generate random number with given start and end values and randomized the 
-	 * cards.
-	 * @param start		   : random value lower bound
-	 * @param end          : random value upper bound
-	 * @param existingCard : contains the random values already taken before 
-	 * @return the random value not taken before
-	 */
-	public int generateRandom(int start, int end, List<Integer> existingCard) {
-		Random rand = new Random();
-		int range = end - start + 1;
 
-		int random = rand.nextInt(range) + 1;
-		while (existingCard.contains(random)) {
-			random = rand.nextInt(range) + 1;
-		}
-
-		return random;
-	}
 	//setters and getters method
 	
 	/**
@@ -551,10 +532,12 @@ public class BoardManager {
 			board2=chooseNextAction(board2);
 			break;
 		case 6:
-			Common.displayThankyouMenu();
+			board2=this.ActionItemImpl.scroll(board2);
+			board2=chooseNextAction(board2);
 			break;
 		case 7:
-			Common.displayThankyouMenu();
+			board2=this.ActionItemImpl.playRandomEventCard(board2);
+			board2=chooseNextAction(board2);
 			break;
 		case 8:
 			Common.displayThankyouMenu();
@@ -567,6 +550,7 @@ public class BoardManager {
 			break;	
 		case 11:
 			displayBoardStatus(board2);
+			board2=chooseNextAction(board2);
 			break;	
 		case 12:
 			AnkhMorPorkLauncher ankhMorPorkLauncher2=AnkhMorPorkLauncher.getInstanceOf();

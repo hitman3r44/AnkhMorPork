@@ -1,7 +1,9 @@
 package com.concordia.ankhMorPork.manager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
@@ -10,6 +12,7 @@ import com.concordia.ankhMorPork.common.Common;
 
 public class ActionItemImpl {
 
+	public static List<Integer> existingRandomEventCard=new ArrayList<Integer>();
 	public Board placeTheMinion(Board board) {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
@@ -259,6 +262,44 @@ public class ActionItemImpl {
 				 System.out.println("Invalid input ! Give Number as Input !");
 					board=takeMoneyFromBank(board);
 			}
+		return board;
+	}
+
+	public Board scroll(Board board) {
+		String input=null;
+		PlayerCard playerCard=null;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nEnter the Player Card_ID for which this action is played : \n");
+		try{
+			input=sc.nextLine();
+			if(!(board.getPlayerList().get(board.getPlayerTurn()-1).getGreenPlayerCards().contains(Integer.parseInt(input)))){
+				System.out.println("\n You dont hold the given Player Card. Try Again!");
+			}else{
+			playerCard = BoardManager.playerCardMap.get(Integer.parseInt(input));
+			System.out.println("\n"+playerCard.getDescription()+"\n");
+			}
+			
+		}catch(NumberFormatException e){
+			 System.out.println("Invalid input ! Give Number as Input !");
+				board=scroll(board);
+		}
+		return board;
+	}
+
+	public Board playRandomEventCard(Board board) {
+		if(existingRandomEventCard.size()==12){
+			System.out.println("\n\t\t All Random Event Cards are utilized.");
+		}
+		else{
+		Integer cardNumber=Common.generateRandom(1, 12, existingRandomEventCard);
+		HashMap<String, String> card=BoardManager.randomEventCards.get(cardNumber);
+		System.out.println("\nyou have been allocated the below Random Event Card.Proceed with the Description!\n");
+		for (Entry<String, String> key : card.entrySet()) {
+			System.out.println("\n\t\tCardName : "+key.getKey());
+			System.out.println("\n\t\tDescription : "+key.getValue());
+		}
+		existingRandomEventCard.add(cardNumber);
+		}
 		return board;
 	}
 

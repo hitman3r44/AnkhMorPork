@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.concordia.ankhMorPork.common.Common;
+
 public class BoardManagerTest {
 
 	List<Integer> existingCards;
@@ -49,7 +51,7 @@ public class BoardManagerTest {
 
 	@Test
 	public void testGenerateRandom() {
-		Integer randomnumber  = boardManager.generateRandom(1, 48, existingCards);
+		Integer randomnumber  = Common.generateRandom(1, 48, existingCards);
 		boolean expected=existingCards.contains(randomnumber);
 		assertFalse(expected);
 	}

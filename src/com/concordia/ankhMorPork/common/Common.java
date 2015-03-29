@@ -1,6 +1,8 @@
 package com.concordia.ankhMorPork.common;
 
 import java.io.File;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -115,6 +117,25 @@ public class Common {
 	public static void displayThankyouMenu() {
 		System.out.println("\t\t\tThank You !! We are Exiting from the game.");
 		
+	}
+	/**
+	 * The function generate random number with given start and end values and randomized the 
+	 * cards.
+	 * @param start		   : random value lower bound
+	 * @param end          : random value upper bound
+	 * @param existingCard : contains the random values already taken before 
+	 * @return the random value not taken before
+	 */
+	public static int generateRandom(int start, int end, List<Integer> existingCard) {
+		Random rand = new Random();
+		int range = end - start + 1;
+
+		int random = rand.nextInt(range) + 1;
+		while (existingCard.contains(random)) {
+			random = rand.nextInt(range) + 1;
+		}
+
+		return random;
 	}
 
 }
