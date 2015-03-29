@@ -180,6 +180,10 @@ public class Board {
 		area.setTroubleMaker(false);
 		player.setNoOfMinions(player.getNoOfMinions()+1);
 	}
+	public void removeOneTroubleMarker(Area area) {
+		area.setTroubleMaker(false);
+		
+	}
 	
 
 	

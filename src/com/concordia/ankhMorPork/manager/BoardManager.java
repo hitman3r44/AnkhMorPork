@@ -531,18 +531,20 @@ public class BoardManager {
 		input = sc.nextLine();
 		switch (Integer.parseInt(input)) {
 		case 1:
-			board2=this.ActionItemImpl.PlaceTheMinion(board2);
+			board2=this.ActionItemImpl.placeTheMinion(board2);
 			board2=chooseNextAction(board2);
 			break;
 		case 2:
-			board2=this.ActionItemImpl.PlaceTheBuilding(board2);
+			board2=this.ActionItemImpl.placeTheBuilding(board2);
 			board2=chooseNextAction(board2);
 			break;
 		case 3:
-			board2=this.ActionItemImpl.Assassination(board2);
+			board2=this.ActionItemImpl.assassination(board2);
 			board2=chooseNextAction(board2);
 			break;
 		case 4:
+			board2=this.ActionItemImpl.removeOneTroubleMarker(board2);
+			board2=chooseNextAction(board2);
 			break;
 		case 5:
 			Common.displayThankyouMenu();

@@ -10,7 +10,7 @@ import com.concordia.ankhMorPork.common.Common;
 
 public class ActionItemImpl {
 
-	public Board PlaceTheMinion(Board board) {
+	public Board placeTheMinion(Board board) {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
 		String currentPlayerColor=board.getPlayerList().get(board.getPlayerTurn()-1).getColor();
@@ -52,18 +52,18 @@ public class ActionItemImpl {
 			}
 			else{
 				System.out.println("Invalid input !");
-				board=PlaceTheMinion(board);
+				board=placeTheMinion(board);
 			}
 		 }catch(NumberFormatException e){
 			 System.out.println("Invalid input ! Give Number as Input !");
-				board=PlaceTheMinion(board);
+				board=placeTheMinion(board);
 		 }
 		return board;
 		// TODO Auto-generated method stub
 		
 	}
 
-	public Board PlaceTheBuilding(Board board) {
+	public Board placeTheBuilding(Board board) {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
 		Player player=board.getPlayerList().get(board.getPlayerTurn()-1);
@@ -86,6 +86,7 @@ public class ActionItemImpl {
 				System.out.println("\t\t"+buildingAllowedonBoard.get(i)+"\t\t\t"+BoardManager.cityAreaCardList.get(buildingAllowedonBoard.get(i)-1).getCost()+"\t\t\t"+BoardManager.cityAreaCardList.get(buildingAllowedonBoard.get(i)-1).getName());
 			}
 		}
+		if(buildingAllowedonBoard.size()!=0){
 		System.out.println("\nEnter Area No. : \n");	
 		 try{
 		 input = sc.nextLine();
@@ -105,13 +106,16 @@ public class ActionItemImpl {
 			}
 		 }catch(NumberFormatException e){
 			 System.out.println("Invalid input ! Give Number as Input !");
-				board=PlaceTheBuilding(board);
+				board=placeTheBuilding(board);
 		 }
+		}else{
+			System.out.println("You dont have Minion on board for building.");
+		}
 		return board;
 		
 	}
 
-	public Board Assassination(Board board) {
+	public Board assassination(Board board) {
 		String input=null,color=null;
 		Scanner sc = new Scanner(System.in);
 		Player player =board.getPlayerList().get(board.getPlayerTurn()-1);
@@ -186,8 +190,38 @@ public class ActionItemImpl {
 		 }
 		 }catch(NumberFormatException e){
 			 System.out.println("Invalid input ! Give Number as Input !");
-				board=Assassination(board);
+				board=assassination(board);
 		 }
+		return board;
+	}
+
+	public Board removeOneTroubleMarker(Board board) {
+		String input=null;
+		Scanner sc = new Scanner(System.in);
+		List<Integer> troubleMakerOnBoard=new ArrayList<Integer>();
+		for(int index=0;index<12;index++){
+		if(board.getArea().get(index).getTroubleMaker()){
+			troubleMakerOnBoard.add(index+1);
+		}
+		}
+		try{
+		if(troubleMakerOnBoard.size()==0){
+			System.out.println("\nNo Trouble Maker Available on the board\n");
+		}
+		else{
+			System.out.println("\nYou are allowed to Remove trouble Maker in the following Area's : \n");
+			System.out.println("\t\tAreaNo.\t\t\tAreaName");
+			for(int i=0;i<troubleMakerOnBoard.size();i++){
+				System.out.println("\t\t"+troubleMakerOnBoard.get(i)+"\t\t\t"+BoardManager.cityAreaCardList.get(troubleMakerOnBoard.get(i)-1).getName());
+			}
+			System.out.println("\nEnter the AreaNo.\n");
+			input=sc.nextLine();
+			board.removeOneTroubleMarker(board.getArea().get(Integer.parseInt(input)-1));
+		}
+		}catch(NumberFormatException e){
+			 System.out.println("Invalid input ! Give Number as Input !");
+				board=removeOneTroubleMarker(board);
+		}
 		return board;
 	}
 
