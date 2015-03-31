@@ -10,9 +10,19 @@ import java.util.TreeSet;
 
 import com.concordia.ankhMorPork.common.Common;
 
+/**
+ * Class contains the the logic of all the actions to be performed by a player on the board.
+ * 
+ */
+
 public class ActionItemImpl {
 
 	public static List<Integer> existingRandomEventCard=new ArrayList<Integer>();
+	/**
+	 * The method placeTheMinion manipulates the Board object to place a minion on the board
+	 * @param board : Contains current status of board
+	 * @return board: contains updated status of board after placing minion
+	 */
 	public Board placeTheMinion(Board board) {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
@@ -65,7 +75,12 @@ public class ActionItemImpl {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	/**
+	 * The method placeTheBuilding manipulates the Board object to place a building on the board
+	 * @param board : Contains current status of board
+	 * @return board: contains updated status of board after placing a building
+	 */
 	public Board placeTheBuilding(Board board) {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
@@ -117,7 +132,11 @@ public class ActionItemImpl {
 		return board;
 		
 	}
-
+	/**
+	 * The method assassination manipulates the Board object to remove a minion on the board
+	 * @param board : Contains current status of board
+	 * @return board: contains updated status of board after removing a minion
+	 */
 	public Board assassination(Board board) {
 		String input=null,color=null;
 		Scanner sc = new Scanner(System.in);
@@ -197,7 +216,11 @@ public class ActionItemImpl {
 		 }
 		return board;
 	}
-
+	/**
+	 * The method removeOneTroubleMarker manipulates the Board object to remove a trouble marker on the board.
+	 * @param board : Contains current status of board.
+	 * @return board: contains updated status of board after removing a trouble marker.
+	 */
 	public Board removeOneTroubleMarker(Board board) {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
@@ -228,6 +251,11 @@ public class ActionItemImpl {
 		return board;
 	}
 
+	/**
+	 * This method manipulates the Board object to draw money from the bank.
+	 * @param board : Contains current status of board, which has details of bank as well.
+	 * @return board: contains updated status of board after drawing cash from the bank.
+	 */
 	public Board takeMoneyFromBank(Board board) {
 		String input=null;
 		boolean found=false;
@@ -264,6 +292,10 @@ public class ActionItemImpl {
 			}
 		return board;
 	}
+	/**
+	 * The method manipulates the Board object to read the description on the card.
+	 * @param board : Contains current status of board.
+	 */
 
 	public Board scroll(Board board) {
 		String input=null;
@@ -286,6 +318,11 @@ public class ActionItemImpl {
 		return board;
 	}
 
+	/**
+	 * The method manipulates the Board object to play a random event card on the board.
+	 * @param board : Contains current status of board.
+	 * @return board: contains updated status of board after the random event has happened.
+	 */
 	public Board playRandomEventCard(Board board) {
 		if(existingRandomEventCard.size()==12){
 			System.out.println("\n\t\t All Random Event Cards are utilized.");
