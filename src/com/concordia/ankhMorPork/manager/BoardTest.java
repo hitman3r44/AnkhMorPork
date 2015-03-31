@@ -32,5 +32,14 @@ public class BoardTest {
 	assertEquals(expected, board.getNoOfPlayer());
 	
 	}
+	@Test
+	public void testGetPlayerTurn() {
+	Integer playerTurn=4;
+	Integer expected= 4;
+	board.setPlayerTurn(playerTurn);
+	assertEquals(expected, board.getPlayerTurn());
+	
+	}
+	
 
 }

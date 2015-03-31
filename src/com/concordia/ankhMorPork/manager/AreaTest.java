@@ -17,9 +17,6 @@ public class AreaTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		List<String> colorOfMinion=new ArrayList<String>();
-		colorOfMinion.add("Red");
-		area.setColorOfMinion(colorOfMinion);
 		Integer identifier= 10;
         area.setIdentifier(identifier);
         @SuppressWarnings("unused")
@@ -36,26 +33,43 @@ public class AreaTest {
 	}
 	@Test
 	public void testGetColorOfMinion() {
+		List<String> colorOfMinion=new ArrayList<String>();
+		colorOfMinion.add("Red");
+		area.setColorOfMinion(colorOfMinion);
+		
 		List<String> expected=new ArrayList<String>();
 		expected.add("Red");
+		List<String> result=new ArrayList<String>();
+		result=area.getColorOfMinion();
+		assertEquals(expected,result );
+		
+	}
+
+	@Test
+	public void testSetColorOfMinion() {
+	    List<String> colorOfMinion=new ArrayList<String>();
+		colorOfMinion.add("green");
+		List<String> expected=new ArrayList<String>();
+		expected.add("green");
+		
+		area.setColorOfMinion(colorOfMinion);
 		assertEquals(expected, area.getColorOfMinion());
 		
 	}
 
-/*	@Test
-	public void testSetColorOfMinion() {
-		fail("Not yet implemented");
-	}
-*/
 	@Test
 	public void testGetTroubleMaker() {
 	Boolean expected=true;
 	assertEquals(expected, area.getTroubleMaker());
 	}
 
-/*	@Test
+	@Test
 	public void testSetTroubleMaker() {
-		fail("Not yet implemented");
+		troubleMaker=false;
+		area.setTroubleMaker(troubleMaker);
+		Boolean expected=false;
+		assertEquals(expected,area.getTroubleMaker());
+	
 	}
-*/
+
 }

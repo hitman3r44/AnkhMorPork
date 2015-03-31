@@ -48,6 +48,14 @@ public class CityAreaCardTest {
     Integer expected= 7;
     assertEquals(expected, cityareacard.getCost());
 	}
+	@Test
+	public void testSetName() {
+		String city="Dolly Sisters";
+		cityareacard.setName(city);
+		String expected="Dolly Sisters";
+		String result= cityareacard.getName();
+		assertEquals(expected,result );
+	}
 
 
 	}
