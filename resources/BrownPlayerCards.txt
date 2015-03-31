@@ -1,0 +1,53 @@
+Sergeant Cheery Littlebottom|Scroll,Remove One troubleMarker|Take two cards from the draw deck.
+Otto Chriek|Scroll,Place a building|Earn $1 for each troubleMarker on the board.
+The Clacks|Scroll,Take $2 from bank,Play another card|Take two cards from the draw deck.
+Sergeant Colon|Remove One troubleMarker,Place a minion|
+Cosmo Lavish|Scroll,Play another card|Play another player $2. They must then remove one minion of their choice(not one of yours) from an area with a trouble marker.
+The Dean|Play RandomEvent Card,Scroll,Play another card|Remove one minion from Unreal Estate
+HELLO|Asssaination,Assassination,Place a building|
+Burleigh & Stronginthearm|Scroll,Place a building|Pay a player of your choice $2. Then choose a minion to assistance.
+The Bursar|Play RandomEvent Card,Scroll, Play another card|Exchange the positions of any two minions on the board.
+Cable Street Particulars|Scroll, Place a Minion|Select one player. Look at his cards. Choose one them to be discarded.
+Canting Crew|Scroll,Place a Minion|Move a minion belonging to another player from one area to an adjacent area.
+Carcer|Scroll, Play another card|Roll the die twice and remove one minion of your choice from those areas, even if there is no trouble there.
+The Chair of Indefinite Studies|Play RandomEvent Card,Scroll,Play another card|Exchange your hand with that of another player.
+Sir Charles Lavatory|Scroll,Place a building|Earn $1 for each building on the board(any color).
+Dorfl|Scroll,Play another card|Move one of your minions from one area to any other area on the board.
+Sergeant Detritus|Remove one troubleMarker,Remove one troubleMarker|
+Deep Dwarves|Scroll,Play another Card|Place a minion in any area and do not place a trouble marker.
+Adora Belle Dearheart|Scroll,Place a Minion,Place a building|Move one of your minions from aone area to other area on the board.
+The Alchemist's Guild|Scroll, Place a building|Discard up to three cards and refill you hand to five cards.
+The Auditors|Scroll|Every other player in player order must remove one of their minions from the board.
+Buggy Swires|Remove a troubleMarker|
+Susan|Interrupt Card|Stop one of your minions from being removed from the board.
+Sybil Vimes|Take $3 from bank,Scroll|Replace another player's building with one of your own. Pay the cost of building to the orginal owner. It must be an area that does not have a trouble marker.
+Mr Treatime|Take $3 from bank,Assassination,Play another Card|
+The Watch|Place a building, Remove one troubleMarker|
+Wee Mad Arthur|Scroll|You may build a building for half the price.
+William de Worde|Place a Minion,Scroll|Earn $1 for each trouble marker on the board.
+Willikins|Scroll|Place one minion in an area that you have a building in.
+Archchancellor Ridicully|Play RandomEvent Card,Scroll|Place one or two minions in or adajacent to Unreal Estate.
+Ruby|Place a Minion, Place a building|Canting Crew|Scroll,Place a Minion|Move a minion belonging to another player from one area to an adjacent area.
+The Senior Wrangler|Play RandomEvent Card,Scroll,Play another card|Place one minion in or adjacent to Unreal Estate.
+Mr Shire|Scroll|Place a minion in any area and do not place a trouble marker.
+Mr Slant|Scroll,Place a building|Choose an area containing a trouble marker and receive $2 for each minion there.
+The Smoking Gnu|Scroll,Play another card|Place one minion i nan area containing a trouble marker.
+Stanley|Scroll,Place a Minion|Select two cards randomly from one player and choose one to keep. Return the other card.
+Moist von Lipwig|Place a Minion,Take $3 from bank,Scroll,Play another Card|Take two cards from the draw deck.
+Doctor Mossy Lawn|Interrupt Card|Interrupt your own turn. Your turn finishes but do not discard the card you played before this one.
+Patrician's Palace|Place a building, Take $4 from bank,Place a Minion|
+Ponder Stibbons|Play RandomEvent Card,Scroll|Play any two other cards from your hand.
+The Post Office|Scroll,Place a Minion|Take $1 for each building on the board.
+Reacher Gilt|Scroll|You can replace another player's building with one of your own. Pay the cost of the building to the orginal owner. It must be an area that has a trouble marker in it.
+Professor of Recent Runes|Play RandomEvent Card,Scroll,Play another Card|take two cards from the draw deck.
+Doctor Hix|Play RandomEvent Card,Scroll,Play another Card|Place a trouble marker in an area of your choice.
+Hobson's Livery Stable|Scroll,Place a building|Pay $2 to a player of your choice. Then move one of your minions to any area you wish.
+Hubert|Scroll,Place a Minion|Force one player to give another player $3(you cannot choose yourself).
+Igor|Interrupt Card|If you have a minion removed you can place him in a different area.
+The Luggage|Assassination,Scroll|Discard one card.
+The Mob|Scroll,Place a Minion,Play another Card|Place one trouble marker in an area adjacent to one already containing a trouble marker.
+Lord Downey|Assassination,Take $3 from bank,Place a building|
+Dwarves|Place a Minion,Place a Minion|
+Edward d'Eath|Assassination,take $3 from bank,Place a building|
+Erroi|Scroll,Play another Card|Roll the die. On a roll of 7 or more you remove a minion of your choice from an area containing a trouble marker. On a roll of a 1 you must remove one of your own minions.
+Gargoyles|Scroll,Place a building|Draw one card for each building you have on the board.
