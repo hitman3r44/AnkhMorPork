@@ -463,6 +463,7 @@ public class BoardManager {
 	}
 
 	public Board showPlayerDetails(Board board, Player player) {
+		System.out.println("\n\t\t\tWelcome "+player.getName());
 		System.out.println("\n\t\t\tNo Of Minions        :"
 				+ (player.getNoOfMinions()));
 		System.out.println("\n\t\t\tNo Of Building       :"
@@ -547,7 +548,8 @@ public class BoardManager {
 			Common.displayThankyouMenu();
 			break;	
 		case 10:
-			Common.displayThankyouMenu();
+			board2=this.ActionItemImpl.passTheMove(board2);
+			board2=showPlayerDetails(board2,board2.getPlayerList().get(board2.getPlayerTurn() - 1));
 			break;	
 		case 11:
 			displayBoardStatus(board2);

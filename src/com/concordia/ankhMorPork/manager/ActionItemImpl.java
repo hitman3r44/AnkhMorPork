@@ -12,7 +12,7 @@ import com.concordia.ankhMorPork.common.Common;
 import com.concordia.ankhMorPork.common.Global;
 
 public class ActionItemImpl {
-
+	private Scanner userInputForLoadOrNewGameScanner = new Scanner(System.in);
 	/**
 	 * The method placeTheMinion manipulates the Board object to place a minion on the board
 	 * @param board : Contains current status of board
@@ -334,4 +334,68 @@ public class ActionItemImpl {
 		return board;
 	}
 
+	public Board passTheMove(Board board) {
+		System.out.println("\n\t\t\tPush the Played Card to the trash in order to refill your hands");
+		System.out.println("\n\t\t\t Would you like to refill your hands?       Yes(Y)   No(N)");
+		Integer playerTurn=(board.getPlayerTurn())%(board.getNoOfPlayer());
+		playerTurn=playerTurn+1;
+		String input=userInputForLoadOrNewGameScanner
+				.nextLine();
+		if ("Y".equalsIgnoreCase(input)) {
+			board=Trash(board);
+			board=Refill(board,board.getPlayerTurn());
+			board.setPlayerTurn(playerTurn);
+		}
+		else if ("N".equalsIgnoreCase(input)) {
+			board.setPlayerTurn(playerTurn);
+		}
+		else{
+			System.out.println("\nInvalid Input !! lets Get back to Menu\n");
+		}
+		return board;
+	}
+
+	private Board Refill(Board board, Integer playerTurn) {
+		List<Integer> player_Card = board.getPlayerList().get(board.getPlayerTurn()-1).getGreenPlayerCards();
+		Integer randomNumber=0;
+		if(player_Card.size()>4){
+			System.out.println("\nYou already have more than or equal to 5 cards!\n");
+		}else{
+			while(player_Card.size()<5){
+				randomNumber = Common.generateRandom(1, 48, Global.existingGreenCards);
+				player_Card.add(randomNumber);
+				Global.existingGreenCards.add(randomNumber);
+				System.out.println("\n\t\t\tNew Card Added : "+BoardManager.playerCardMap.get(randomNumber).getName());
+			}
+		}
+		
+		return board;
+	}
+
+	private Board Trash(Board board) {
+		Scanner sc = new Scanner(System.in);
+		String input=null;
+		List<Integer> player_Card = board.getPlayerList().get(board.getPlayerTurn()-1).getGreenPlayerCards();
+		System.out.println("\n\t\t\tEnter the Player Card_ID to be moved to trash:   (Press E to exit once u moved all your played card to trash)\n");
+		try{
+				input=sc.nextLine();
+				if((input.equalsIgnoreCase("E")))
+				{
+					return board;
+				}else{
+					if(!(board.getPlayerList().get(board.getPlayerTurn()-1).getGreenPlayerCards().contains(Integer.parseInt(input)))){
+						System.out.println("\n You dont hold the given Player Card. Try Again!");
+					}else{
+						Integer a =Integer.parseInt(input);
+						player_Card.remove(a);
+					}
+					board.getPlayerList().get(board.getPlayerTurn()-1).setGreenPlayerCards(player_Card);
+					board=Trash(board);
+				}
+			}catch(NumberFormatException e){
+				 System.out.println("Invalid input ! Give Number as Input !");
+					board=Trash(board);
+			 }
+		return board;
+	}
 }

@@ -135,7 +135,6 @@ public class AnkhMorPorkLauncher {
 		int playerTurn=boardManager.getBoard().getPlayerTurn() - 1;
 		boolean win=validateWinningCondition(ankhMorPorkLauncher2,playerTurn);
 		if(!win){
-		System.out.println("\n\t\t\tWelcome "+boardManager.getBoard().getPlayerList().get(playerTurn).getName());
 		board=boardManager.showPlayerDetails(boardManager.getBoard(),boardManager.getBoard().getPlayerList().get(playerTurn));
 		boardManager.setBoard(board);
 		}
