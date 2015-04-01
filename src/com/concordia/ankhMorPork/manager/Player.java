@@ -1,6 +1,7 @@
 package com.concordia.ankhMorPork.manager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Player {
@@ -13,6 +14,9 @@ public class Player {
 	private Integer playerMoney;
 	private Integer personalityCard;
 	private String personalityCardString;
+	private HashMap<Area, Boolean> eligibleMinionsWithoutDemons;
+	private Integer numberOfControlledArea;
+	private Integer numberOfTroubleMakerInTheGame;
 	
 	public String getPersonalityCardString() {
 		return personalityCardString;
@@ -194,6 +198,44 @@ public class Player {
 	 */
 	public void setNoOfBuilding(Integer noOfBuilding) {
 		this.noOfBuilding = noOfBuilding;
+	}
+
+	public HashMap<Area, Boolean> getEligibleMinionsWithoutDemons() {
+		return eligibleMinionsWithoutDemons;
+	}
+
+	public void setEligibleMinionsWithoutDemons(
+			HashMap<Area, Boolean> eligibleMinionsWithoutDemons) {
+		this.eligibleMinionsWithoutDemons = eligibleMinionsWithoutDemons;
+	}
+
+	/**
+	 * @return the numberOfControlledArea
+	 */
+	public Integer getNumberOfControlledArea() {
+		return numberOfControlledArea;
+	}
+
+	/**
+	 * @param numberOfControlledArea the numberOfControlledArea to set
+	 */
+	public void setNumberOfControlledArea(Integer numberOfControlledArea) {
+		this.numberOfControlledArea = numberOfControlledArea;
+	}
+
+	/**
+	 * @return the numberOfTroubleMakerInTheGame
+	 */
+	public Integer getNumberOfTroubleMakerInTheGame() {
+		return numberOfTroubleMakerInTheGame;
+	}
+
+	/**
+	 * @param numberOfTroubleMakerInTheGame the numberOfTroubleMakerInTheGame to set
+	 */
+	public void setNumberOfTroubleMakerInTheGame(
+			Integer numberOfTroubleMakerInTheGame) {
+		this.numberOfTroubleMakerInTheGame = numberOfTroubleMakerInTheGame;
 	}
 
 }

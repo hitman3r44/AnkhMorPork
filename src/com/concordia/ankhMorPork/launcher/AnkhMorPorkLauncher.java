@@ -18,7 +18,6 @@ import com.concordia.ankhMorPork.data.GameStateJsonGenerator;
 import com.concordia.ankhMorPork.data.GameStateJsonParser;
 import com.concordia.ankhMorPork.manager.Board;
 import com.concordia.ankhMorPork.manager.BoardManager;
-import com.concordia.ankhMorPork.manager.Player;
 
 /**
  * This Class Launch the game and used as a input interface between user and the

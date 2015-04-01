@@ -100,8 +100,27 @@ public class WinningCondition {
 	 * @return
 	 */
 	//General Rules
-	boolean generalRules() {
+	boolean generalRules(Player player) {
+		pointCalculator(player);
 		return false;
+	}
+	
+	
+	//Other Methods
+	boolean isAreaControlled(){
+		return false;
+	}
+	
+	boolean isWorthMoreThen50Doller(){
+		return false;
+	}
+	
+	boolean isTheAllPalyingCardFinished(){
+		return false;
+	}
+	
+	Integer pointCalculator(Player player){
+		return 0;
 	}
 	
 
