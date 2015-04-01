@@ -417,13 +417,14 @@ public class BoardManager {
 				sb.append(inFile1.nextLine());
 				dataArray = sb.toString().split(",");
 				// System.out.println(dataArray.length);
-				if (dataArray.length == 3) {
+				if (dataArray.length == 4) {
 					// System.out.println(dataArray[0] + "--" + dataArray[1]
 					// + "--" + dataArray[2]);
 					CityAreaCard cityAreaCard = new CityAreaCard();
 					cityAreaCard.setIdentifier(Integer.parseInt(dataArray[0]));
 					cityAreaCard.setName(dataArray[1]);
 					cityAreaCard.setCost(Integer.parseInt(dataArray[2]));
+					cityAreaCard.setDescription(dataArray[3]);
 					cityAreaCardList.add(cityAreaCard);
 				}
 			}
@@ -509,7 +510,7 @@ public class BoardManager {
 		String input=null;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n\t\t\tAction Menu\n");
-		System.out.println("1.Place a Minion\n2.Place a building\n3.Asssaination\n4.Remove One troubleMarker\n5.Take Money from bank\n6.Scroll\n7.Play RandomEvent Card\n8.Play another card\n9.Interrupt Card\n10.Pass the move to next player\n11.displayBoardStatus\n12.Save the Game and Exit");
+		System.out.println("1.Place a Minion\n2.Place a building\n3.Asssaination\n4.Remove One troubleMarker\n5.Take Money from bank\n6.Scroll\n7.Play RandomEvent Cards\n8.Play City Area Cards\n9.Interrupt Card\n10.Pass the move to next player\n11.displayBoardStatus\n12.Save the Game and Exit");
 		System.out.println("\nEnter your Choice : \n");
 		input = sc.nextLine();
 		switch (Integer.parseInt(input)) {
@@ -542,7 +543,8 @@ public class BoardManager {
 			board2=chooseNextAction(board2);
 			break;
 		case 8:
-			Common.displayThankyouMenu();
+			board2=this.ActionItemImpl.playCityAreaCard(board2);
+			board2=chooseNextAction(board2);
 			break;	
 		case 9:
 			Common.displayThankyouMenu();

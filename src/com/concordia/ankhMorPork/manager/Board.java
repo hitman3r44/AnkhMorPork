@@ -7,9 +7,15 @@ package com.concordia.ankhMorPork.manager;
  * 2015
  * @email: varunpattiah@gmail.com
  */
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
+
+import com.concordia.ankhMorPork.common.Common;
+import com.concordia.ankhMorPork.common.Global;
 
 /**
  * 
@@ -27,7 +33,8 @@ public class Board {
 	private List<Player> playerList;
 	private List<Integer> existingPlayercards;
 	private Integer playerTurn;
-	
+	public Scanner sc=new Scanner(System.in);
+	public ActionItemImpl ActionItemImpl=new ActionItemImpl();
 	/**
 	 * This function is used to retreieve player turn
 	 * @return: Integer value is returned as player turn
@@ -185,12 +192,97 @@ public class Board {
 		
 	}
 	public void takeMoneyFromBank(Board board, Integer money) {
-		Integer bankMoney=board.getBankMoney();
 		Integer playerMoney=board.getPlayerList().get(board.getPlayerTurn()-1).getPlayerMoney();
-		bankMoney=bankMoney-money;
 		playerMoney=playerMoney+money;
-		board.setBankMoney(bankMoney);
 		board.getPlayerList().get(board.getPlayerTurn()-1).setPlayerMoney(playerMoney);
+	}
+	public Board applyCityAreaCard(CityAreaCard cityAreaCard2, Board board) {
+		System.out.println(cityAreaCard2.getIdentifier());
+		String currentPlayerColor=board.getPlayerList().get(board.getPlayerTurn()-1).getColor();
+		Integer noOfMinions=board.getPlayerList().get(board.getPlayerTurn()-1).getNoOfMinions();
+		Integer randomNumber=0;
+		List<Integer> list1=new ArrayList<Integer>(Arrays.asList(6,12,11,3,9,5));
+		List<Integer> list2=new ArrayList<Integer>(Arrays.asList(4,10,8,1));
+		List<Integer> player_Card = board.getPlayerList().get(board.getPlayerTurn()-1).getGreenPlayerCards();
+		Integer money=0;
+		String input=null;
+		try{
+		if(list1.contains(cityAreaCard2.getIdentifier())){
+			money=Integer.parseInt(String.valueOf(cityAreaCard2.getDescription().charAt(cityAreaCard2.getDescription().indexOf('$')+1)));
+			takeMoneyFromBank(board,money);
+			System.out.println("\nYour AnkhMorporkh Dollar balance is credited with $"+money);
+		}
+		if(cityAreaCard2.getIdentifier()==5||cityAreaCard2.getIdentifier()==2){
+					if(cityAreaCard2.getIdentifier()==2){
+						randomNumber = Common.generateRandom(1, 48, Global.existingGreenCards);
+						player_Card.add(randomNumber);
+						Global.existingGreenCards.add(randomNumber);
+						System.out.println("\n\t\t\tNew Card Added : "+BoardManager.playerCardMap.get(randomNumber).getName());
+					}
+			System.out.println("\nEnter a Card of your Choice to Discard : ");
+			input=sc.nextLine();
+			player_Card=trashACard(player_Card, Integer.parseInt(input));
+			board.getPlayerList().get(board.getPlayerTurn()-1).setGreenPlayerCards(player_Card);
+		}
+		if(list2.contains(cityAreaCard2.getIdentifier())){
+			money=Integer.parseInt(String.valueOf(cityAreaCard2.getDescription().charAt(cityAreaCard2.getDescription().indexOf('$')+1)));
+			payMoneyToBank(board,money);
+			System.out.println("\nYour AnkhMorporkh Dollar balance is debited with $"+money);
+		}
+		if(cityAreaCard2.getIdentifier()==1 || cityAreaCard2.getIdentifier()==8){
+			List<Integer> temporaryList=BoardManager.AdjacentAreaMap.get(cityAreaCard2.getIdentifier());
+			System.out.println("\nYou are allowed to place the minion in the following Area :\n");
+			System.out.println("\t\tAreaNo.\t\t\tAreaName");
+			System.out.println("\t\t"+cityAreaCard2.getIdentifier()+"\t\t\t"+BoardManager.cityAreaCardList.get(cityAreaCard2.getIdentifier()-1).getName());
+			 for (Integer integer : temporaryList) {
+				 System.out.println("\t\t"+integer+"\t\t\t"+BoardManager.cityAreaCardList.get(integer-1).getName());
+			}
+			 System.out.println("\nEnter AreaNo. : \n");	
+			 input = sc.nextLine();
+				if(temporaryList.contains(Integer.parseInt(input))){
+				
+					System.out.println("Before Updating : "+board.getArea().get(Integer.parseInt(input)-1).getColorOfMinion());
+					board.UpdateAreaDetails(board.getArea().get(Integer.parseInt(input)-1),currentPlayerColor);
+					System.out.println("After Updating : "+board.getArea().get(Integer.parseInt(input)-1).getColorOfMinion());
+					board.getPlayerList().get(board.getPlayerTurn()-1).setNoOfMinions(noOfMinions - 1);
+				}
+				else{
+					System.out.println("Invalid input !");
+				}
+			 
+		}
+		if(cityAreaCard2.getIdentifier()==10){
+			board=ActionItemImpl.removeOneTroubleMarker(board);
+		}
+		else if(cityAreaCard2.getIdentifier()==7){
+			List<Integer> temporaryList=BoardManager.AdjacentAreaMap.get(cityAreaCard2.getIdentifier());
+			System.out.println("\nYou are allowed to place one trouble Marker in the following Area :\n");
+			System.out.println("\t\tAreaNo.\t\t\tAreaName");
+			System.out.println("\t\t"+cityAreaCard2.getIdentifier()+"\t\t\t"+BoardManager.cityAreaCardList.get(cityAreaCard2.getIdentifier()-1).getName());
+			 for (Integer integer : temporaryList) {
+				 System.out.println("\t\t"+integer+"\t\t\t"+BoardManager.cityAreaCardList.get(integer-1).getName());
+			}
+			 System.out.println("\nEnter AreaNo. : \n");	
+			 input=sc.nextLine();
+			 board.getArea().get(Integer.parseInt(input)-1).setTroubleMaker(true);
+		}
+		}catch(NumberFormatException e){
+			 System.out.println("Invalid input ! Give Number as Input !");
+		 }
+		return board;
+	}
+	public void payMoneyToBank(Board board, Integer money) {
+		Integer playerMoney=board.getPlayerList().get(board.getPlayerTurn()-1).getPlayerMoney();
+		playerMoney=playerMoney-money;
+		board.getPlayerList().get(board.getPlayerTurn()-1).setPlayerMoney(playerMoney);
+	}
+	public List<Integer> trashACard(List<Integer> player_Card, Integer card) {
+		if(!(player_Card.contains(card))){
+			System.out.println("\n You dont hold the given Player Card. Try Again!");
+		}else{
+			player_Card.remove(card);
+		}
+		return player_Card;
 	}
 	
 

@@ -6,11 +6,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * @author elDiablo
+ * @author elDiablo,VarunPattiah
  * Feb 2, 2015
  * 2:16:36 PM
  * 2015
- * @email: sumitsarkarbd@gmail.com
+ * @email: sumitsarkarbd@gmail.com,Varun Pattiah@gmail.com
  */
 public class Common {
 	

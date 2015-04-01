@@ -1,11 +1,11 @@
 package com.concordia.ankhMorPork.common;
 
 /**
- * @author elDiablo
+ * @author elDiablo,Varun Pattiah
  * Jan 29, 2015
  * 12:06:11 PM
  * 2015
- * @email: sumitsarkarbd@gmail.com
+ * @email: sumitsarkarbd@gmail.com,VarunPattiah@gmail.com
  */
 
 /*

@@ -1,5 +1,10 @@
 package com.concordia.ankhMorPork.manager;
-
+/**
+ * @author Varun Pattiah S
+  Mar 21, 2015
+ * 12:06:11 PM
+ * 2015
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +17,7 @@ import com.concordia.ankhMorPork.common.Common;
 import com.concordia.ankhMorPork.common.Global;
 
 public class ActionItemImpl {
-	private Scanner userInputForLoadOrNewGameScanner = new Scanner(System.in);
+	private Scanner sc = new Scanner(System.in);
 	/**
 	 * The method placeTheMinion manipulates the Board object to place a minion on the board
 	 * @param board : Contains current status of board
@@ -339,8 +344,7 @@ public class ActionItemImpl {
 		System.out.println("\n\t\t\t Would you like to refill your hands?       Yes(Y)   No(N)");
 		Integer playerTurn=(board.getPlayerTurn())%(board.getNoOfPlayer());
 		playerTurn=playerTurn+1;
-		String input=userInputForLoadOrNewGameScanner
-				.nextLine();
+		String input=sc.nextLine();
 		if ("Y".equalsIgnoreCase(input)) {
 			board=Trash(board);
 			board=Refill(board,board.getPlayerTurn());
@@ -383,12 +387,7 @@ public class ActionItemImpl {
 				{
 					return board;
 				}else{
-					if(!(board.getPlayerList().get(board.getPlayerTurn()-1).getGreenPlayerCards().contains(Integer.parseInt(input)))){
-						System.out.println("\n You dont hold the given Player Card. Try Again!");
-					}else{
-						Integer a =Integer.parseInt(input);
-						player_Card.remove(a);
-					}
+					player_Card=board.trashACard(player_Card,Integer.parseInt(input));
 					board.getPlayerList().get(board.getPlayerTurn()-1).setGreenPlayerCards(player_Card);
 					board=Trash(board);
 				}
@@ -396,6 +395,28 @@ public class ActionItemImpl {
 				 System.out.println("Invalid input ! Give Number as Input !");
 					board=Trash(board);
 			 }
+		return board;
+	}
+
+	public Board playCityAreaCard(Board board) {
+		List<Integer> cityAreaCards=board.getPlayerList().get(board.getPlayerTurn()-1).getCityAreaCard();
+		String input=null;
+		try{
+		if(cityAreaCards.size()==0){
+			System.out.println("\n\t\t\tYou dont have any CityArea Card to play!");
+		}else{
+			 System.out.println("\nList of City Area Card you hold as follows :\n");
+			 System.out.println("\t\tAreaNo.\t\t\tAreaName");
+				for(int i=0;i<cityAreaCards.size();i++){
+					System.out.println("\t\t"+(cityAreaCards.get(i)+1)+"\t\t\t"+BoardManager.cityAreaCardList.get(cityAreaCards.get(i)).getName()+"\t\t\t"+BoardManager.cityAreaCardList.get(cityAreaCards.get(i)).getDescription());
+				}
+				System.out.println("\nEnter AreaNo. : \n");
+				input = sc.nextLine();
+				board=board.applyCityAreaCard(BoardManager.cityAreaCardList.get(Integer.parseInt(input)-1),board);
+		}
+		}catch(NumberFormatException e){
+			 System.out.println("Invalid input ! Give Number as Input !");
+		}
 		return board;
 	}
 }

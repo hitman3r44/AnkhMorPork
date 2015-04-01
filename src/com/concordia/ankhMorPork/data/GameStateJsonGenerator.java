@@ -16,8 +16,8 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 /**
- * @author elDiablo Jan 29, 2015 12:02:00 PM 2015
- * @email: sumitsarkarbd@gmail.com
+ * @author elDiablo,Varun Pattiah Jan 29, 2015 12:02:00 PM 2015
+ * @email: sumitsarkarbd@gmail.com,varunpattiah@gmail.com
  */
 
 /*

@@ -1,12 +1,12 @@
-1,Dolly Sisters,6,
-2,Unreal Estate,18,
-3,Dragon's Landing,12,
-4,Small Gods,18,
-5,The Scours,6,
-6,The Hippo,12,
-7,The Shades,6,
-8,Dimwell,6,
-9,Longwall,12,
-10,Isle of Gods,12,
-11,Seven Sleepers,18,
-12,Nap Hill,12,
+1,Dolly Sisters,6,Once per turn you can pay $3 and place one of your minions in Dolly Sisters or an adjacent area.
+2,Unreal Estate,18,At any point in your turn you can take one card from the deck and then discard one.
+3,Dragon's Landing,12,Once per turn you can take $2 from the bank.
+4,Small Gods,18,Whenever one of your pieces is affected by a random event you can pay $3 to ignore it.
+5,The Scours,6,Once per turn you can discard one card and take $2 from the bank.
+6,The Hippo,12,Once per turn you can take $2 from the bank.
+7,The Shades,6,Once per turn you can place one trouble marker in the shades or an adjacent area.
+8,Dimwell,6,Once per turn you can pay $3 and place one of your minions in Dimwell or an adjacent area.
+9,Longwall,12,Once per turn you can take $1 from the bank.
+10,Isle of Gods,12,Once per turn you can pay $2 and remove one trouble marker from the board.
+11,Seven Sleepers,18,Once per tuen you can take $3 from the bank.
+12,Nap Hill,12,Once per turn you can take $1 from the bank.
