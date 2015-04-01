@@ -34,7 +34,7 @@ public class GameStateJsonGenerator {
  */
 	public boolean saveGameCurrentStateToJsonFormate(Board board) {
 		boolean isSaved = false;
-		
+		List<Integer> cityCardList = new ArrayList<Integer>();
 		try {
 
 			JsonFactory jfactory = new JsonFactory();
@@ -52,6 +52,8 @@ public class GameStateJsonGenerator {
 			jGenerator.writeNumberField(Language.BANK_MONEY, board.getBankMoney());
 			// Number of player
 			jGenerator.writeStringField(Language.NO_OF_PLAYERS,board.getNoOfPlayer().toString());
+			jGenerator.writeStringField(Language.EXISTING_GREEN_CARDS,Global.existingGreenCards.toString());
+			jGenerator.writeStringField(Language.EXISTING_RANDOM_EVENT_CARDS,Global.existingRandomEventCard.toString());
 			jGenerator.writeStringField(Language.PLAYER_TURN,board.getPlayerTurn().toString());
 			jGenerator.writeArrayFieldStart(Language.PLAYERS);
 			for (int i = 0; i < board.getNoOfPlayer(); i++) {
@@ -67,17 +69,10 @@ public class GameStateJsonGenerator {
 				jGenerator.writeNumberField(Language.PLAYER_MONEY, board.getPlayerList().get(i).getPlayerMoney());
 				
 				//Write array for city area cards
-				jGenerator.writeFieldName(Language.CITY_AREA_CARD);
-				
-				
 				if (board.getPlayerList().get(i).getCityAreaCard().size() == 0) {
-					jGenerator.writeString("NIL");
+					jGenerator.writeStringField(Language.CITY_AREA_CARD,"NIL");
 				} else {
-					jGenerator.writeStartArray();
-					for (int j = 0; i < board.getPlayerList().get(i).getCityAreaCard().size(); j++) {
-						jGenerator.writeNumber(board.getPlayerList().get(i).getCityAreaCard().get(j));
-					}
-					jGenerator.writeEndArray();
+					jGenerator.writeStringField(Language.CITY_AREA_CARD,board.getPlayerList().get(i).getCityAreaCard().toString());
 				}
 				
 				

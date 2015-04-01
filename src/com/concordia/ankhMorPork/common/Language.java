@@ -50,6 +50,8 @@ public class Language {
 	final public static  String CARD_ACTION_7 = "Play RandomEvent Card";
 	final public static  String CARD_ACTION_8 = "Play another card";
 	final public static  String CARD_ACTION_9 = "Interrupt Card";
+	public static final String EXISTING_GREEN_CARDS = "existing_Green_Cards";
+	public static final String EXISTING_RANDOM_EVENT_CARDS = "existing_Random_Event_Cards";
 	
 	
 	//Launcher 

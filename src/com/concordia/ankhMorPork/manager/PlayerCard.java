@@ -27,7 +27,6 @@ public class PlayerCard {
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		
 		String name;
 		String[] actionItem;
 		String description;

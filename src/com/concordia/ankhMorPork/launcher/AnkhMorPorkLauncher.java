@@ -18,6 +18,7 @@ import com.concordia.ankhMorPork.data.GameStateJsonGenerator;
 import com.concordia.ankhMorPork.data.GameStateJsonParser;
 import com.concordia.ankhMorPork.manager.Board;
 import com.concordia.ankhMorPork.manager.BoardManager;
+import com.concordia.ankhMorPork.manager.Player;
 
 /**
  * This Class Launch the game and used as a input interface between user and the
@@ -120,7 +121,7 @@ public class AnkhMorPorkLauncher {
 		}
 		else if ("N".equalsIgnoreCase(input)) {
 			playGame(ankhMorPorkLauncher2);
-			saveGame(ankhMorPorkLauncher2);
+			//saveGame(ankhMorPorkLauncher2);
 
 		}
 		else
@@ -134,15 +135,14 @@ public class AnkhMorPorkLauncher {
 		int playerTurn=boardManager.getBoard().getPlayerTurn() - 1;
 		boolean win=validateWinningCondition(ankhMorPorkLauncher2,playerTurn);
 		if(!win){
-		System.out.println("Welcome "+boardManager.getBoard().getPlayerList().get(playerTurn).getName());
+		System.out.println("\n\t\t\tWelcome "+boardManager.getBoard().getPlayerList().get(playerTurn).getName());
 		board=boardManager.showPlayerDetails(boardManager.getBoard(),boardManager.getBoard().getPlayerList().get(playerTurn));
 		boardManager.setBoard(board);
 		}
 		
 	}
 
-	private boolean validateWinningCondition(
-			AnkhMorPorkLauncher ankhMorPorkLauncher2, Integer playerTurn) {
+	private boolean validateWinningCondition(AnkhMorPorkLauncher ankhMorPorkLauncher2, Integer playerTurn) {
 		// TODO Auto-generated method stub
 		return false;
 	}

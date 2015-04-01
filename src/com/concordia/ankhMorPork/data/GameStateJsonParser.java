@@ -72,6 +72,16 @@ public class GameStateJsonParser {
 			board.setBankMoney(bank_amount);
 			int noOfPlayers = responseData.getInt(Language.NO_OF_PLAYERS);
 			board.setNoOfPlayer(noOfPlayers);
+			String existingGreenCards = responseData.getString(Language.EXISTING_GREEN_CARDS);
+			System.out.println(existingGreenCards);
+			List<Integer> existingGreenCards_list = get_integer_list(existingGreenCards);
+			System.out.println(existingGreenCards_list);
+			Global.existingGreenCards=existingGreenCards_list;
+			String existingRandomEventCard = responseData.getString(Language.EXISTING_RANDOM_EVENT_CARDS);
+			System.out.println(existingRandomEventCard);
+			List<Integer> existingRandomEventCard_list = get_integer_list(existingRandomEventCard);
+			System.out.println(existingRandomEventCard_list);
+			Global.existingRandomEventCard=existingRandomEventCard_list;
 			int playerTurn = responseData.getInt(Language.PLAYER_TURN);
 			board.setPlayerTurn(playerTurn);
 			final JSONArray geodata = responseData
@@ -101,8 +111,7 @@ public class GameStateJsonParser {
 				String brown_cards = player.getString(Language.BROWN_CARDS);
 				List<Integer> brown_card_list = get_integer_list(brown_cards);
 				playerObject.setBrownPlayerCards(brown_card_list);
-				String city_area_cards = player
-						.getString(Language.CITY_AREA_CARD);
+				String city_area_cards = player.getString(Language.CITY_AREA_CARD);
 				if ("NIL".equals(city_area_cards)) {
 					playerObject.setCityAreaCard(new ArrayList<Integer>());
 				} else {

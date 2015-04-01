@@ -2,6 +2,7 @@ package com.concordia.ankhMorPork.common;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 
@@ -37,6 +38,8 @@ public class Global {
 	final public static String SAVED_FILE_DIRECTORY_PATH = "resources/savedGame";
 	final public static Integer BANK_MONEY = 120;
 	final public static Integer NO_OF_AREA=12;
+	public static List<Integer> existingGreenCards = new ArrayList<Integer>();
+	public static List<Integer> existingRandomEventCard=new ArrayList<Integer>();
 	public static String saveFileName;
 	public static Integer numberOfPlayers;
 	//public static Color colorList = new Color();

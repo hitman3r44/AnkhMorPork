@@ -29,7 +29,8 @@ public class BoardManager {
 
 	private Board board;
 	private ActionItemImpl ActionItemImpl=new ActionItemImpl();
-	public static List<Integer> existingCards = new ArrayList<Integer>();
+	//public static List<Integer> existingGreenCards = new ArrayList<Integer>();
+	public static List<Integer> existingBrownCards = new ArrayList<Integer>();
 	public static List<CityAreaCard> cityAreaCardList = new ArrayList<CityAreaCard>();
 	public static List<Area> areaList = new ArrayList<Area>();
 	public List<Player> playerList = new ArrayList<Player>();
@@ -358,14 +359,14 @@ public class BoardManager {
 		Integer randomNumber;
 
 		for (int i = 0; i < 5; i++) {
-			if (existingCards.size() < 48) {
-				randomNumber = Common.generateRandom(1, 48, existingCards);
+			if (Global.existingGreenCards.size() < 48) {
+				randomNumber = Common.generateRandom(1, 48, Global.existingGreenCards);
 				greenPlayerCard.add(randomNumber);
-				existingCards.add(randomNumber);
+				Global.existingGreenCards.add(randomNumber);
 			} else {
-				randomNumber = Common.generateRandom(1, 101, existingCards);
+				randomNumber = Common.generateRandom(1, 101, existingBrownCards);
 				brownPlayerCard.add(randomNumber - 48);
-				existingCards.add(randomNumber);
+				existingBrownCards.add(randomNumber);
 			}
 
 		}
@@ -462,15 +463,15 @@ public class BoardManager {
 	}
 
 	public Board showPlayerDetails(Board board, Player player) {
-		System.out.println("No Of Minions        :"
+		System.out.println("\n\t\t\tNo Of Minions        :"
 				+ (player.getNoOfMinions()));
-		System.out.println("No Of Building       :"
+		System.out.println("\n\t\t\tNo Of Building       :"
 				+ (player.getNoOfBuilding()));
-		System.out.println("Ankh-Morpork Dollars :"
+		System.out.println("\n\t\t\tAnkh-Morpork Dollars :"
 				+ player.getPlayerMoney() + "\n\n\n");
-		System.out.println("City Area cards: ");
+		System.out.println("\n\t\t\tCity Area cards: ");
 		if (player.getCityAreaCard().size() == 0) {
-			System.out.println("No City Area cards attained yet");
+			System.out.println("\n\t\t\tNo City Area cards attained yet");
 		} else {
 			for (int j = 0; j < player.getCityAreaCard().size(); j++) {
 				System.out.println((j + 1)

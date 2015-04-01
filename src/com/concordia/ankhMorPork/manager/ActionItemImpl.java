@@ -9,15 +9,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import com.concordia.ankhMorPork.common.Common;
-
-/**
- * Class contains the the logic of all the actions to be performed by a player on the board.
- * 
- */
+import com.concordia.ankhMorPork.common.Global;
 
 public class ActionItemImpl {
 
-	public static List<Integer> existingRandomEventCard=new ArrayList<Integer>();
 	/**
 	 * The method placeTheMinion manipulates the Board object to place a minion on the board
 	 * @param board : Contains current status of board
@@ -72,7 +67,6 @@ public class ActionItemImpl {
 				board=placeTheMinion(board);
 		 }
 		return board;
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -324,18 +318,18 @@ public class ActionItemImpl {
 	 * @return board: contains updated status of board after the random event has happened.
 	 */
 	public Board playRandomEventCard(Board board) {
-		if(existingRandomEventCard.size()==12){
+		if(Global.existingRandomEventCard.size()==12){
 			System.out.println("\n\t\t All Random Event Cards are utilized.");
 		}
 		else{
-		Integer cardNumber=Common.generateRandom(1, 12, existingRandomEventCard);
+		Integer cardNumber=Common.generateRandom(1, 12, Global.existingRandomEventCard);
 		HashMap<String, String> card=BoardManager.randomEventCards.get(cardNumber);
 		System.out.println("\nyou have been allocated the below Random Event Card.Proceed with the Description!\n");
 		for (Entry<String, String> key : card.entrySet()) {
 			System.out.println("\n\t\tCardName : "+key.getKey());
 			System.out.println("\n\t\tDescription : "+key.getValue());
 		}
-		existingRandomEventCard.add(cardNumber);
+		Global.existingRandomEventCard.add(cardNumber);
 		}
 		return board;
 	}
