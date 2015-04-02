@@ -1,7 +1,6 @@
 package com.concordia.ankhMorPork.manager;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -65,58 +64,15 @@ public class WinningCondition {
 	 * @return
 	 */
 	public boolean lordSelachii(Board board){
-		Integer noOfMinion=0;
-		boolean winStatus=false;
-		List<Integer> minionLocatedonBoard=new ArrayList<Integer>();
-		Player currentPlayer=board.getPlayerList().get(board.getPlayerTurn()-1);
-		for(int index=0;index<12;index++){
-				if(board.getArea().get(index).getNoOfDemon()==0){
-						for(int i=0;i<board.getArea().get(index).getColorOfMinion().size();i++){
-							if(board.getArea().get(index).getColorOfMinion().get(i).equalsIgnoreCase(currentPlayer.getColor())){
-								noOfMinion++;
-							}
-							if(board.getArea().get(index).getBuildingHolderName().equalsIgnoreCase(currentPlayer.getName())){
-								noOfMinion++;
-							}
-							if(maxPieces(board.getArea().get(index).getColorOfMinion(),noOfMinion) && noOfMinion > board.getArea().get(index).getNoOfTroll()){
-								minionLocatedonBoard.add(index);
-							}
-						}
-					
-				}
-		}
-		if(minionLocatedonBoard.size()==9){
-			winStatus = true;
-		}
-		return winStatus;
-	}
-	
-	private boolean maxPieces(List<String> colorOfMinion, Integer noOfMinion) {
-		Collections.sort(colorOfMinion);
-		String temperory="";
-		Integer maxPieces=0;
-		List<String> tempList=new ArrayList<String>();
-		for (String string : colorOfMinion) {
-			if(string.equalsIgnoreCase(temperory)){
-				tempList.add(string);
-			}else{
-				maxPieces=tempList.size();
-				tempList.clear();
-				tempList.add(string);
-			}
-		}
-		if(noOfMinion>=maxPieces){
-			return true;
-		}
 		return false;
 	}
-
+	
 	public boolean lordRust(Board board){
-		return lordSelachii(board);
+		return false;
 	}
 	
 	public boolean lordDeWorde(Board board){
-		return lordSelachii(board);
+		return false;
 	}
 	
 	/**
