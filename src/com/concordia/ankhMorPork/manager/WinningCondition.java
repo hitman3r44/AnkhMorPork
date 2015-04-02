@@ -95,7 +95,20 @@ public class WinningCondition {
 	
 	//Chrysoprase
 	public boolean chrysoprase(Board board){
-		return false;
+		Integer buidingCost=0;
+		Integer totalCost=0;
+		boolean winStatus=false;
+		Player currentPlayer=board.getPlayerList().get(board.getPlayerTurn()-1);
+		for(int index=0;index<12;index++){
+				if(board.getArea().get(index).getBuildingHolderName().equalsIgnoreCase(currentPlayer.getName())){
+					buidingCost+=BoardManager.cityAreaCardList.get(index-1).getCost();
+				}
+		}
+		totalCost=buidingCost+currentPlayer.getPlayerMoney();
+		if(totalCost>=9){
+			winStatus = true;
+		}
+		return winStatus;
 	}
 	
 	/**
