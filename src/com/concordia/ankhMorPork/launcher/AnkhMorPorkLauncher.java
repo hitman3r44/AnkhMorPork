@@ -19,6 +19,7 @@ import com.concordia.ankhMorPork.data.GameStateJsonParser;
 import com.concordia.ankhMorPork.manager.Board;
 import com.concordia.ankhMorPork.manager.BoardManager;
 import com.concordia.ankhMorPork.manager.Player;
+import com.concordia.ankhMorPork.manager.WinningCondition;
 
 /**
  * This Class Launch the game and used as a input interface between user and the
@@ -38,7 +39,7 @@ public class AnkhMorPorkLauncher {
 	private Scanner userInputScanner = new Scanner(System.in);
 	private String nameOfPlayer = null, colorOfPlayer = null;
 	public static AnkhMorPorkLauncher ankhMorPorkLauncher=null;
-
+	public WinningCondition winningCondition=new WinningCondition();
 	public AnkhMorPorkLauncher() {
 		this.boardManager = new BoardManager();
 	}
@@ -133,7 +134,7 @@ public class AnkhMorPorkLauncher {
 	}
 	private void playGame(AnkhMorPorkLauncher ankhMorPorkLauncher2) {
 		int playerTurn=boardManager.getBoard().getPlayerTurn() - 1;
-		boolean win=validateWinningCondition(ankhMorPorkLauncher2,playerTurn);
+		boolean win=validateWinningCondition(ankhMorPorkLauncher2,boardManager.getBoard().getPlayerList().get(playerTurn).getPersonalityCard());
 		if(!win){
 		board=boardManager.showPlayerDetails(boardManager.getBoard(),boardManager.getBoard().getPlayerList().get(playerTurn));
 		boardManager.setBoard(board);
@@ -141,8 +142,36 @@ public class AnkhMorPorkLauncher {
 		
 	}
 
-	private boolean validateWinningCondition(AnkhMorPorkLauncher ankhMorPorkLauncher2, Integer playerTurn) {
-		// TODO Auto-generated method stub
+	private boolean validateWinningCondition(AnkhMorPorkLauncher ankhMorPorkLauncher2, Integer personalityID) {
+		boolean win=false;
+		Board board=ankhMorPorkLauncher2.boardManager.getBoard();
+		switch (personalityID) {
+		case 1:
+			win=this.winningCondition.lordVetinari(board);
+			break;
+		case 2:
+			win=this.winningCondition.lordSelachii(board);
+			break;
+		case 3:
+			win=this.winningCondition.lordRust(board);
+			break;
+		case 4:
+			win=this.winningCondition.lordDeWorde(board);
+			break;
+		case 5:
+			win=this.winningCondition.dragonKingOfArms(board);
+			break;
+		case 6:
+			win=this.winningCondition.chrysoprase(board);
+			break;
+		case 7:
+			win=this.winningCondition.commanderVimes(board);
+			break;
+		default:
+			break;
+			
+			
+		}
 		return false;
 	}
 	/**

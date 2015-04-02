@@ -1,5 +1,8 @@
 package com.concordia.ankhMorPork.manager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author elDiablo
  * Mar 31, 2015
@@ -25,10 +28,22 @@ public class WinningCondition {
 	 * # For 4 players he need at least minions in 9 different areas
 	 * 
 	 * # Those areas must be free of demons
+	 * @param board 
 	 * @return
 	 */
-	boolean lordVetinari(){
-		return false;
+	public boolean lordVetinari(Board board){
+		List<Integer> minionLocatedonBoard=new ArrayList<Integer>();
+		boolean winStatus=false;
+		String currentPlayerColor=board.getPlayerList().get(board.getPlayerTurn()-1).getColor();
+		for(int index=0;index<12;index++){
+				if(board.getArea().get(index).colorOfMinion.contains(currentPlayerColor) && board.getArea().get(index).getNoOfDemon()==0){
+					minionLocatedonBoard.add(index+1);
+				}
+		}
+		if(minionLocatedonBoard.size()==9){
+			winStatus = true;
+		}
+		return winStatus;
 	}
 	
 	//All those have a same Winning condition
@@ -44,48 +59,52 @@ public class WinningCondition {
 	 * # Trouble Maker doesn't effect on controlling
 	 * 
 	 * # Summary: Playing pieces have to more then the trolls and demon free
+	 * @param board 
 	 *  
 	 * @return
 	 */
-	boolean lordSelachii(){
+	public boolean lordSelachii(Board board){
 		return false;
 	}
 	
-	boolean lordRust(){
+	public boolean lordRust(Board board){
 		return false;
 	}
 	
-	boolean lordDeWorde(){
+	public boolean lordDeWorde(Board board){
 		return false;
 	}
 	
 	/**
 	 * # If the is 8 trouble makers in the game he win
+	 * @param board 
 	 * @return
 	 */
 	
 	//Dragon King of Arms
-	boolean dragonKingOfArms(){
+	public boolean dragonKingOfArms(Board board){
 		return false;
 	}
 	
 	/**
 	 * # Worth more then $50
 	 * # If take loan it will cut -$12
+	 * @param board 
 	 * @return
 	 */
 	
 	//Chrysoprase
-	boolean chrysoprase(){
+	public boolean chrysoprase(Board board){
 		return false;
 	}
 	
 	/**
 	 * # If nobody win the games before finishing the playing cards
+	 * @param board 
 	 * @return
 	 */
 	//Commander Vimes
-	boolean commanderVimes(){
+	public boolean commanderVimes(Board board){
 		return false;
 	}
 	
