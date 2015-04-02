@@ -16,6 +16,12 @@ import java.util.TreeSet;
 import com.concordia.ankhMorPork.common.Common;
 import com.concordia.ankhMorPork.common.Global;
 
+
+/*
+ * The class is taking care of all the action made by a player to progress the game.
+ * 
+ * 
+ */
 public class ActionItemImpl {
 	private Scanner sc = new Scanner(System.in);
 	/**

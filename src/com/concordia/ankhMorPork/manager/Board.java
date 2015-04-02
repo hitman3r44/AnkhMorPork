@@ -44,6 +44,7 @@ public class Board {
 	}
 	/**
 	 * This function sets the player turn
+	 * @param  playerTurn  : Integer values is passed to set the player turn
 	 */
 	
 	public void setPlayerTurn(Integer playerTurn) {
@@ -60,6 +61,7 @@ public class Board {
 	}
 	/**
 	 * This function sets the area
+	 * @param  area  : List of areas is passed in order to define the areas
 	 */
 		
 	public void setArea(List<Area> area) {
