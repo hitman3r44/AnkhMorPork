@@ -105,7 +105,7 @@ public class WinningCondition {
 				}
 		}
 		totalCost=buidingCost+currentPlayer.getPlayerMoney();
-		if(totalCost>=9){
+		if(totalCost>=50){
 			winStatus = true;
 		}
 		return winStatus;
