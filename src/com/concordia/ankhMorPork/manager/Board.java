@@ -117,9 +117,20 @@ public class Board {
 	public void setCityAreaCard(List<CityAreaCard> cityAreaCard) {
 		this.cityAreaCard = cityAreaCard;
 	}
+	
+	/**
+	 * It is used to get a random card
+	 * @return: randomly chosen card is returned
+	 */
 	public HashMap<Integer, HashMap<String, String>> getRandomEventCard() {
 		return randomEventCard;
 	}
+	
+	/*
+	 * The function is used t o set the random events card
+	 * @param	randomEventCards: card is sent to the values into the system
+	 */
+	
 	public void setRandomEventCard(HashMap<Integer, HashMap<String, String>> randomEventCards) {
 		this.randomEventCard = randomEventCards;
 	}
@@ -135,6 +146,7 @@ public class Board {
 
 	/**
 	 * Sets the no. of players playing the game
+	 * @param	noOfPlayer: It is used to set the no. of player
 	 */
 	public void setNoOfPlayer(Integer noOfPlayer) {
 		this.noOfPlayer = noOfPlayer;
