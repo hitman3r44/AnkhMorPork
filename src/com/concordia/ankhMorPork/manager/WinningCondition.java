@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.concordia.ankhMorPork.common.Global;
+
 /**
  * @author elDiablo
  * Mar 31, 2015
@@ -172,6 +174,9 @@ public class WinningCondition {
 	 */
 	//Commander Vimes
 	public boolean commanderVimes(Board board){
+		if(Global.existingGreenCards.size()==48){
+			return true;
+		}
 		return false;
 	}
 	
