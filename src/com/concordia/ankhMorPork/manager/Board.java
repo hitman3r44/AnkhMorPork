@@ -77,6 +77,7 @@ public class Board {
 	}
 	/**
 	 * This function is sets the money amount in bank
+	 * @param  bankMoney  : Money value is passed to set in Bank
 	 */
 	
 	public void setBankMoney(Integer bankMoney) {
