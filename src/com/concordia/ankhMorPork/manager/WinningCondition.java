@@ -83,7 +83,17 @@ public class WinningCondition {
 	
 	//Dragon King of Arms
 	public boolean dragonKingOfArms(Board board){
-		return false;
+		Integer troublemarker=0;
+		boolean winStatus=false;
+		for(int index=0;index<12;index++){
+				if(board.getArea().get(index).getTroubleMaker()){
+					troublemarker++;
+				}
+		}
+		if(troublemarker>=8){
+			winStatus = true;
+		}
+		return winStatus;
 	}
 	
 	/**
