@@ -93,6 +93,11 @@ public class Board {
 	public Map<String, String> getPersonalityCardDetails() {
 		return personalityCardDetails;
 	}
+	
+	/**
+	 * It set the details of personality cards
+	 * @param 	personalityCardDetails: personalityCard details is passed to save into the system.
+	 */
 	public void setPersonalityCardDetails(Map<String, String> personalityCardDetails) {
 		this.personalityCardDetails = personalityCardDetails;
 	}
